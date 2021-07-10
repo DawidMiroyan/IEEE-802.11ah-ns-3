@@ -125,6 +125,32 @@ WifiRadioEnergyModel::GetTotalEnergyConsumption (void) const
   return m_totalEnergyConsumption;
 }
 
+
+double
+WifiRadioEnergyModel::GetCurrent (WifiPhy::State status)
+{
+  NS_LOG_FUNCTION (status);
+  double current;
+  
+  switch (status)
+    {
+    case WifiPhy::IDLE:
+      return m_idleCurrentA;
+    case WifiPhy::CCA_BUSY:
+      return m_ccaBusyCurrentA;
+    case WifiPhy::TX:
+      return m_txCurrentA;
+    case WifiPhy::RX:
+      return m_rxCurrentA;
+    case WifiPhy::SWITCHING:
+      return m_switchingCurrentA;
+    case WifiPhy::SLEEP:
+      return m_sleepCurrentA;
+    default:
+      NS_FATAL_ERROR ("WifiRadioEnergyModel:Undefined radio state:" << status);
+    }
+}
+
 double
 WifiRadioEnergyModel::GetIdleCurrentA (void) const
 {

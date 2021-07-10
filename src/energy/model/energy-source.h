@@ -190,7 +190,7 @@ private:
    */
   virtual void DoDispose (void);
 
-private:
+protected:
   /**
    * List of device energy models installed on the same node.
    */

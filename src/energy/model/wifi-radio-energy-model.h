@@ -234,6 +234,7 @@ public:
   virtual double GetTotalEnergyConsumption (void) const;
 
   // Setter & getters for state power consumption.
+  double GetCurrent (WifiPhy::State status);
   double GetIdleCurrentA (void) const;
   void SetIdleCurrentA (double idleCurrentA);
   double GetCcaBusyCurrentA (void) const;
