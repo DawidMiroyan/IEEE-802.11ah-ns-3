@@ -46,7 +46,7 @@ class LowDcfListener;
  * DcfState::SetAifsn and DcfState::SetCwBounds allow the user to
  * control the relative QoS differentiation.
  */
-class DcfState
+class DcfState : public Object
 {
 public:
   DcfState ();
@@ -173,10 +173,18 @@ private:
    */
   void NotifySleep (void);
   /**
+   * Notify that the device has started to switch off.
+   */
+  void NotifyOff (void);
+  /**
    * Notify that the device has started to wake up
    */
   void NotifyWakeUp (void);
-
+  /**
+   * Notify that the device has started to switch on.
+   */
+  void NotifyOn (void);
+  
   /**
    * Called by DcfManager to notify a DcfState subclass
    * that access to the medium is granted and can
@@ -220,6 +228,10 @@ private:
   */
   virtual void DoNotifySleep (void) = 0;
   /**
+   * TODO Dawid
+   */
+  virtual void DoNotifyOff (void) = 0;
+  /**
   * Called by DcfManager to notify a DcfState subclass that the device
   * has begun to wake up.
   *
@@ -228,6 +240,10 @@ private:
   * is access is still needed.
   */
   virtual void DoNotifyWakeUp (void) = 0;
+  /**
+   * TODO Dawid
+   */
+  virtual void DoNotifyOn (void) = 0;
 
   uint32_t m_aifsn;
   uint32_t m_backoffSlots;
@@ -381,10 +397,18 @@ public:
    * Notify the DCF that the device has been put in sleep mode.
    */
   void NotifySleepNow (void);
+   /**
+   * Notify the DCF that the device has been put in off mode.
+   */
+  void NotifyOffNow (void);
   /**
    * Notify the DCF that the device has been resumed from sleep mode.
    */
   void NotifyWakeupNow (void);
+  /**
+   * Notify the DCF that the device has been resumed from off mode.
+   */
+  void NotifyOnNow (void);
   /**
    * \param duration the value of the received NAV.
    *
@@ -555,6 +579,7 @@ private:
   Time m_lastSwitchingDuration;
   bool m_rxing;
   bool m_sleeping;
+  bool m_off;
   Time m_eifsNoDifs;
   EventId m_accessTimeout;
   uint32_t m_slotTimeUs;

@@ -248,9 +248,17 @@ public:
    */
   void NotifySleep (void);
   /**
-   * When wake up operation occurs, restart channel access
+   * When off operation occurs, the queue gets cleaned up.
+   */
+  void NotifyOff (void);
+  /**
+   * When wake up operation occurs, channel access will be restarted
    */
   void NotifyWakeUp (void);
+  /**
+   * When on operation occurs, channel access will be started.
+   */
+  void NotifyOn (void);
    /**
    * wake up operation
    */

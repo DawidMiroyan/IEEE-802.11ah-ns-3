@@ -252,6 +252,13 @@ AcousticModemEnergyModel::HandleEnergyDepletion (void)
   dev->GetPhy ()->EnergyDepletionHandler ();
 }
 
+void
+AcousticModemEnergyModel::HandleEnergyChanged (void)
+{
+  NS_LOG_FUNCTION (this);
+  //Not implemented
+}
+
 /*
  * Private functions start here.
  */

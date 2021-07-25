@@ -178,6 +178,12 @@ public:
   {
   }
 
+  /**
+   * \brief Handles energy changed.
+   *
+   * Not implemented
+   */
+  virtual void HandleEnergyChanged (void);
 
 private:
   void DoDispose (void);

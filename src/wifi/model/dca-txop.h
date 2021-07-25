@@ -220,9 +220,17 @@ private:
    */
   void NotifySleep (void);
   /**
+   * When off operation occurs, the queue gets cleaned up.
+   */
+  virtual void NotifyOff (void);
+  /**
    * When wake up operation occurs, channel access will be restarted
    */
   void NotifyWakeUp (void);
+  /**
+   * When on operation occurs, channel access will be started.
+   */
+  virtual void NotifyOn (void);
 
   /* Event handlers */
   /**

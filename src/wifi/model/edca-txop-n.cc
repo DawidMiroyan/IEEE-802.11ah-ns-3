@@ -74,9 +74,17 @@ private:
   {
     m_txop->NotifySleep ();
   }
+  virtual void DoNotifyOff (void)
+  {
+    m_txop->NotifyOff ();
+  }
   virtual void DoNotifyWakeUp (void)
   {
     m_txop->NotifyWakeUp ();
+  }
+  virtual void DoNotifyOn (void)
+  {
+    m_txop->NotifyOn ();
   }
 
   EdcaTxopN *m_txop;
@@ -866,11 +874,24 @@ EdcaTxopN::NotifySleep (void)
     }
 }
 
+void EdcaTxopN::NotifyOff (void)
+{
+  NS_LOG_FUNCTION (this);
+  m_queue->Flush ();
+  m_currentPacket = 0;
+}
+
 void
 EdcaTxopN::NotifyWakeUp (void)
 {
   NS_LOG_FUNCTION (this);
   RestartAccessIfNeeded ();
+}
+
+void EdcaTxopN::NotifyOn (void)
+{
+   NS_LOG_FUNCTION (this);
+   StartAccessIfNeeded ();
 }
 
 void

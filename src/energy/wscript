@@ -13,6 +13,7 @@ def build(bld):
         'model/simple-device-energy-model.cc',
         'model/energy-harvester.cc',
         'model/basic-energy-harvester.cc',
+        'model/variable-energy-harvester.cc',
         'model/wifi-tx-current-model.cc',
         'model/capacitor-energy-source.cc',
         'helper/energy-source-container.cc',
@@ -23,6 +24,7 @@ def build(bld):
         'helper/energy-harvester-container.cc',
         'helper/energy-harvester-helper.cc',
         'helper/basic-energy-harvester-helper.cc',
+        'helper/variable-energy-harvester-helper.cc',
         'helper/capacitor-energy-source-helper.cc',
         ]
 
@@ -47,6 +49,7 @@ def build(bld):
         'model/simple-device-energy-model.h',
         'model/energy-harvester.h',
         'model/basic-energy-harvester.h',
+        'model/variable-energy-harvester.h',
         'model/wifi-tx-current-model.h',
         'model/capacitor-energy-source.cc',
         'helper/energy-source-container.h',
@@ -57,6 +60,7 @@ def build(bld):
         'helper/energy-harvester-container.h',
         'helper/energy-harvester-helper.h',
         'helper/basic-energy-harvester-helper.h',
+        'helper/variable-energy-harvester-helper.h',
         'helper/capacitor-energy-source-helper.cc',
         ]
 

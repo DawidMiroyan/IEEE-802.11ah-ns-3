@@ -356,11 +356,22 @@ public:
       //NS_LOG_UNCOND(listeneraddress << ",state SLEEP," << Simulator::Now().GetSeconds());
     m_macLow->NotifySleepNow ();
   }
+  virtual void NotifyOff (void)
+  {
+    NS_LOG_DEBUG(listeneraddress << ",state OFF," << Simulator::Now().GetSeconds());
+    //NS_LOG_UNCOND(listeneraddress << ",state OFF," << Simulator::Now().GetSeconds());
+  }
   virtual void NotifyWakeup (void)
   {
       NS_LOG_DEBUG(listeneraddress << ",state WAKEUP," << Simulator::Now().GetSeconds());
      // NS_LOG_UNCOND(listeneraddress << ",state WAKEUP," << Simulator::Now().GetSeconds());
   }
+  virtual void NotifyOn (void)
+  {
+    NS_LOG_DEBUG(listeneraddress << ",state ON," << Simulator::Now().GetSeconds());
+    //NS_LOG_UNCOND(listeneraddress << ",state ON," << Simulator::Now().GetSeconds());
+  }
+  
 private:
   ns3::MacLow *m_macLow;
 };

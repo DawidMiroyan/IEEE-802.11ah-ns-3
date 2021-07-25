@@ -70,11 +70,18 @@ private:
   {
     m_txop->NotifySleep ();
   }
+  virtual void DoNotifyOff (void)
+  {
+    m_txop->NotifyOff ();
+  }
   virtual void DoNotifyWakeUp (void)
   {
     m_txop->NotifyWakeUp ();
   }
-
+  virtual void DoNotifyOn (void)
+  {
+    m_txop->NotifyOn();
+  }
   DcaTxop *m_txop;
 };
 
@@ -656,10 +663,24 @@ DcaTxop::NotifySleep (void)
 }
 
 void
+DcaTxop::NotifyOff (void)
+{
+  NS_LOG_FUNCTION (this);
+  m_queue->Flush ();
+  m_currentPacket = 0;
+}
+
+void
 DcaTxop::NotifyWakeUp (void)
 {
   NS_LOG_FUNCTION (this);
   RestartAccessIfNeeded ();
+}
+
+void DcaTxop::NotifyOn (void)
+{
+   NS_LOG_FUNCTION (this);
+   StartAccessIfNeeded ();
 }
 
 void

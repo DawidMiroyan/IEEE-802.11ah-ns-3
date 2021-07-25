@@ -228,6 +228,12 @@ protected:
    */
   void NotifyEnergyRecharged (void);
 
+  /** 
+   * This function notifies all DeviceEnergyModel of energy changed event. It
+   *  is called by the child EnergySource class when energy source is changed.
+   */
+  void NotifyEnergyChanged (void);
+
   /**
    * This function is called to break reference cycle between EnergySource and
    * DeviceEnergyModel. Child of the EnergySource base class must call this

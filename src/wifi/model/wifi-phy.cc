@@ -3096,6 +3096,8 @@ std::ostream& operator<< (std::ostream& os, enum WifiPhy::State state)
       return (os << "SWITCHING");
     case WifiPhy::SLEEP:
       return (os << "SLEEP");
+    case WifiPhy::OFF:
+      return (os << "OFF");
     default:
       NS_FATAL_ERROR ("Invalid WifiPhy state");
       return (os << "INVALID");

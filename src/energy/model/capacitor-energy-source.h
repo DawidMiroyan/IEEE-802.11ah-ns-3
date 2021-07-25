@@ -17,17 +17,18 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
  * Authors:  Martina Capuzzo <capuzzom@dei.unipd.it>
- *           Dawid Miroyan <dawid.miroyan@student.uantwerpen.be>   
  */
 
 #ifndef CAPACITOR_ENERGY_SOURCE_H
 #define CAPACITOR_ENERGY_SOURCE_H
 
+#include "ns3/random-variable-stream.h"
 #include "ns3/traced-value.h"
 #include "ns3/nstime.h"
 #include "ns3/event-id.h"
 #include "ns3/energy-source.h"
 #include "ns3/wifi-phy.h"
+#include <bits/stdint-intn.h>
 #include <vector>
 
 namespace ns3 {
@@ -42,8 +43,12 @@ class CapacitorEnergySource : public EnergySource
 {
 public:
   static TypeId GetTypeId (void);
+
   CapacitorEnergySource ();
   virtual ~CapacitorEnergySource ();
+
+  // Pure virtual methods from Header that need to be implemented by this class
+  virtual TypeId GetInstanceTypeId (void) const;
 
   /**
    * \return Initial energy stored in energy source, in Joules.
@@ -78,8 +83,6 @@ public:
    */
   virtual void UpdateEnergySource (void);
 
-  void SetInitialEnergy (double initialEnergyJ);
-
   /**
    * \param initialEnergyJ Initial energy, in Joules
    *
@@ -87,7 +90,6 @@ public:
    * is assumed to be set before simulation starts and is set only once per
    * simulation.
    */
-  void SetInitialVoltage (double initialVoltageV);
 
   double GetInitialVoltage (void) const;
 
@@ -125,13 +127,19 @@ public:
   /**
    * Compute new voltage given Iload and time duration starting from initial voltage
    */
-  double ComputeVoltage (double initialVoltage, double Iload, Time duration);
-
+  double ComputeVoltage (double initialVoltage, double Iload, double harvestedPower,
+                         Time duration);
+  /**
+   * Compute the initial voltage given Iload and time duration when ending in final voltage
+   */
+  double ComputeInitialVoltage (double finalVoltage, double Iload, double hp,
+                                Time duration);
   /**
    * Predict voltage variation for a given state and duration starting from initialVoltage
    */
   double PredictVoltageForLorawanState (WifiPhy::State status,
                                         double initialvoltage, Time duration);
+
   /**
    * Set event to check energy depletion when estimated while staying in this state
    */
@@ -140,7 +148,7 @@ public:
   /**
    * Compute resistances: Rload, ri, Req
    */
-  std::vector<double> GetResistances (void);
+  std::vector<double> GetResistances (double Iload, double hp);
 
   /**
    * Compute the energy consumption of the load only when starting from voltage
@@ -148,6 +156,19 @@ public:
    */
   double ComputeLoadEnergyConsumption (double Iload, double V0, Time duration);
 
+  int64_t AssignStreams (int64_t stream);
+
+  // void NotifyEnergyConstant (void); TODO Dawid
+
+  /**
+   * Compute the current produced by the harvesters
+   */
+  double GetHarvestersPower (void);
+  double GetAveragePower (Time time, double samples);
+
+  double GetEnergyFromVoltage (double voltage);
+
+  std::vector<Ptr<EnergyHarvester>> GetEnergyHarvesters(void);
 private:
   /// Defined in ns3::Object
   void DoInitialize (void);
@@ -170,20 +191,24 @@ private:
    */
   void HandleEnergyRechargedEvent (void);
 
+  void HandleEnergyChangedEvent (void);
+  
+  //void HandleEnergyConstantEvent (void); TODO
+
   /**
    * Compute the voltage at this time.
    */
   void UpdateVoltage (void);
 
   /**
+   * Set initial voltage. Employs a random variable given as attribute
+   */
+  void SetInitialVoltage (void);
+
+  /**
    * Compute the current consumed by the devices in this moment
    */
   double CalculateDevicesCurrent (void);
-
-  /**
-   * Compute the current produced by the harvesters
-   */
-  double GetHarvestersPower (void);
 
   /**
    * Write on the output file the actual voltage state.
@@ -192,7 +217,8 @@ private:
   void TrackVoltage (void);
 
 private:
-  double m_initialVoltageV; // initial voltage, in Volt
+  Ptr<RandomVariableStream> m_initialVoltageRV; // random variable for the initial voltage, in Volt
+  double m_initialVoltageV; // initial voltage, in Volts
   double m_supplyVoltageV; // supply voltage, in Volts
   double m_capacitance; //capacitance, in Farad
   double m_lowVoltageTh; // low voltage threshold, as a fraction of the initial voltage
