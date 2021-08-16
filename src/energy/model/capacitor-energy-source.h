@@ -166,6 +166,9 @@ public:
   double GetHarvestersPower (void);
   double GetAveragePower (Time time, double samples);
 
+  double GetLowVoltageTh (void);
+  double GetHighVoltageTh (void);
+
   double GetEnergyFromVoltage (double voltage);
 
   std::vector<Ptr<EnergyHarvester>> GetEnergyHarvesters(void);

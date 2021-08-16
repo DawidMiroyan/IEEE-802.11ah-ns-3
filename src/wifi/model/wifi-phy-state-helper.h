@@ -113,6 +113,12 @@ public:
    */
   bool IsStateSleep (void);
   /**
+   * Check whether the current state is OFF.
+   *
+   * \return true if the current state is OFF, false otherwise
+   */
+  bool IsStateOff (void);
+  /**
    * Return the elapsed time of the current state.
    *
    * \return the elapsed time of the current state
@@ -185,6 +191,18 @@ public:
    * \param duration the duration of CCA busy state
    */
   void SwitchFromSleep (Time duration);
+  /**
+   * Switch to off mode.
+   */
+  void SwitchToOff (void);
+  /**
+   * Switch from off mode.
+   *
+   * \param duration the duration of CCA busy state
+   */
+  void SwitchFromOff (Time duration);
+
+
 
   /** \todo Why is this public? */
   TracedCallback<Time,Time,enum WifiPhy::State> m_stateLogger;
@@ -288,6 +306,10 @@ private:
    */
   void NotifySleep (void);
   /**
+   * Notify all WifiPhyListener that we are going to switch off
+   */
+  void NotifyOff (void);
+  /**
    * Notify all WifiPhyListener that we woke up
    */
   void NotifyWakeup (void);
@@ -295,9 +317,14 @@ private:
    * Switch the state from RX.
    */
   void DoSwitchFromRx (void);
+  /**
+   * Notify all WifiPhyListener that we are going to switch on
+   */
+  void NotifyOn (void);
 
   bool m_rxing;
   bool m_sleeping;
+  bool m_isOff;
   Time m_endTx;
   Time m_endRx;
   Time m_endCcaBusy;

@@ -25,7 +25,6 @@
 
 #include "ns3/abort.h"
 #include "ns3/device-energy-model.h"
-//TODO Dawid #include "ns3/end-device-lora-phy.h"
 #include "ns3/log-macros-enabled.h"
 #include "ns3/log.h"
 #include "ns3/assert.h"
@@ -134,13 +133,15 @@ void
 CapacitorEnergySource::SetInitialVoltage ()
 {
   NS_LOG_FUNCTION (this);
-
-  m_actualVoltageV = m_initialVoltageRV->GetValue ();
+  m_actualVoltageV = 2.5;//m_initialVoltageRV->GetValue ();
   NS_LOG_WARN ("Initial voltage: " << m_actualVoltageV << " V");
   NS_ASSERT(m_actualVoltageV < m_supplyVoltageV);
   m_initialVoltageV = m_actualVoltageV;
   double initialEnergy = m_capacitance*pow(m_actualVoltageV, 2)/2;
   m_remainingEnergyJ = initialEnergy;
+  // TODO Dawid
+  std::cout << "CapacitorEnergySource::SetInitialVoltage Set initial voltage = " << m_actualVoltageV
+                << " V, remaining energy = " << initialEnergy << std::endl;
   NS_LOG_DEBUG ("Set initial voltage = " << m_actualVoltageV
                 << " V, remaining energy = " << initialEnergy);
 }
@@ -259,29 +260,58 @@ CapacitorEnergySource::UpdateEnergySource (void)
     UpdateVoltage ();
 
     m_lastUpdateTime = Simulator::Now ();
-
     double eps = 1e-9;
+
+    // TODO Dawid testing
+    // DeviceEnergyModelContainer container = FindDeviceEnergyModels ("ns3::WifiRadioEnergyModel");
+    // DeviceEnergyModelContainer::Iterator i;
+    // for (i = container.Begin (); i != container.End (); i++)
+    // {
+    //     Ptr<WifiRadioEnergyModel> wifiradio = (*i)-> GetObject<WifiRadioEnergyModel> ();
+    //     if (wifiradio == 0) {
+    //         NS_LOG_DEBUG("Wifi device not found! Returning 0.");
+    //     } else {
+    //        std::cout << "Current state: " << wifiradio->GetCurrentState() << std::endl;
+    //     }
+    // }
+
+    
     // NS_LOG_DEBUG ("Vmin = " << m_lowVoltageTh * m_supplyVoltageV << " actualV "
     //               << (m_actualVoltageV) << " was depleted?" << m_depleted );
+    // std::cout << "DEPLETED= " << m_depleted << std::endl;
       if (!m_depleted && m_actualVoltageV <= m_lowVoltageTh * m_supplyVoltageV + eps)
         {
+          // std::cout << "DEPLETED= " << m_depleted << std::endl;
+          // std::cout << "m_actualVoltageV= " << m_actualVoltageV << std::endl;
+          // std::cout << "m_lowVoltageTh= " << m_lowVoltageTh << std::endl;
+          // std::cout << "m_supplyVoltageV= " << m_supplyVoltageV << std::endl;
+          // std::cout << "eps= " << eps << std::endl;
+          // TODO Dawid
+          // std::cout << "CapacitorEnergySource::UpdateEnergySource Energy depleted= " << m_actualVoltageV << std::endl;
+          std::cout << "Energy depleted" << std::endl; // TODO Dawid
           NS_LOG_DEBUG ("Energy depleted");
           m_depleted = true;
           HandleEnergyDrainedEvent ();
         }
       else if (m_depleted && m_actualVoltageV > m_highVoltageTh * m_supplyVoltageV)
         {
+          // TODO Dawid
+          // std::cout << "CapacitorEnergySource::UpdateEnergySource Energy recharged= " << m_actualVoltageV << std::endl;
           NS_LOG_DEBUG ("Energy recharged");
           m_depleted = false;
           HandleEnergyRechargedEvent ();
         }
       else if (m_actualVoltageV != oldVoltage)
         {
+          // TODO Dawid
+          // std::cout << "CapacitorEnergySource::UpdateEnergySource Energy changed - new voltage (V)=" << m_actualVoltageV << std::endl;
           NS_LOG_DEBUG ("Energy changed - new voltage (V)=" << m_actualVoltageV);
           HandleEnergyChangedEvent ();
         }
       else if (m_actualVoltageV == oldVoltage)
         {
+          // TODO Dawid
+          // std::cout << "CapacitorEnergySource::UpdateEnergySource Energy constant= " << m_actualVoltageV << std::endl;
           // NS_LOG_DEBUG ("Energy constant ");
           //HandleEnergyConstantEvent (); TODO Dawid
         }
@@ -464,7 +494,7 @@ CapacitorEnergySource::PredictVoltageForLorawanState (WifiPhy::State status,
           NS_LOG_DEBUG("Wifi device not found! Returning 0.");
           return 0;
         }
-      Iload += wifiradio ->GetCurrent (status);
+      Iload += wifiradio ->GetStateA (status);
     }
   double voltage = ComputeVoltage(initialVoltage, Iload, GetHarvestersPower(), duration);
 
@@ -620,6 +650,16 @@ CapacitorEnergySource::GetAveragePower (Time time, double samples)
     }
   return avgPower;
 
+}
+
+double CapacitorEnergySource::GetLowVoltageTh (void) 
+{
+  return m_lowVoltageTh;
+}
+
+double CapacitorEnergySource::GetHighVoltageTh (void) 
+{
+  return m_highVoltageTh;
 }
 
 void

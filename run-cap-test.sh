@@ -1,0 +1,1 @@
+./waf --run "cap-test --seed=10 --simulationTime=10 --payloadSize=256 --BeaconInterval=100000 --DataMode="MCS2_8" --rho="50" --TrafficPath="./OptimalRawGroup/traffic/data-32-0.82.txt" --S1g1MfieldEnabled=false --RAWConfigFile="./OptimalRawGroup/RawConfig-cap.txt" "

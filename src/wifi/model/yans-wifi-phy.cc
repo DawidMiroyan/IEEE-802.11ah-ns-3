@@ -463,6 +463,8 @@ YansWifiPhy::SetChannelNumber (uint16_t nch)
     case YansWifiPhy::SLEEP:
       NS_LOG_DEBUG ("channel switching ignored in sleep mode");
       break;
+    case YansWifiPhy::OFF:
+      NS_LOG_DEBUG ("channel switching ignored in off mode");
     default:
       NS_ASSERT (false);
       break;
@@ -529,6 +531,9 @@ YansWifiPhy::SetSleepMode (void)
     case YansWifiPhy::SLEEP:
       NS_LOG_DEBUG ("already in sleep mode");
       break;
+    case YansWifiPhy::OFF:
+      NS_LOG_DEBUG ("in off mode");
+      break;
     default:
       NS_ASSERT (false);
       break;
@@ -546,6 +551,7 @@ YansWifiPhy::ResumeFromSleep (void)
     case YansWifiPhy::IDLE:
     case YansWifiPhy::CCA_BUSY:
     case YansWifiPhy::SWITCHING:
+    case YansWifiPhy::OFF: //TODO Dawid
       {
         NS_LOG_DEBUG ("not in sleep mode, there is nothing to resume");
         break;
@@ -555,6 +561,71 @@ YansWifiPhy::ResumeFromSleep (void)
         NS_LOG_DEBUG ("resuming from sleep mode");
         Time delayUntilCcaEnd = m_interference.GetEnergyDuration (m_ccaMode1ThresholdW);
         m_state->SwitchFromSleep (delayUntilCcaEnd);
+        break;
+      }
+    default:
+      {
+        NS_ASSERT (false);
+        break;
+      }
+    }
+}
+
+
+void
+YansWifiPhy::SetOffMode (void)
+{
+  NS_LOG_FUNCTION (this);
+  switch (m_state->GetState ())
+    {
+    case YansWifiPhy::TX:
+      NS_LOG_DEBUG ("setting sleep mode postponed until end of current transmission");
+      Simulator::Schedule (GetDelayUntilIdle (), &YansWifiPhy::SetOffMode, this);
+      break;
+    case YansWifiPhy::RX:
+      NS_LOG_DEBUG ("setting sleep mode postponed until end of current reception");
+      Simulator::Schedule (GetDelayUntilIdle (), &YansWifiPhy::SetOffMode, this);
+      break;
+    case YansWifiPhy::SWITCHING:
+      NS_LOG_DEBUG ("setting sleep mode postponed until end of channel switching");
+      Simulator::Schedule (GetDelayUntilIdle (), &YansWifiPhy::SetOffMode, this);
+      break;
+    case YansWifiPhy::CCA_BUSY:
+    case YansWifiPhy::IDLE:
+    case YansWifiPhy::SLEEP:
+      NS_LOG_DEBUG ("setting off mode");
+      m_state->SwitchToOff ();
+      break;
+    case YansWifiPhy::OFF:
+      NS_LOG_DEBUG ("already in off mode");
+      break;
+    default:
+      NS_ASSERT (false);
+      break;
+    }
+}
+
+void
+YansWifiPhy::ResumeFromOff (void)
+{
+  NS_LOG_FUNCTION (this);
+  switch (m_state->GetState ())
+    {
+    case YansWifiPhy::TX:
+    case YansWifiPhy::RX:
+    case YansWifiPhy::IDLE:
+    case YansWifiPhy::CCA_BUSY:
+    case YansWifiPhy::SWITCHING:
+    case YansWifiPhy::SLEEP:
+      {
+        NS_LOG_DEBUG ("not in off mode, there is nothing to resume");
+        break;
+      }
+    case YansWifiPhy::OFF: //TODO Dawid
+      {
+        NS_LOG_DEBUG ("resuming from off mode");
+        Time delayUntilCcaEnd = m_interference.GetEnergyDuration (m_ccaMode1ThresholdW);
+        m_state->SwitchFromOff (delayUntilCcaEnd);
         break;
       }
     default:
@@ -1153,6 +1224,12 @@ bool
 YansWifiPhy::IsStateSleep (void)
 {
   return m_state->IsStateSleep ();
+}
+
+bool
+YansWifiPhy::IsStateOff (void)
+{
+  return m_state->IsStateOff ();
 }
 
 Time

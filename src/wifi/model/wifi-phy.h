@@ -255,6 +255,15 @@ public:
   virtual void ResumeFromSleep (void) = 0;
 
   /**
+   * Put in off mode.
+   */
+  virtual void SetOffMode (void) = 0;
+  /**
+   * Resume from off mode.
+   */
+  virtual void ResumeFromOff (void) = 0;
+
+  /**
    * \return true of the current state of the PHY layer is WifiPhy::IDLE, false otherwise.
    */
   virtual bool IsStateIdle (void) = 0;
@@ -282,6 +291,10 @@ public:
    * \return true if the current state of the PHY layer is WifiPhy::SLEEP, false otherwise.
    */
   virtual bool IsStateSleep (void) = 0;
+  /**
+   * \return true if the current state of the PHY layer is WifiPhy::OFF, false otherwise.
+   */
+  virtual bool IsStateOff (void) = 0;
   /**
    * \return the amount of time since the current state has started.
    */

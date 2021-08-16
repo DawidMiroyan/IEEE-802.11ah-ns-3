@@ -1,0 +1,1073 @@
+Waf: Entering directory `/home/dawid/Documents/RP1/IEEE-802.11ah-ns-3/build'
+Waf: Leaving directory `/home/dawid/Documents/RP1/IEEE-802.11ah-ns-3/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (1.031s)
+Configuring trace sources...
+Populating routing tables...
+Populating ARP cache...
+Arp Cache: Adding the pair (00:00:00:00:00:01,192.168.0.1)
+Arp Cache: Adding the pair (00:00:00:00:00:02,192.168.0.2)
+Configuring trace sinks for nodes...
+Configuring STA Node trace sources...
+Hooking up trace sources for STA 0
+Sta node#0, position = 30.8536:84.9108:0
+AP node, position = 50:50:0
+Configuring capacitor energy sources...
+CapacitorEnergySource::SetInitialVoltage Set initial voltage = 2.5 V, remaining energy = 0.03125
+Connecting to visualizer
+
+Starting simulation
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.4998
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.49755
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.40855
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.40666
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.32573
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.32388
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.25072
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.24915
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.18278
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.18124
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.12124
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.11994
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
+Remaining energy: 2.11972
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: TX at time = 
+WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
+Remaining energy: 2.11884
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.11875
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.11811
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.11796
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.11773
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+Node 0 is associated and has aid 1
+All 1 stations associated at 504556, configuring clients & server
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
+Remaining energy: 2.11764
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: TX at time = 
+WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
+Remaining energy: 2.11518
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.06313
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.06185
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 2.06185
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 2.10984
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.10322
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.10196
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.04919
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.04795
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 2.04795
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 2.09573
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.08853
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.0873
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.03588
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.03467
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 2.03467
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 2.08221
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.07446
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.07325
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.02314
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.02196
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 2.02196
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 2.06922
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.06094
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.05976
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.0109
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.00974
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 2.00974
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 2.05668
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.04791
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.04676
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.9991
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.99797
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.99797
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 2.04457
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.03533
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.03421
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.9877
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.98659
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.98659
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 2.03282
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.02314
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.02204
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.97666
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.97558
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.97558
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 2.02141
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.0113
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.01023
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.96594
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.96488
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.96488
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 2.01029
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.99979
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.99874
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.95551
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.95448
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.95448
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.99943
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.98856
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.98754
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.94534
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.94433
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.94433
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.98882
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.9776
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.9766
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.93541
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.93443
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.93443
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.97843
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.96688
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.9659
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.92571
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.92474
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.92474
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.96823
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.95638
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.95542
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.9162
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.91525
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.91525
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.95822
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.94609
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.94515
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.90687
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.90595
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.90595
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.94837
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.93598
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.93506
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.89772
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.89681
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.89681
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.93867
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.92605
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.92515
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.88872
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.88783
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.88783
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.92912
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.91627
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.9154
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+Trying to send packet, state: IDLE
+
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
+Remaining energy: 1.89773
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: TX at time = 
+WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
+Remaining energy: 1.89651
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.89645
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.89604
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.89604
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.9056
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.89327
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.89233
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.88253
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.88229
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
+Remaining energy: 1.88223
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: TX at time = 
+WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
+Remaining energy: 1.88022
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.86647
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.92597
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.91247
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.91153
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.91153
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.95046
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.93585
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.93493
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.8976
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.89669
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.89669
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.93519
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.9206
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.91971
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.88378
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.88291
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.88291
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.92094
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.90636
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.9055
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.87089
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.87004
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.87004
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.90756
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.893
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.89217
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.85879
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.85797
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.85797
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.89494
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.8804
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.87959
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.84737
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.84658
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.84658
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.88297
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.86846
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.86768
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.83656
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.83579
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.83579
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.87157
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.85709
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.85634
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.82627
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.82552
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.82552
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.86066
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.84623
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.8455
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.81643
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.81571
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.81571
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.85019
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.83581
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.8351
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.80699
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.80629
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.80629
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.84009
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.82577
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.82508
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Energy depleted
+Remaining energy: 1.7979
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.79722
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.79722
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 
+Switching to OFF, state:SLEEP
+NotifyOff
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: OFF
+Remaining energy: 1.79722
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: OFF at time = 
+WifiRadioEnergyModel::ChangeState Current state: OFF,  Changing state to: OFF
+Remaining energy: 1.97027
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: OFF at time = 
+[0] 7195480 Node is deassociated
+NotifyOn
+WifiRadioEnergyModel::ChangeState Current state: OFF,  Changing state to: IDLE
+Remaining energy: 3.03584
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: IDLE
+Remaining energy: 2.99875
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.89402
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.89112
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
+Remaining energy: 2.85826
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: TX at time = 
+WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
+Remaining energy: 2.85688
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.85667
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.85528
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.76452
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.76169
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.64814
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.64574
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.54273
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.54039
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.44725
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.44528
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.36079
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.35885
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
+Remaining energy: 2.3388
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: TX at time = 
+WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
+Remaining energy: 2.33777
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.33764
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.33679
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.28172
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.28008
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.21086
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.20926
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.14667
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.14532
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.08854
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.08721
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.03589
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.03477
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
+Remaining energy: 2.02241
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: TX at time = 
+WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
+Remaining energy: 2.0216
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 2.02152
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 2.02098
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.98756
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.98645
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.94443
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.94349
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.90537
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.90444
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.86998
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.8692
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.83794
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.83717
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
+Remaining energy: 1.82963
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: TX at time = 
+WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
+Remaining energy: 1.82894
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.8289
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.82855
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.80833
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.80767
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Energy depleted
+Remaining energy: 1.7821
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.78145
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 
+Switching to OFF, state:IDLE
+NotifyOff
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: OFF
+Remaining energy: 1.78145
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: OFF at time = 
+WifiRadioEnergyModel::ChangeState Current state: OFF,  Changing state to: OFF
+Remaining energy: 1.95345
+Threshholds: 0.545454, 0.909
+WifiRadioEnergyModel:Switching to state: OFF at time = 
+Trying to send packet, state: OFF
+
+Cannot send packet, state is Off
+0 sent: 2 ; delivered: 1 ; echoed: 1; packetloss: 33.3333
+totalPacketsSent 2
+totalPacketsDelivered 1
+totalPacketsEchoed 1
+UL packets lost 1
+DL packets lost 0
+Total packets lost 1
+total throughput Kbit/s 0.4096
+datarate	throughput
+7.8	0.4096 Kbit/s
+total packet loss % 50

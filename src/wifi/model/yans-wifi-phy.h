@@ -283,6 +283,8 @@ public:
   virtual void UnregisterListener (WifiPhyListener *listener);
   virtual void SetSleepMode (void);
   virtual void ResumeFromSleep (void);
+  virtual void SetOffMode (void);
+  virtual void ResumeFromOff (void);
   virtual bool IsStateCcaBusy (void);
   virtual bool IsStateIdle (void);
   virtual bool IsStateBusy (void);
@@ -290,6 +292,7 @@ public:
   virtual bool IsStateTx (void);
   virtual bool IsStateSwitching (void);
   virtual bool IsStateSleep (void);
+  virtual bool IsStateOff (void);
   virtual Time GetStateDuration (void);
   virtual Time GetDelayUntilIdle (void);
   virtual Time GetLastRxStartTime (void) const;

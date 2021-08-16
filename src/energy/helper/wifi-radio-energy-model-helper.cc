@@ -22,6 +22,7 @@
 #include "basic-energy-source-helper.h"
 #include "ns3/wifi-phy.h"
 #include "ns3/wifi-net-device.h"
+#include "ns3/capacitor-energy-source.h"
 #include "ns3/config.h"
 #include "ns3/names.h"
 #include "ns3/wifi-tx-current-model.h"
@@ -105,13 +106,24 @@ WifiRadioEnergyModelHelper::DoInstall (Ptr<NetDevice> device,
   NS_ASSERT (model != NULL);
   // set energy source pointer
   model->SetEnergySource (source);
+
+  Ptr<CapacitorEnergySource> capacitor = source->GetObject<CapacitorEnergySource> ();
+
   // set energy depletion callback
   // if none is specified, make a callback to WifiPhy::SetSleepMode
   Ptr<WifiNetDevice> wifiDevice = DynamicCast<WifiNetDevice> (device);
   Ptr<WifiPhy> wifiPhy = wifiDevice->GetPhy ();
   if (m_depletionCallback.IsNull ())
     {
-      model->SetEnergyDepletionCallback (MakeCallback (&WifiPhy::SetSleepMode, wifiPhy));
+      // if energy source is capacitor, make callback WifiPhy::SetOffMode
+      if (!(capacitor == 0))
+      {
+        model->SetEnergyDepletionCallback (MakeCallback (&WifiPhy::SetOffMode, wifiPhy));
+      }
+      else
+      {
+        model->SetEnergyDepletionCallback (MakeCallback (&WifiPhy::SetSleepMode, wifiPhy));
+      }
     }
   else
     {
@@ -121,7 +133,15 @@ WifiRadioEnergyModelHelper::DoInstall (Ptr<NetDevice> device,
   // if none is specified, make a callback to WifiPhy::ResumeFromSleep
   if (m_rechargedCallback.IsNull ())
     {
-      model->SetEnergyRechargedCallback (MakeCallback (&WifiPhy::ResumeFromSleep, wifiPhy));
+      // if energy source is capacitor, make callback WifiPhy::SetOffMode
+      if (!(capacitor == 0))
+      {
+        model->SetEnergyRechargedCallback (MakeCallback (&WifiPhy::ResumeFromOff, wifiPhy));
+      }
+      else
+      {
+        model->SetEnergyRechargedCallback (MakeCallback (&WifiPhy::ResumeFromSleep, wifiPhy));
+      }
     }
   else
     {

@@ -1199,12 +1199,39 @@ void
 StaWifiMac::Enqueue (Ptr<const Packet> packet, Mac48Address to)
 {    
   NS_LOG_FUNCTION (this << packet << to);
+    std::cout << "Trying to send packet, state: ";
+    
+    Ptr<WifiPhy> phy = m_low->GetPhy();
+
+    if (phy->IsStateIdle ()) {
+        std::cout << "IDLE";
+    } else if (phy->IsStateRx ()) {
+        std::cout << "RX";
+    } else if (phy->IsStateTx ()) {
+        std::cout << "TX";
+    } else if (phy->IsStateSwitching ()) {
+        std::cout << "SWITCHING";
+    } else if (phy->IsStateSleep ()) {
+        std::cout << "SLEEP";
+    } else if (phy->IsStateOff ()) {
+        std::cout << "OFF";
+    }
+    std:: cout << std::endl << std::endl;
+
+    
+    //code RAW
+    if (m_low->GetPhy()->IsStateOff())
+    {
+        std::cout << "Cannot send packet, state is Off" << std::endl;
+        NotifyTxDrop (packet);
+        NS_LOG_DEBUG (m_low->GetAddress () << " cannot send since device turned off");
+    }
     
     //in case a packet is added in the queue, it is check if the station should be awake in that slot
     //in case of shared or own slot, the station wakes up
     NS_LOG_DEBUG (m_low->GetAddress () << ",enqueue," << Simulator::Now().GetSeconds() << "," << m_low->GetPhy()->IsStateSleep());
     
-    //code RAW
+
     if (m_low->GetPhy()->IsStateSleep() && stationrawslot)
     {
         NS_LOG_DEBUG (m_low->GetAddress () << ",enqueue in stationrawslot," << Simulator::Now().GetSeconds());

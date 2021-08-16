@@ -240,11 +240,6 @@ public:
   void SetEnergySource (const Ptr<EnergySource> source);
   
   /**
-   * TODO Dawid
-   */
-  double GetCurrent (WifiPhy::State status);
-
-  /**
    * \returns Total energy consumption of the wifi device in watts.
    *
    * Implements DeviceEnergyModel::GetTotalEnergyConsumption.
@@ -252,6 +247,12 @@ public:
   double GetTotalEnergyConsumption (void) const;
 
   // Setter & getters for state power consumption.
+  /**
+   * \param state the wifi state
+   * \returns draw of device in Amperes, at given state.
+   */
+  double GetStateA (int state) const;
+
   /**
    * \brief Gets idle current in Amperes.
    *
@@ -324,6 +325,18 @@ public:
    * \param sleepCurrentA the sleep current
    */
   void SetSleepCurrentA (double sleepCurrentA);
+  /**
+   * \brief Gets off current in Amperes.
+   *
+   * \returns off current of the wifi device.
+   */
+  double GetOffCurrentA (void) const;
+  /**
+   * \brief Sets off current in Amperes.
+   *
+   * \param offCurrentA the off current
+   */
+  void SetOffCurrentA (double offCurrentA);
 
   /**
    * \returns Current state.
@@ -356,6 +369,16 @@ public:
    * \param txPowerDbm the nominal TX power in dBm
    */
   void SetTxCurrentFromModel (double txPowerDbm);
+
+
+  /**
+   * \brief Compute the energy consumed by the device in a given state
+   *        and for a given duration
+   * 
+   * \param state the wifi state
+   * \param duration duration of the state
+   */
+  double ComputeEnergyConsumption (WifiPhy::State state, Time duration);
 
   /**
    * \brief Changes state of the WifiRadioEnergyMode.
@@ -399,24 +422,14 @@ public:
    */
   WifiRadioEnergyModelPhyListener * GetPhyListener (void);
 
-
-private:
-  void DoDispose (void);
-
-  /**
-   * \param state the wifi state
-   * \returns draw of device in Amperes, at given state.
-   */
-  double GetStateA (int state) const;
-
-  /**
+/**
    * \returns Current draw of device in Amperes, at current state.
    *
    * Implements DeviceEnergyModel::GetCurrentA.
    */
   double DoGetCurrentA (void) const;
-
-  
+private:
+  void DoDispose (void); 
 
   /**
    * \param state New state the radio device is currently in.
@@ -435,16 +448,19 @@ private:
   double m_ccaBusyCurrentA; ///< CCA busy current in Amperes
   double m_switchingCurrentA; ///< switching current in Amperes
   double m_sleepCurrentA; ///< sleep current in Amperes
+  double m_offCurrentA; ///< off current in Amperes
   Ptr<WifiTxCurrentModel> m_txCurrentModel; ///< current model
 
   /// This variable keeps track of the total energy consumed by this model in watts.
   TracedValue<double> m_totalEnergyConsumption;
+  double m_v0; // voltage at the beginning of the current state
 
   // State variables.
   WifiPhy::State m_currentState;  ///< current state the radio is in
   Time m_lastUpdateTime;          ///< time stamp of previous energy update
 
   uint8_t m_nPendingChangeState; ///< pending state change
+  bool m_isSupersededChangeState; ///< superseded change state
 
   /// Energy depletion callback
   WifiRadioEnergyDepletionCallback m_energyDepletionCallback;
