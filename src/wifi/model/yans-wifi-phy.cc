@@ -508,6 +508,7 @@ YansWifiPhy::GetChannelFrequencyMhz () const
 void
 YansWifiPhy::SetSleepMode (void)
 {
+  std::cout << "Yans Wifi phy: switch to sleep" << std::endl;
   NS_LOG_FUNCTION (this);
   switch (m_state->GetState ())
     {
@@ -579,15 +580,15 @@ YansWifiPhy::SetOffMode (void)
   switch (m_state->GetState ())
     {
     case YansWifiPhy::TX:
-      NS_LOG_DEBUG ("setting sleep mode postponed until end of current transmission");
+      NS_LOG_DEBUG ("setting off mode postponed until end of current transmission");
       Simulator::Schedule (GetDelayUntilIdle (), &YansWifiPhy::SetOffMode, this);
       break;
     case YansWifiPhy::RX:
-      NS_LOG_DEBUG ("setting sleep mode postponed until end of current reception");
+      NS_LOG_DEBUG ("setting off mode postponed until end of current reception");
       Simulator::Schedule (GetDelayUntilIdle (), &YansWifiPhy::SetOffMode, this);
       break;
     case YansWifiPhy::SWITCHING:
-      NS_LOG_DEBUG ("setting sleep mode postponed until end of channel switching");
+      NS_LOG_DEBUG ("setting off mode postponed until end of channel switching");
       Simulator::Schedule (GetDelayUntilIdle (), &YansWifiPhy::SetOffMode, this);
       break;
     case YansWifiPhy::CCA_BUSY:
@@ -865,6 +866,13 @@ YansWifiPhy::SendPacket (Ptr<const Packet> packet, WifiTxVector txVector, WifiPr
   if (m_state->IsStateSleep ())
     {
       NS_LOG_DEBUG ("Dropping packet because in sleep mode");
+      NotifyTxDrop (packet);
+      return;
+    }
+
+  if (m_state->IsStateOff ())
+    {
+      NS_LOG_DEBUG ("Dropping packet because in off mode");
       NotifyTxDrop (packet);
       return;
     }

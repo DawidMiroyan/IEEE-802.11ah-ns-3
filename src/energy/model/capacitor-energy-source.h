@@ -172,6 +172,14 @@ public:
   double GetEnergyFromVoltage (double voltage);
 
   std::vector<Ptr<EnergyHarvester>> GetEnergyHarvesters(void);
+
+  //TODO Dawid enable/disable energy source to bypass energy
+  void setPendingEnable (void);
+  bool isPendingEnable (void);
+  bool IsEnabled (void);
+  void Enable (void);
+  void Disable (void);
+
 private:
   /// Defined in ns3::Object
   void DoInitialize (void);
@@ -228,6 +236,9 @@ private:
   double m_highVoltageTh; // high voltage threshold, as a fraction of the initial voltage
   bool m_depleted; // set to true when the remaining energy goes below the low threshold,
       // set to false again when the remaining energy exceeds the high threshold
+  bool m_enabled; // do not consume energy when disabled
+  bool m_pendingEnable; // WifiRadioEnergyModel will Enable when pending
+
   TracedValue<double> m_remainingEnergyJ; // remaining energy, in Joules
   TracedValue<double> m_actualVoltageV; // the voltage at the present moment, in V
   EventId m_voltageUpdateEvent; // voltage update event

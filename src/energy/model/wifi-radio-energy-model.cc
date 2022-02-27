@@ -125,7 +125,7 @@ WifiRadioEnergyModel::SetEnergySource (const Ptr<EnergySource> source)
   m_switchToOffEvent.Cancel ();
   Time durationToOff = GetMaximumTimeInState (m_currentState);
   // TODO Dawid Remove
-  // std::cout << "Scheduling OFF at: " << Simulator::Now () << " For: " << durationToOff << std::endl;
+  std::cout << "WifiRadioEnergyModel::SetEnergySource Scheduling OFF at: " << Simulator::Now () << " For: " << durationToOff << std::endl;
   m_switchToOffEvent = Simulator::Schedule (durationToOff, &WifiRadioEnergyModel::ChangeState, this, WifiPhy::State::OFF);
 }
 
@@ -346,61 +346,52 @@ WifiRadioEnergyModel::ChangeState (int newState)
   // std::cout << "Changing state to: " << static_cast<WifiPhy::State>(newState) << std::endl;
   // m_nPendingChangeState++;
 
-  // std::cout << "PendingChangeState: " << (m_nPendingChangeState > 1 && newState == WifiPhy::State::OFF) << std::endl;
-  // if (m_nPendingChangeState >= 1 && newState == WifiPhy::State::OFF)
+  // if (m_nPendingChangeState > 1 && newState == WifiPhy::State::OFF)
   //   {
   //     SetWifiRadioState ((WifiPhy::State) newState);
   //     m_nPendingChangeState--;
   //     return;
   //   }
 
-  // // if (newState == WifiPhy::State::OFF) {
-  // //   std::cout << "Why u turning off?" << std::endl;
-  // //   m_nPendingChangeState--;
-  // //   return;
-  // // }
+  // // notify energy source
+  // m_source->UpdateEnergySource (); // DONE IN THE PHY
 
   // if (newState != WifiPhy::State::OFF)
   //   {
   //     m_switchToOffEvent.Cancel ();
   //     Time durationToOff = GetMaximumTimeInState (newState);
   //     // TODO Dawid Remove
-  //     // std::cout << "Scheduling OFF at: " << Simulator::Now () << " For: " << durationToOff << std::endl;
+  //     std::cout << "Scheduling OFF at: " << Simulator::Now ().GetSeconds () << " For: " << durationToOff.GetSeconds() << std::endl;
       
-  //     // m_switchToOffEvent = Simulator::Schedule (durationToOff, &WifiRadioEnergyModel::ChangeState, this, WifiPhy::State::OFF);
-  //     // SetWifiRadioState ((WifiPhy::State) newState);
+  //     m_switchToOffEvent = Simulator::Schedule (durationToOff, &WifiRadioEnergyModel::ChangeState, this, WifiPhy::State::OFF);
   //   }
 
   // Time duration = Simulator::Now () - m_lastUpdateTime;
-  // NS_ASSERT (duration.IsPositive ()); // check if duration is valid
+  // NS_ASSERT (duration.GetNanoSeconds () >= 0);     // check if duration is valid
 
-  // // energy to decrease = current * voltage * time
   // double energyToDecrease = 0.0;
 
   // energyToDecrease = ComputeEnergyConsumption (m_currentState, duration);
 
   // // update total energy consumption
   // m_totalEnergyConsumption += energyToDecrease;
-  
+
+  // NS_LOG_DEBUG("Energy to decrease: " << energyToDecrease << " total energy consumption " << m_totalEnergyConsumption);
+
   // // update last update time stamp
   // m_lastUpdateTime = Simulator::Now ();
 
-  // // notify energy source
-  // m_source->UpdateEnergySource ();
-  // Ptr<CapacitorEnergySource> cap =  m_source->GetObject<CapacitorEnergySource>();
-  // std::cout << "Capacitor depleted: " << cap->IsDepleted() << std::endl;
 
-  // // in case the energy source is found to be depleted during the last update, a callback might be
-  // // invoked that might cause a change in the Wifi PHY state (e.g., the PHY is put into SLEEP mode).
-  // // This in turn causes a new call to this member function, with the consequence that the previous
-  // // instance is resumed after the termination of the new instance. In particular, the state set
-  // // by the previous instance is erroneously the final state stored in m_currentState. The check below
-  // // ensures that previous instances do not change m_currentState.
+  // in case the energy source is found to be depleted during the last update, a callback might be
+  // invoked that might cause a change in the Wifi PHY state (e.g., the PHY is put into SLEEP mode).
+  // This in turn causes a new call to this member function, with the consequence that the previous
+  // instance is resumed after the termination of the new instance. In particular, the state set
+  // by the previous instance is erroneously the final state stored in m_currentState. The check below
+  // ensures that previous instances do not change m_currentState.
 
   // if (m_nPendingChangeState <= 1 && m_currentState != WifiPhy::State::OFF)
   //   {
   //     // update current state & last update time stamp
-  //     std::cout << "Setting state to " << newState << std::endl;
   //     SetWifiRadioState ((WifiPhy::State) newState);
 
   //     // some debug message
@@ -410,15 +401,17 @@ WifiRadioEnergyModel::ChangeState (int newState)
 
   // m_nPendingChangeState--;
   }
-
+  
+  {
   NS_LOG_FUNCTION (this << "Changing state... Computing energy consumption for the previous state");
   std::cout << "WifiRadioEnergyModel::ChangeState Current state: " << m_currentState << ",  ";
   std::cout << "Changing state to: " << static_cast<WifiPhy::State>(newState) << std::endl;
 
   m_source->UpdateEnergySource ();
+
   Ptr<CapacitorEnergySource> cap =  m_source->GetObject<CapacitorEnergySource>();
-  std::cout << "Remaining energy: " << cap->GetActualVoltage() << std::endl;
-  std::cout << "Threshholds: " << cap->GetLowVoltageTh() << ", " << cap->GetHighVoltageTh () << std::endl;
+  std::cout << "Remaining energy: " << cap->GetEnergyFraction() << ", " << cap->GetActualVoltage() << "V" << std::endl;
+  std::cout << "Threshholds: L" << cap->GetLowVoltageTh() << ", H" << cap->GetHighVoltageTh () << std::endl;
 
   Time duration = Simulator::Now () - m_lastUpdateTime;
   NS_ASSERT (duration.GetNanoSeconds () >= 0);     // check if duration is valid
@@ -441,7 +434,7 @@ WifiRadioEnergyModel::ChangeState (int newState)
   // m_source->UpdateEnergySource (); // DONE IN THE PHY
 
   // in case the energy source is found to be depleted during the last update, a callback might be
-  // invoked that might cause a change in the Lora PHY state (e.g., the PHY is put into SLEEP mode).
+  // invoked that might cause a change in the PHY state (e.g., the PHY is put into SLEEP mode).
   // This in turn causes a new call to this member function, with the consequence that the previous
   // instance is resumed after the termination of the new instance. In particular, the state set
   // by the previous instance is erroneously the final state stored in m_currentState. The check below
@@ -449,15 +442,40 @@ WifiRadioEnergyModel::ChangeState (int newState)
 
   if (!m_isSupersededChangeState)
     {
+
       // update current state & last update time stamp
       SetWifiRadioState ((WifiPhy::State) newState);
       NS_LOG_DEBUG("[DEBUG] Set a new state");
 
+      // TODO Dawid, quick fix Capacitor enabled too early
+      // After association, STA sends ACK and doesn't go to sleep afterwards
+      // So instead create a PendingEnable and actualy enable when state goes from IDLE -> RX
+      if (m_currentState == WifiPhy::State::RX &&
+          cap ->isPendingEnable ())
+      {
+          cap ->Enable ();
+      }
+
+      // TODO Dawid, is this OFF event necessary???
+      // Set OFF event for when energy source would be depleted
+      if (newState != WifiPhy::State::OFF)
+        {
+          m_switchToOffEvent.Cancel ();
+          Time durationToOff = GetMaximumTimeInState (newState);
+          // TODO Dawid Remove
+          std::cout << "Scheduling OFF at: " << Simulator::Now ().GetSeconds() << " For: " << durationToOff.GetSeconds() << std::endl;
+          
+          m_switchToOffEvent = Simulator::Schedule (durationToOff, &WifiRadioEnergyModel::ChangeState, this, WifiPhy::State::OFF);
+        }
+      else
+        {
+          m_switchToOffEvent.Cancel ();
+        }
     }
-
+  std::cout << std::endl;
   m_isSupersededChangeState = (m_nPendingChangeState > 1);
-
   m_nPendingChangeState--;
+  }
 }
 
 void
@@ -493,6 +511,8 @@ WifiRadioEnergyModel::HandleEnergyChanged (void)
     {
       m_switchToOffEvent.Cancel ();
       Time durationToOff = GetMaximumTimeInState (m_currentState);
+      //TODO Dawid Remove
+      //std::cout << "WifiRadioEnergyModel::HandleEnergyChanged Current State " << m_currentState << " Scheduling OFF at: " << Simulator::Now ().GetSeconds () << " For: " << durationToOff .GetSeconds () << std::endl;
       m_switchToOffEvent = Simulator::Schedule (durationToOff, &WifiRadioEnergyModel::ChangeState, this, WifiPhy::State::OFF);
     }
 }
@@ -551,6 +571,7 @@ WifiRadioEnergyModel::SetWifiRadioState (const WifiPhy::State state)
 {
   NS_LOG_FUNCTION (this << state);
   m_currentState = state;
+
   std::string stateName;
   switch (state)
     {
@@ -577,7 +598,7 @@ WifiRadioEnergyModel::SetWifiRadioState (const WifiPhy::State state)
       break;
     }
   std::cout << "WifiRadioEnergyModel:Switching to state: " << stateName <<
-                " at time = " << std::endl;
+                " at time = " << Simulator::Now (). GetSeconds () << std::endl;
   NS_LOG_DEBUG ("WifiRadioEnergyModel:Switching to state: " << stateName <<
                 " at time = " << Simulator::Now ());
 }

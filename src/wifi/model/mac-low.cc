@@ -360,6 +360,7 @@ public:
   {
     NS_LOG_DEBUG(listeneraddress << ",state OFF," << Simulator::Now().GetSeconds());
     //NS_LOG_UNCOND(listeneraddress << ",state OFF," << Simulator::Now().GetSeconds());
+    // TODO Missing(?) OffNow ();
   }
   virtual void NotifyWakeup (void)
   {
@@ -935,6 +936,7 @@ MacLow::NotifySwitchingStartNow (Time duration)
 void
 MacLow::NotifySleepNow (void)
 {
+  std::cout << "MacLow::NotifySleepNow" << std::endl; //TODO Dawid Sleep after beacon
   NS_LOG_DEBUG ("Device in sleep mode. Cancelling MAC pending events");
   CancelAllEvents ();
   if (m_navCounterResetCtsMissed.IsRunning ())

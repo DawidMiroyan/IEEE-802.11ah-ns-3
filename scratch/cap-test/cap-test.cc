@@ -197,7 +197,7 @@ A Page slice element only support one page
 
  Concept of page slicing:
  Between two DTIM beacon, there are many TIM beacons, only allow a TIM beacon include some blocks of one page is called page slice. One TIM beacon is called a page slice.
- Page slcie element specify number of page slice between two DTIM, number of blocks in each
+ Page slice element specify number of page slice between two DTIM, number of blocks in each
  page slice.
  Page slice element only appears together with DTIM.
 
@@ -1292,8 +1292,10 @@ int main(int argc, char *argv[]) {
     //wifi.SetRemoteStationManager("ns3::ArfWifiManager");
 
 
-	mac.SetType("ns3::StaWifiMac", "Ssid", SsidValue(ssid), "ActiveProbing",
-			BooleanValue(false));
+	mac.SetType("ns3::StaWifiMac", 
+					"Ssid", SsidValue(ssid),
+					"ActiveProbing", BooleanValue(false),
+					"MaxMissedBeacons", UintegerValue (1000)); //TODO Dawid Increased # max missed beacon
 
 	NetDeviceContainer staDevice;
 	staDevice = wifi.Install(phy, mac, wifiStaNode);
@@ -1484,11 +1486,6 @@ int main(int argc, char *argv[]) {
 	// TODO Dawid
 	std::cout << "Configuring capacitor energy sources..." << std::endl;
 
-	CapacitorEnergySourceHelper capacitorHelper;
-	capacitorHelper.Set ("Capacitance", DoubleValue (config.capacitance/1000));
-	capacitorHelper.Set ("CapacitorLowVoltageThreshold", DoubleValue (0.545454)); // 1.8 V
-	capacitorHelper.Set ("CapacitorHighVoltageThreshold", DoubleValue (0.9090)); // 3 V
-	capacitorHelper.Set ("CapacitorMaxSupplyVoltageV", DoubleValue (3.3));
 	// Assumption that the C does not reach full capacitance because of some
 	// consumption in the OFF state
 	double E = 3.3; // V
@@ -1501,11 +1498,20 @@ int main(int argc, char *argv[]) {
 		Req_off = RLoff * ri / (RLoff + ri);
 		V0 = E * Req_off / ri;
 	}
-	std::string voltage = "ns3::UniformRandomVariable[Min=" + std::to_string(3) + "|Max=" + std::to_string(V0) + "]";
-	capacitorHelper.Set ("RandomInitialVoltage", StringValue (voltage));
-	capacitorHelper.Set ("PeriodicVoltageUpdateInterval", TimeValue (MilliSeconds (500)));
+
+	std::string rv = "ns3::UniformRandomVariable[Min=3.0|Max=3.3]";//"ns3::UniformRandomVariable[Min=" + std::to_string(3.0) + "|Max=" + std::to_string(V0) + "]";
+	// Sets the default before initialising the CapacitorEnergySource
+	Config::SetDefault ("ns3::CapacitorEnergySource::RandomInitialVoltage", StringValue (rv));
+
+	CapacitorEnergySourceHelper capacitorHelper;
+	capacitorHelper.Set ("Capacitance", DoubleValue (config.capacitance/1000));
+	capacitorHelper.Set ("CapacitorLowVoltageThreshold", DoubleValue (0.545454)); // 1.8 V
+	capacitorHelper.Set ("CapacitorHighVoltageThreshold", DoubleValue (0.9090)); // 3 V
+	capacitorHelper.Set ("CapacitorMaxSupplyVoltageV", DoubleValue (3.3));
+	capacitorHelper.Set ("PeriodicVoltageUpdateInterval", TimeValue (MilliSeconds (100)));
 	capacitorHelper.Set ("FilenameVoltageTracking",
 						StringValue(config.filenameRemainingVoltage));
+	capacitorHelper.Set ("RandomInitialVoltage", StringValue (rv));
 
 	WifiRadioEnergyModelHelper radioEnergy;
 	// radioEnergy.Set("EnterSleepIfDepleted", BooleanValue(false));
@@ -1518,14 +1524,30 @@ int main(int argc, char *argv[]) {
 	// radioEnergy.Set ("RxCurrentA", DoubleValue (0.011));
 	// radioEnergy.Set ("SleepCurrentA", DoubleValue (0.0000001));
 	// radioEnergy.Set ("IdleCurrentA", DoubleValue (0.0000014));
+	
+	// Values used throughout testing (from Martina's code)
 	// // Values for MCU + Radio (MCU=11uA for active, 5.5uA idle)
-	radioEnergy.Set ("TxCurrentA", DoubleValue (0.028011));
-	radioEnergy.Set ("IdleCurrentA", DoubleValue (0.000007));
-	radioEnergy.Set ("RxCurrentA", DoubleValue (0.011011));
-	radioEnergy.Set ("SleepCurrentA", DoubleValue (0.0000056));
-	radioEnergy.Set ("IdleCurrentA", DoubleValue (0.0105055));
-	radioEnergy.Set ("OffCurrentA", DoubleValue (0.0000055));
+	// radioEnergy.Set ("TxCurrentA", DoubleValue (0.028011));
+	// radioEnergy.Set ("RxCurrentA", DoubleValue (0.011011));
+	// radioEnergy.Set ("SleepCurrentA", DoubleValue (0.0000056));
+	// radioEnergy.Set ("IdleCurrentA", DoubleValue (0.0105055));
+	// radioEnergy.Set ("OffCurrentA", DoubleValue (0.0000055));
 	// radioEnergy.Set ("ReferenceVoltage", DoubleValue(V0)); //TODO Dawid, Not used in LoraRadioEnergyModel
+
+	// Values from Serena Santi Paper at 3.3V
+	/**
+	 * Tx: 204mW ==> 0.061818
+	 * Rx: 92mW ==> 0.027878
+	 * Idle: 20mW ==> 0.006060
+	 * Sleep: 99nW ==> 0.00000003
+	 * Off:  99mW ==> 0.00000003
+	 */
+
+	radioEnergy.Set ("TxCurrentA", DoubleValue (0.061818));
+	radioEnergy.Set ("RxCurrentA", DoubleValue (0.027878));
+	radioEnergy.Set ("IdleCurrentA", DoubleValue (0.060060));
+	radioEnergy.Set ("SleepCurrentA", DoubleValue (0.00000003));
+	radioEnergy.Set ("OffCurrentA", DoubleValue (0.000000029));
 
 
 	/********************
@@ -1612,6 +1634,7 @@ int main(int argc, char *argv[]) {
 	Simulator::Run();
 
 	// Visualizer throughput
+	std::cout << std::endl;
 	int pay = 0, totalSuccessfulPackets = 0, totalSentPackets = 0, totalPacketsEchoed = 0;
 	for (int i = 0; i < config.Nsta; i++)
 	{
@@ -1619,11 +1642,11 @@ int main(int argc, char *argv[]) {
 		totalSentPackets += stats.get(i).NumberOfSentPackets;
 		totalPacketsEchoed += stats.get(i).NumberOfSuccessfulRoundtripPackets;
 		pay += stats.get(i).TotalPacketPayloadSize;
-		cout << i << " sent: " << stats.get(i).NumberOfSentPackets
+		std::cout << "STA " << i << " sent: " << stats.get(i).NumberOfSentPackets
 				<< " ; delivered: " << stats.get(i).NumberOfSuccessfulPackets
 				<< " ; echoed: " << stats.get(i).NumberOfSuccessfulRoundtripPackets
 				<< "; packetloss: "
-				<< stats.get(i).GetPacketLoss(config.trafficType) << endl;
+				<< stats.get(i).GetPacketLoss(config.trafficType) << std::endl;
 	}
 
 	if (config.trafficType == "udp")
@@ -1671,21 +1694,21 @@ int main(int argc, char *argv[]) {
 	string addressresults = config.OutputPath + "moreinfo.txt";
 	risultati.open(addressresults.c_str(), ios::out | ios::trunc);
 
-    risultati << "Sta node#,distance,timerx(notassociated),timeidle(notassociated),timetx(notassociated),timesleep(notassociated),timecollision(notassociated)" << std::endl;
+    risultati << "Sta node#, distance, timerx(notassociated), timeidle(notassociated), timetx(notassociated), timesleep(notassociated), timecollision(notassociated)" << std::endl;
     int i = 0;
-    string spazio = ",";
-    
+    string spazio = ", ";
+    std::cout << std::endl;
     while (i < config.Nsta) {
         
         risultati << i << spazio << dist[i] << spazio << timeRxArray[i].GetSeconds() << ",(" << timeRxNotAssociated[i].GetSeconds() << ")," << timeIdleArray[i].GetSeconds() << ",(" << timeIdleNotAssociated[i].GetSeconds() << ")," << timeTxArray[i].GetSeconds() << ",(" << timeTxNotAssociated[i].GetSeconds() << ")," << timeSleepArray[i].GetSeconds() << ",(" << timeSleepNotAssociated[i].GetSeconds() << ")," << timeCollisionArray[i].GetSeconds() << ",(" << timeCollisionNotAssociated[i].GetSeconds() << ")" << std::endl;
-        /*
-         cout << "================== Sleep " << stats.get(i).TotalSleepTime.GetSeconds() << endl;
+        
          cout << "================== Tx " << stats.get(i).TotalTxTime.GetSeconds() << endl;
          cout << "================== Rx " << stats.get(i).TotalRxTime.GetSeconds() << endl;
-         cout << "+++++++++++++++++++IDLE " << stats.get(i).TotalIdleTime.GetSeconds() << endl;
+         cout << "================== Sleep " << stats.get(i).TotalSleepTime.GetSeconds() << endl;
+         cout << "++++++++++++++++++ IDLE " << stats.get(i).TotalIdleTime.GetSeconds() << endl;
          cout << "ooooooooooooooooooo TOTENERGY " <<  stats.get(i).GetTotalEnergyConsumption() << " mW" << endl;
          cout << "Rx+Idle ENERGY " <<  stats.get(i).EnergyRxIdle << " mW" << endl;
-         cout << "Tx ENERGY " <<  stats.get(i).EnergyTx << " mW" << endl;*/
+         cout << "Tx ENERGY " <<  stats.get(i).EnergyTx << " mW" << endl;
         
         i++;
     }

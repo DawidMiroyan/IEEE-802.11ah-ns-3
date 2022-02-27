@@ -62,7 +62,7 @@ CapacitorEnergySource::GetTypeId (void)
                          MakeDoubleChecker<double> ())
           .AddAttribute ("RandomInitialVoltage",
                          "Random variable from which taking the initial voltage of the capacitor",
-                         StringValue ("ns3::UniformRandomVariable[Min=0.0|Max=0.0]"),
+                         StringValue ("ns3::UniformRandomVariable[Min=0.0|Max=0.0]"), //TODO Dawid
                          MakePointerAccessor (&CapacitorEnergySource::m_initialVoltageRV),
                          MakePointerChecker<RandomVariableStream> ())
           .AddAttribute ("CapacitorMaxSupplyVoltageV",
@@ -107,6 +107,8 @@ CapacitorEnergySource::CapacitorEnergySource ()
   ObjectBase::ConstructSelf(AttributeConstructionList ());
   m_lastUpdateTime = Seconds (0.0);
   m_depleted = false;
+  m_enabled = true;
+  m_pendingEnable = false;
   SetInitialVoltage();
 }
 
@@ -133,7 +135,7 @@ void
 CapacitorEnergySource::SetInitialVoltage ()
 {
   NS_LOG_FUNCTION (this);
-  m_actualVoltageV = 2.5;//m_initialVoltageRV->GetValue ();
+  m_actualVoltageV = m_initialVoltageRV->GetValue ();
   NS_LOG_WARN ("Initial voltage: " << m_actualVoltageV << " V");
   NS_ASSERT(m_actualVoltageV < m_supplyVoltageV);
   m_initialVoltageV = m_actualVoltageV;
@@ -261,20 +263,6 @@ CapacitorEnergySource::UpdateEnergySource (void)
 
     m_lastUpdateTime = Simulator::Now ();
     double eps = 1e-9;
-
-    // TODO Dawid testing
-    // DeviceEnergyModelContainer container = FindDeviceEnergyModels ("ns3::WifiRadioEnergyModel");
-    // DeviceEnergyModelContainer::Iterator i;
-    // for (i = container.Begin (); i != container.End (); i++)
-    // {
-    //     Ptr<WifiRadioEnergyModel> wifiradio = (*i)-> GetObject<WifiRadioEnergyModel> ();
-    //     if (wifiradio == 0) {
-    //         NS_LOG_DEBUG("Wifi device not found! Returning 0.");
-    //     } else {
-    //        std::cout << "Current state: " << wifiradio->GetCurrentState() << std::endl;
-    //     }
-    // }
-
     
     // NS_LOG_DEBUG ("Vmin = " << m_lowVoltageTh * m_supplyVoltageV << " actualV "
     //               << (m_actualVoltageV) << " was depleted?" << m_depleted );
@@ -288,7 +276,7 @@ CapacitorEnergySource::UpdateEnergySource (void)
           // std::cout << "eps= " << eps << std::endl;
           // TODO Dawid
           // std::cout << "CapacitorEnergySource::UpdateEnergySource Energy depleted= " << m_actualVoltageV << std::endl;
-          std::cout << "Energy depleted" << std::endl; // TODO Dawid
+          std::cout << "CapacitorEnergySource::Energy depleted: " << m_actualVoltageV << "V" << std::endl; // TODO Dawid
           NS_LOG_DEBUG ("Energy depleted");
           m_depleted = true;
           HandleEnergyDrainedEvent ();
@@ -463,6 +451,12 @@ double CapacitorEnergySource::ComputeVoltage (double initialVoltage, double Iloa
   void
   CapacitorEnergySource::UpdateVoltage (void)
   {
+    if (!m_enabled) 
+    {
+      m_lastUpdateTime = Simulator::Now();
+      return ;
+    }
+
     NS_LOG_FUNCTION (this);
     Time duration = Simulator::Now () - m_lastUpdateTime;
     double Iload = CalculateDevicesCurrent ();
@@ -688,5 +682,49 @@ CapacitorEnergySource::GetEnergyHarvesters (void)
 {
   return m_harvesters; 
 }
+
+//TODO Dawid
+
+void
+CapacitorEnergySource::setPendingEnable (void)
+{
+  NS_LOG_FUNCTION (this);
+
+  m_pendingEnable = true;
+}
+
+bool
+CapacitorEnergySource::isPendingEnable (void)
+{
+  NS_LOG_FUNCTION (this);
+
+  return m_pendingEnable;
+}
+
+bool 
+CapacitorEnergySource::IsEnabled (void) 
+{
+  NS_LOG_FUNCTION (this);
+
+  return m_enabled;
+}
+
+void
+CapacitorEnergySource::Enable (void) 
+{
+  NS_LOG_FUNCTION (this);
+  m_pendingEnable = false;
+  m_enabled = true;
+  std::cout << "CapacitorEnergySource::Enable Enabling the capacitor, energy will now be drained" << std::endl;
+}
+
+void
+CapacitorEnergySource::Disable (void) 
+{
+  NS_LOG_FUNCTION (this);
+
+  m_enabled = false;
+}
+
 
 } // namespace ns3

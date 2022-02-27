@@ -27,6 +27,9 @@
 #include "ns3/pointer.h"
 #include "ns3/boolean.h"
 #include "ns3/trace-source-accessor.h"
+#include "ns3/energy-source-container.h"
+#include "ns3/capacitor-energy-source.h"
+#include "ns3/yans-wifi-phy.h"
 #include "qos-tag.h"
 #include "mac-low.h"
 #include "dcf-manager.h"
@@ -620,6 +623,7 @@ StaWifiMac::SendPspollIfnecessary (void)
 
 	void StaWifiMac::GoToSleepCurrentTIM(S1gBeaconHeader beacon)
 	{
+    std::cout << "StaWifiMac::GoToSleepCurrentTIM Going to sleep current TIM" << std::endl;
 		uint8_t BeaconNumForTIM;
 		if (m_selfBlock < m_BlockOffset) //not included in the page slice element
 		{
@@ -653,6 +657,9 @@ StaWifiMac::SendPspollIfnecessary (void)
 
 void StaWifiMac::GoToSleep (Time sleeptime)
 	{
+    //TODO Dawid Sleep after beacon
+    std::cout << "StaWifiMac::GoToSleep" << std::endl;
+
 		// beacon latency is 2.36ms and station needs to be in sync with AP so reduce sleeptime
 		if (sleeptime < GetEarlyWakeTime())
 		{
@@ -686,6 +693,8 @@ void StaWifiMac::GoToSleep (Time sleeptime)
 void
 StaWifiMac::GoToSleepBinary (int value)
 {
+    //TODO Dawid
+     std::cout << "StaWifiMac::GoToSleepBinary" << std::endl;
      if (IsAssociated() && !receivingBeacon)
      {
         if ( value == 0)
@@ -694,20 +703,24 @@ StaWifiMac::GoToSleepBinary (int value)
             //if(!outsideraw && !stationrawslot && !waitingack)
             if(!waitingack)
             {
+                std::cout << "\t Case 1" << std::endl; //TODO Dawid
                 m_low->GetPhy()->SetSleepMode();
                 //NS_LOG_UNCOND (m_low->GetAddress() << " sleepok. not wating ack");
             }
             else if (waitingack && (outsideraw || stationrawslot))
             {
+                std::cout << "\t Case 2" << std::endl; //TODO Dawid
                 //NS_LOG_UNCOND (m_low->GetAddress() << " no sleep, wating ack and my slot");
             }
             else
             {
+                std::cout << "\t Case 3" << std::endl; //TODO Dawid
                 //NS_LOG_UNCOND (m_low->GetAddress() << " no sleep, wating ack..");
             }
         }
         else if ( value == 1)
          {
+            std::cout << "\t Case 4" << std::endl; //TODO Dawid
              m_low->GetPhy()->SetSleepMode();
             //NS_LOG_UNCOND (m_low->GetAddress() << " go to sleep after beacon received");
          }
@@ -717,6 +730,8 @@ StaWifiMac::GoToSleepBinary (int value)
 void
 StaWifiMac::SleepIfQueueIsEmpty(bool value)
 {
+  // TODO Dawid Sleep after beacon testing
+   std::cout << "StaWifiMac::SleepIfQueueIsEmpty" << std::endl;
    waitingack = !value;
    
    if (IsAssociated() && !receivingBeacon)
@@ -724,24 +739,28 @@ StaWifiMac::SleepIfQueueIsEmpty(bool value)
          if(!HasPacketsInQueue() && !waitingack)
 
             {
+                std::cout << "\t Case 1" << std::endl; //TODO Dawid
                 m_low->GetPhy()->SetSleepMode();
             }
             
          if(HasPacketsInQueue() && !waitingack && !outsideraw && !stationrawslot)
 
             {
+                std::cout << "\t Case 2" << std::endl; //TODO Dawid
                 m_low->GetPhy()->SetSleepMode();
             }
             
          //if (waitingack && !outsideraw && !stationrawslot)
          if (!outsideraw && !stationrawslot)
             {
+                std::cout << "\t Case 3" << std::endl; //TODO Dawid
                 m_low->GetPhy()->SetSleepMode();
             }
             
          if (waitingack && (outsideraw || stationrawslot))
 
             {
+                std::cout << "\t Case 4" << std::endl; //TODO Dawid
                 //WakeUp();
                 //NS_LOG_UNCOND (m_low->GetAddress() << " ack waiting and my slot, I’m awake");
             }
@@ -778,18 +797,74 @@ StaWifiMac::OnAssociated() {
 	m_assocLogger(GetBssid());
 	// start only allowing transmissions during specific slot periods
 	//DenyDCAAccess();
+
+  //TODO Dawid enable energy source
+  EnableCapacitorEnergySource();
 }
 
 void
-StaWifiMac::OnDeassociated() {
+StaWifiMac::OnDeassociated() 
+{
     m_deAssocLogger (GetBssid ());
     // allow tranmissions until reassociated
     //GrantDCAAccess();
     TryToEnsureAssociated();
-
+    DisableCapacitorEnergySource();
 }
 
-	bool StaWifiMac::IsInPagebitmap(uint8_t block)
+void
+StaWifiMac::EnableCapacitorEnergySource() 
+{
+  Ptr<WifiPhy> nodePhy = m_low->GetPhy();
+  if (!(nodePhy == 0))
+  {
+    Ptr<YansWifiPhy> yansPhy = nodePhy->GetObject<YansWifiPhy>();
+    if (!(yansPhy == 0)) 
+    {
+      Ptr<EnergySourceContainer> nodeEnergySourceContainer = yansPhy->GetDevice()->GetNode()->GetObject<EnergySourceContainer>();
+
+      if (!(nodeEnergySourceContainer == 0))
+      {
+        Ptr<CapacitorEnergySource> capacitorEnergySource = 
+          nodeEnergySourceContainer ->Get(0) ->GetObject<CapacitorEnergySource> ();
+
+          if (!(capacitorEnergySource == 0))
+          {
+            capacitorEnergySource ->setPendingEnable();
+          }
+      }
+    }
+  }
+}
+
+void
+StaWifiMac::DisableCapacitorEnergySource() 
+{
+  Ptr<WifiPhy> nodePhy = m_low->GetPhy();
+  if (!(nodePhy == 0))
+  {
+    Ptr<YansWifiPhy> yansPhy = nodePhy->GetObject<YansWifiPhy>();
+    if (!(yansPhy == 0)) 
+    {
+      Ptr<EnergySourceContainer> nodeEnergySourceContainer = yansPhy->GetDevice()->GetNode()->GetObject<EnergySourceContainer>();
+
+      if (!(nodeEnergySourceContainer == 0))
+      {
+        Ptr<CapacitorEnergySource> capacitorEnergySource = 
+          nodeEnergySourceContainer ->Get(0) ->GetObject<CapacitorEnergySource> ();
+
+          if (!(capacitorEnergySource == 0))
+          {
+            capacitorEnergySource ->Disable();
+          }
+      }
+    }
+  }
+}
+
+
+bool
+ StaWifiMac::IsInPagebitmap(uint8_t block)
 	{
 		uint8_t Ind, offset;
 		bool inPage;
@@ -798,7 +873,6 @@ StaWifiMac::OnDeassociated() {
 		inPage = m_PageBitmap[Ind] & (1 << offset);
 		return inPage;
 	}
-
 
 void
 StaWifiMac::RawSlotStartBackoff (void)
@@ -896,8 +970,8 @@ StaWifiMac::OutsideRawStartBackoff (void)
   It seems Simulator::ScheduleNow take longer time to execuate than without schedule.
 
   During debugging, we found that when OutsideRawStartBackoff and StaWifiMac::S1gBeaconReceived execuate at the
-  same time, even  function OutsideRawStartBackoff() at first execute, and function S1gBeaconReceived() execuate
-  later, the function OutsideRawStartBackoff calls executate later than functions called by S1gBeaconReceived ().
+  same time, even  function OutsideRawStartBackoff() at first execute, and function S1gBeaconReceived() execute
+  later, the function OutsideRawStartBackoff calls execute later than functions called by S1gBeaconReceived ().
 
   Here is an example, (m_rawStart && !m_inRawGroup) execuated in S1gBeaconReceived. We log the info,
 
@@ -1129,6 +1203,7 @@ StaWifiMac::TryToEnsureAssociated (void)
       break;
     }
 }
+
 void
 StaWifiMac::AssocRequestTimeout (void)
 {
@@ -1199,6 +1274,9 @@ void
 StaWifiMac::Enqueue (Ptr<const Packet> packet, Mac48Address to)
 {    
   NS_LOG_FUNCTION (this << packet << to);
+
+    // TODO Dawid
+    std::cout << "----------------------------------------------" << std::endl;
     std::cout << "Trying to send packet, state: ";
     
     Ptr<WifiPhy> phy = m_low->GetPhy();
@@ -1216,15 +1294,16 @@ StaWifiMac::Enqueue (Ptr<const Packet> packet, Mac48Address to)
     } else if (phy->IsStateOff ()) {
         std::cout << "OFF";
     }
-    std:: cout << std::endl << std::endl;
-
+    std:: cout << " at " << Simulator::Now() .GetSeconds() << std::endl;
+    std::cout << "----------------------------------------------" << std::endl;
     
     //code RAW
     if (m_low->GetPhy()->IsStateOff())
     {
-        std::cout << "Cannot send packet, state is Off" << std::endl;
+        std::cout << "Cannot send packet, state is OFF. Dropping" << std::endl << std::endl;
         NotifyTxDrop (packet);
         NS_LOG_DEBUG (m_low->GetAddress () << " cannot send since device turned off");
+        return; //TODO Added return to
     }
     
     //in case a packet is added in the queue, it is check if the station should be awake in that slot
@@ -1245,6 +1324,7 @@ StaWifiMac::Enqueue (Ptr<const Packet> packet, Mac48Address to)
     
   if (!IsAssociated ())
     {
+      std::cout << "Node not associated. Dropping packet" << std::endl; //TODO Dawid
       NotifyTxDrop (packet);
       TryToEnsureAssociated ();
       NS_LOG_UNCOND (m_low->GetAddress () << "  cannot send since not associated");
@@ -1297,6 +1377,83 @@ StaWifiMac::Enqueue (Ptr<const Packet> packet, Mac48Address to)
   hdr.SetAddr3 (to);
   hdr.SetDsNotFrom ();
   hdr.SetDsTo ();
+
+  // Check energy conditions
+
+  Ptr<WifiPhy> nodePhy = m_low->GetPhy();
+  std::cout << "\nChecking Energy conditions" << std::endl; //TODO Dawid Energy Check print test
+  if (!(nodePhy == 0))
+  {
+    std::cout << "\tnodePhy present" << std::endl; //TODO Dawid Energy Check print test
+    Ptr<YansWifiPhy> yansPhy = nodePhy->GetObject<YansWifiPhy>();
+
+    if (!(yansPhy == 0)) 
+    {
+      std::cout << "\tyansPhy present" << std::endl; //TODO Dawid Energy Check print test
+      Ptr<EnergySourceContainer> nodeEnergySourceContainer = yansPhy->GetDevice()->GetNode()->GetObject<EnergySourceContainer>();
+
+      if (!(nodeEnergySourceContainer == 0))
+      {
+        std::cout << "\tnodeEnergySourceContainer present" << std::endl; //TODO Dawid Energy Check print test
+        ////////////////////////
+        uint32_t size = m_low->GetSize (packet, &hdr);;
+        WifiTxVector txvector = m_low->GetDataTxVector(packet, &hdr);
+        WifiPreamble preamble = WIFI_PREAMBLE_S1G_SHORT;
+        double frequency = phy->GetFrequency();
+        uint8_t packetType = 0;
+        uint8_t incFlag = 0;
+
+        Time duration = m_phy->CalculateTxDuration(size, txvector, preamble, frequency, packetType, incFlag);
+        
+        ////////////////////////
+
+        // // Soluzione 1 - Using VOLTAGE
+        Ptr<CapacitorEnergySource> capacitor = 
+          nodeEnergySourceContainer -> Get(0) ->GetObject<CapacitorEnergySource> ();
+        // If capacitor energy source
+
+        if (!(capacitor == 0))
+          {
+            std::cout << "\tCapacitor present" << std::endl; //TODO Dawid Energy Check print test
+            double actualVoltage = capacitor->GetActualVoltage ();
+            // TODO Change method name "PredictVoltageForLorawanState"
+            double predictedVoltage =
+              capacitor->PredictVoltageForLorawanState (WifiPhy::TX, actualVoltage, duration);
+            double maxVoltage = capacitor->GetSupplyVoltage ();
+            DoubleValue lowThreshold;
+            std::cout << "Remaining energy: " << capacitor->GetEnergyFraction() << 
+            ", " << capacitor->GetActualVoltage() << "V" << std::endl;
+            std::cout <<  "Duration: " << duration.GetSeconds () << ", PredictedVoltage: " << predictedVoltage << "V" << std::endl;
+
+            capacitor->GetAttribute ("CapacitorLowVoltageThreshold", lowThreshold);
+            NS_LOG_DEBUG ("actual V, " << actualVoltage << " predicted V, " << predictedVoltage
+                                        << " th " << lowThreshold.Get () << ", Vmax "
+                                        << maxVoltage);
+            if (predictedVoltage < lowThreshold.Get () * maxVoltage)
+              {
+                std::cout << "Voltage is not enough!! We can not tx!" << std::endl << std::endl;
+                NS_LOG_DEBUG ("Voltage is not enough!! We can not tx!");
+                // m_enoughEnergyForTx (m_device->GetNode ()->GetId (), packet, Simulator::Now (),
+                //                       false);
+                // TODO? same check fr RXwind?
+                return;
+              }
+            else
+              {
+                // Remaining energy is enough. With the transmission we could fall under the battery threshold
+                std::cout << "Voltage is enough!! We can tx!" << std::endl << std::endl;
+                // m_enoughEnergyForTx (m_device->GetNode ()->GetId (), packet, Simulator::Now (),
+                                      // true);
+              }
+          }
+        else
+          {
+            NS_LOG_DEBUG (
+                "Capacitor energy source not found: no check on the state of energy/voltage.");
+          }
+      }
+    }
+  } // end check on energy
 
   if (m_qosSupported)
     {
@@ -1593,7 +1750,7 @@ StaWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
     outsideraw = false;
     //set when the station has to wake up again (next beacon, own slot, shared slot)
     //Simulator::Schedule((m_lastRawDurationus), &StaWifiMac::WakeUp, this);
-    /*GoToSleepBinary(1);*/
+    GoToSleepBinary(1);
     return;
    }
   else if (hdr->IsProbeResp ())
@@ -1640,9 +1797,10 @@ StaWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
             }
           if (assocResp.GetStatusCode ().IsSuccess ())
             {
-        	  SetAID (assocResp.GetAID ());
+        	    SetAID (assocResp.GetAID ());
               SetState (ASSOCIATED);
-	      NS_LOG_DEBUG("[" << this->GetAddress() <<"] is associated and has AID = " << this->GetAID());
+	            NS_LOG_DEBUG("[" << this->GetAddress() <<"] is associated and has AID = " << this->GetAID());
+              // TODO Dawid, after this start depleting/charging energy capacitor
               SupportedRates rates = assocResp.GetSupportedRates ();
               if (m_htSupported)
                 {
@@ -1707,7 +1865,6 @@ StaWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
         }
       return;
     }
-
   //Invoke the receive handler of our parent class to deal with any
   //other frames. Specifically, this will handle Block Ack-related
   //Management Action frames.

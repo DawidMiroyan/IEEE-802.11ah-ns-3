@@ -821,7 +821,7 @@ public:
   Time CalculateOverallTxTime (Ptr<const Packet> packet,
                                const WifiMacHeader* hdr,
                                const MacLowTransmissionParameters &params) const;
-protected:
+//protected: //TODO Dawid made public
   /**
    * Return a TXVECTOR for the DATA frame given the destination.
    * The function consults WifiRemoteStationManager, which controls the rate
@@ -865,6 +865,7 @@ private:
    * \return the total CTS size
    */
   uint32_t GetCtsSize (void) const;
+public:
   /**
    * Return the total size of the packet after WifiMacHeader and FCS trailer
    * have been added.
@@ -874,6 +875,7 @@ private:
    * \return the total packet size
    */
   uint32_t GetSize (Ptr<const Packet> packet, const WifiMacHeader *hdr) const;
+private:
   /**
    * Forward the packet down to WifiPhy for transmission. This is called for the entire A-MPDu when MPDU aggregation is used.
    *

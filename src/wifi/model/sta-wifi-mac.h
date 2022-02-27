@@ -126,6 +126,11 @@ private:
 
   void OnAssociated();
   void OnDeassociated();
+
+  //TODO Dawid, enables/disables energy source
+  void EnableCapacitorEnergySource();
+  void DisableCapacitorEnergySource();
+
 /*
   void GrantDCAAccess();
   void DenyDCAAccess();
@@ -241,6 +246,8 @@ private:
   void SetInRAWgroup(void);
   void UnsetInRAWgroup(void);
   
+  bool enoughVoltageForState();
+
    /**
    * wake up operation
    */

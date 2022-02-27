@@ -25,8 +25,8 @@ struct Configuration {
 	 * Capacitor Configuration parameters
 	 *
 	 */
-	double capacitance = 6; //mF
-	double eh = 0.03; // Energy harvester
+	double capacitance = 500; //6; //mF
+	double eh = 0.001;//0.001 // Energy harvester
 	std::string filenameRemainingVoltage = "remainingVoltage.txt";
 	std::string filenameEnergyConsumption = "energyConsumption.txt";
 	std::string filenameRemainingEnergy = "remainingEnergy.txt";
@@ -75,8 +75,8 @@ struct Configuration {
 	uint32_t seed = 1;
 	int NRawSta;
 	uint32_t Nsta;
-	uint32_t BeaconInterval = 102400;
-
+	uint32_t BeaconInterval = 2048000; //102400 = 0.1024 microseconds
+									   // 2048000 = 2.048 ms
 	double datarate = 7.8;
 	double bandWidth = 2;
 	string rho="200"; //50

@@ -333,7 +333,6 @@ WifiPhyStateHelper::NotifySleep (void)
 void
 WifiPhyStateHelper::NotifyOff (void)
 {
-  std::cout << "NotifyOff" << std::endl;
   NS_LOG_FUNCTION (this);
   for (Listeners::const_iterator i = m_listeners.begin (); i != m_listeners.end (); i++)
     {
@@ -353,7 +352,6 @@ WifiPhyStateHelper::NotifyWakeup (void)
 void
 WifiPhyStateHelper::NotifyOn (void)
 {
-  std::cout << "NotifyOn" << std::endl;
   NS_LOG_FUNCTION (this);
   for (Listeners::const_iterator i = m_listeners.begin (); i != m_listeners.end (); i++)
     {
@@ -627,7 +625,6 @@ WifiPhyStateHelper::SwitchFromSleep (Time duration)
 void
 WifiPhyStateHelper::SwitchToOff (void)
 {
-  std::cout << "Switching to OFF, state:" << GetState() << std::endl; // TODO Dawid
   NS_LOG_FUNCTION (this);
   Time now = Simulator::Now ();
   switch (GetState ())

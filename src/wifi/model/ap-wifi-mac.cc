@@ -1217,6 +1217,10 @@ ApWifiMac::SendOneBeacon (void)
       uint16_t statsPerSlot;
       uint16_t statRawSlot;
 
+      // TODO Dawid Testing
+      std::cout << "--------------------------" << std::endl;
+      std::cout << "AP sending BEACON at " << Simulator::Now ().GetSeconds () << std::endl;
+      std::cout << "--------------------------" << std::endl;
       //NS_LOG_UNCOND ("ap send beacon at " << Simulator::Now ());
 
       m_accessList.clear ();

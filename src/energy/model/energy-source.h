@@ -209,7 +209,6 @@ protected:
   */
   std::vector< Ptr<EnergyHarvester> > m_harvesters;
 
-
 protected:
   /**
    * \returns Total current draw from all DeviceEnergyModels.
