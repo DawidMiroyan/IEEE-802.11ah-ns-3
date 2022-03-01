@@ -1,0 +1,24 @@
+eh: 0
+STA 0 sent: 0 ; delivered: 0 ; echoed: 0; packetloss: -1
+
+eh: 0.001
+STA 0 sent: 0 ; delivered: 0 ; echoed: 0; packetloss: -1
+
+eh: 0.002
+STA 0 sent: 0 ; delivered: 0 ; echoed: 0; packetloss: -1
+
+eh: 0.005
+STA 0 sent: 2 ; delivered: 0 ; echoed: 0; packetloss: 100
+
+eh: 0.01
+STA 0 sent: 3 ; delivered: 2 ; echoed: 0; packetloss: 60
+
+eh: 0.02
+STA 0 sent: 3 ; delivered: 3 ; echoed: 0; packetloss: 50
+
+eh: 0.05
+STA 0 sent: 4 ; delivered: 4 ; echoed: 0; packetloss: 50
+
+eh: 0.1
+STA 0 sent: 4 ; delivered: 4 ; echoed: 0; packetloss: 50
+

@@ -25,8 +25,9 @@ struct Configuration {
 	 * Capacitor Configuration parameters
 	 *
 	 */
-	double capacitance = 500; //6; //mF
-	double eh = 0.001;//0.001 // Energy harvester
+	double capacitance = 6; //mF
+	double eh = 0.001; // Energy harvester
+	bool capEnabled = true; // Capacitor enabled from start
 	std::string filenameRemainingVoltage = "remainingVoltage.txt";
 	std::string filenameEnergyConsumption = "energyConsumption.txt";
 	std::string filenameRemainingEnergy = "remainingEnergy.txt";

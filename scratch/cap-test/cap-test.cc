@@ -1502,7 +1502,6 @@ int main(int argc, char *argv[]) {
 	std::string rv = "ns3::UniformRandomVariable[Min=3.0|Max=3.3]";//"ns3::UniformRandomVariable[Min=" + std::to_string(3.0) + "|Max=" + std::to_string(V0) + "]";
 	// Sets the default before initialising the CapacitorEnergySource
 	Config::SetDefault ("ns3::CapacitorEnergySource::RandomInitialVoltage", StringValue (rv));
-
 	CapacitorEnergySourceHelper capacitorHelper;
 	capacitorHelper.Set ("Capacitance", DoubleValue (config.capacitance/1000));
 	capacitorHelper.Set ("CapacitorLowVoltageThreshold", DoubleValue (0.545454)); // 1.8 V
@@ -1512,6 +1511,7 @@ int main(int argc, char *argv[]) {
 	capacitorHelper.Set ("FilenameVoltageTracking",
 						StringValue(config.filenameRemainingVoltage));
 	capacitorHelper.Set ("RandomInitialVoltage", StringValue (rv));
+	capacitorHelper.Set ("CapacitorStartEnabled", BooleanValue (config.capEnabled));
 
 	WifiRadioEnergyModelHelper radioEnergy;
 	// radioEnergy.Set("EnterSleepIfDepleted", BooleanValue(false));
@@ -1545,7 +1545,7 @@ int main(int argc, char *argv[]) {
 
 	radioEnergy.Set ("TxCurrentA", DoubleValue (0.061818));
 	radioEnergy.Set ("RxCurrentA", DoubleValue (0.027878));
-	radioEnergy.Set ("IdleCurrentA", DoubleValue (0.060060));
+	radioEnergy.Set ("IdleCurrentA", DoubleValue (0.006060));
 	radioEnergy.Set ("SleepCurrentA", DoubleValue (0.00000003));
 	radioEnergy.Set ("OffCurrentA", DoubleValue (0.000000029));
 
@@ -1624,12 +1624,9 @@ int main(int argc, char *argv[]) {
 	eventManager.onStatisticsHeader();
 
 	sendStatistics(true);
-
-	// TODO Dawid
-	// Ptr<WifiRadioEnergyModel> sta1 = wifiApNode.Get(0)->GetObject<WifiRadioEnergyModel>();
-	//sta1->DoGetCurrentA();
 	
 	std::cout << std::endl << "Starting simulation" << std::endl;
+	// TODO Dawid, disabled sim for testing config
 	Simulator::Stop(Seconds(config.simulationTime + config.CoolDownPeriod)); // allow up to a minute after the client & server apps are finished to process the queue
 	Simulator::Run();
 

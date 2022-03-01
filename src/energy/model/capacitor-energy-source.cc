@@ -60,6 +60,10 @@ CapacitorEnergySource::GetTypeId (void)
                          DoubleValue (0.01), // 10 mF
                          MakeDoubleAccessor (&CapacitorEnergySource::m_capacitance),
                          MakeDoubleChecker<double> ())
+          .AddAttribute ("CapacitorStartEnabled", "Whether capacitor should consume/recharge energy from the start",
+                         BooleanValue (true),
+                         MakeBooleanAccessor (&CapacitorEnergySource::m_enabled),
+                         MakeBooleanChecker ())
           .AddAttribute ("RandomInitialVoltage",
                          "Random variable from which taking the initial voltage of the capacitor",
                          StringValue ("ns3::UniformRandomVariable[Min=0.0|Max=0.0]"), //TODO Dawid

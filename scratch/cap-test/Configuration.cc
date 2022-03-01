@@ -36,7 +36,12 @@ Configuration::Configuration(int argc, char *argv[]) {
     cmd.AddValue("timOffset", "Offset in number of Beacon Intervals from the DTIM that carries the first page slice of the page", timOffset);
     cmd.AddValue("TrafficInterval", "Traffic interval time in ms", trafficInterval);
     cmd.AddValue("Outputpath", "files path of each stations", OutputPath);
-
+    
+    // TODO Dawid
+    cmd.AddValue("eh", "The energy harvesting rate", eh);
+    cmd.AddValue("capacitance", "Size of the capacitor in mF", capacitance);
+    cmd.AddValue("capEnabled", "Whether capacitor should be enabled from start", capEnabled);
+    
 /*
     cmd.AddValue("SlotFormat", "format of NRawSlotCount, -1 will auto calculate based on raw slot num", SlotFormat);
     cmd.AddValue("NRawSlotCount", "RAW slot duration, , -1 will auto calculate based on raw slot num", NRawSlotCount);
