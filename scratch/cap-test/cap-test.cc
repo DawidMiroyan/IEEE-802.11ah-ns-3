@@ -1532,15 +1532,14 @@ int main(int argc, char *argv[]) {
 	// radioEnergy.Set ("SleepCurrentA", DoubleValue (0.0000056));
 	// radioEnergy.Set ("IdleCurrentA", DoubleValue (0.0105055));
 	// radioEnergy.Set ("OffCurrentA", DoubleValue (0.0000055));
-	// radioEnergy.Set ("ReferenceVoltage", DoubleValue(V0)); //TODO Dawid, Not used in LoraRadioEnergyModel
-
+	// radioEnergy.Set ("ReferenceVoltage", DoubleValue(V0));
 	// Values from Serena Santi Paper at 3.3V
 	/**
 	 * Tx: 204mW ==> 0.061818
 	 * Rx: 92mW ==> 0.027878
 	 * Idle: 20mW ==> 0.006060
 	 * Sleep: 99nW ==> 0.00000003
-	 * Off:  99mW ==> 0.00000003
+	 * Off:  99nW ==> 0.00000003
 	 */
 
 	radioEnergy.Set ("TxCurrentA", DoubleValue (0.061818));

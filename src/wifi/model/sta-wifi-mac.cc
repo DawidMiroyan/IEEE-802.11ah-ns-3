@@ -158,7 +158,7 @@ StaWifiMac::StaWifiMac ()
   m_pspollDca->SetLow (m_low);
   m_pspollDca->SetManager (m_dcfManager);
   m_pspollDca->SetTxMiddle (m_txMiddle);
-  fasTAssocType = false; //centraied control
+  fasTAssocType = true; //centraied control
   fastAssocThreshold = 0; // allow some station to associate at the begining
     Ptr<UniformRandomVariable> m_rv = CreateObject<UniformRandomVariable> ();
   assocVaule = m_rv->GetValue (0, 999);
@@ -1739,6 +1739,7 @@ StaWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
 
          AuthenticationCtrl AuthenCtrl;
          AuthenCtrl = beacon.GetAuthCtrl ();
+         std::cout << "StaWifiMac::Receive: " << fasTAssocType << std::endl;
          fasTAssocType = AuthenCtrl.GetControlType ();
          if (!fasTAssocType)  //only support centralized cnotrol
            {

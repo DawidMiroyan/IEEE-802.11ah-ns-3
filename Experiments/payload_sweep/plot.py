@@ -1,0 +1,86 @@
+import matplotlib.pyplot as plt
+import os
+
+expPath = '/home/dawid/Documents/RP1/IEEE-802.11ah-ns-3/Experiments/payload_sweep'
+dataPath = expPath + "/data/"
+files = os.listdir(dataPath)
+
+payloadOptions = set()
+capSizeOptions = set()
+ehOptions = set()
+
+data = dict()
+
+# Read the files and store their results in dict
+for file in files:
+
+    options = file.rstrip(".txt").split(sep="_")
+    popt = int(options[0])
+    csopt = int(options[1])
+    ehopt = float(options[2])
+
+    payloadOptions.add(popt)
+    capSizeOptions.add(csopt)
+    ehOptions.add(ehopt)
+
+    key = (popt, csopt, ehopt)
+
+    x = []
+    y = []
+
+    with open(dataPath+file, 'r') as f:
+        lines = f.readlines()
+        for line in lines:
+            xs, ys = line.split()
+
+            x.append(int(xs))
+            y.append(float(ys))
+
+    data[key] = {'x': x, 'y': y}
+
+
+def plotGroupPayloadCapSize():
+    for popt in payloadOptions:
+        for capSize in capSizeOptions:
+            legend = []
+            for key in sorted(data):
+                if key[0]==popt and key[1]==capSize:
+                    plt.plot([x/1000 for x in data[key]['x']], data[key]['y'])
+
+                    legend.append( "size: " + str(key[1]) + ", eh: " + str(key[2]))
+
+            plt.axhline(y=1.8, label='V_{th low}', color='red', linestyle='dotted')
+            plt.axhline(y=3, label='V_{th high}', color='green', linestyle='dotted')
+            plt.ylim(bottom=1.5, top=3.5)
+
+
+            plt.legend(legend)
+            plt.xlabel('Time in seconds')
+            plt.ylabel('Capacitor voltage')
+
+            plt.savefig(expPath+"/remainingVoltage_" + str(popt) + "_" + str(capSize) + ".png")
+            plt.clf()
+
+def plotGroupEhCapSize():
+    for eh in ehOptions:
+        for capSize in capSizeOptions:
+            legend = []
+            for key in sorted(data):
+                if key[2]==eh and key[1]==capSize:
+                    plt.plot([x/1000 for x in data[key]['x']], data[key]['y'])
+
+                    legend.append( "Payload size: " + str(key[0]))
+
+            plt.axhline(y=1.8, label='V_{th low}', color='red', linestyle='dotted')
+            plt.axhline(y=3, label='V_{th high}', color='green', linestyle='dotted')
+            plt.ylim(bottom=1.5, top=3.5)
+
+
+            plt.legend(legend)
+            plt.xlabel('Time in seconds')
+            plt.ylabel('Capacitor voltage')
+
+            plt.savefig(expPath+"/remainingVoltage_" + str(capSize) + "_" + str(eh) + ".png")
+            plt.clf()
+
+plotGroupEhCapSize()

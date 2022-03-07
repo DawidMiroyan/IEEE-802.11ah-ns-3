@@ -1,7 +1,7 @@
 Waf: Entering directory `/home/dawid/Documents/RP1/IEEE-802.11ah-ns-3/build'
 Waf: Leaving directory `/home/dawid/Documents/RP1/IEEE-802.11ah-ns-3/build'
 Build commands will be stored in build/compile_commands.json
-'build' finished successfully (0.687s)
+'build' finished successfully (0.632s)
 Configuring trace sources...
 Populating routing tables...
 Populating ARP cache...
@@ -21,157 +21,162 @@ Starting simulation
 AP sending BEACON at 0
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 0.999928, 3.03088V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 0.000212132
-Scheduling OFF at: 0.000212132 For: 0.299559
+Scheduling OFF at: 0.000212132 For: 0.499301
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 0.994357, 3.02242V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 0.00241213
-Scheduling OFF at: 0.00241213 For: 1.37039
+Scheduling OFF at: 0.00241213 For: 2.29695
 
+StaWifiMac::Receive: 1
 StaWifiMac::GoToSleepBinary
 --------------------------
 AP sending BEACON at 2.048
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 0.827026, 2.75641V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 2.048
-Scheduling OFF at: 2.048 For: 0.247761
+Scheduling OFF at: 2.048 For: 0.499301
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 0.823308, 2.75021V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 2.05004
-Scheduling OFF at: 2.05004 For: 1.13466
+Scheduling OFF at: 2.05004 For: 2.29695
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 --------------------------
 AP sending BEACON at 4.096
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 0.823214, 2.75005V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 4.096
-Scheduling OFF at: 4.096 For: 0.246619
+Scheduling OFF at: 4.096 For: 0.499301
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 0.819241, 2.7434V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 4.0982
-Scheduling OFF at: 4.0982 For: 1.12905
+Scheduling OFF at: 4.0982 For: 2.29695
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
-Remaining energy: 0.82132, 2.74688V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: TX at time = 4.50241
-Scheduling OFF at: 4.50241 For: 0.110962
+Scheduling OFF at: 4.50241 For: 0.225169
 
 WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
-Remaining energy: 0.813969, 2.73456V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 4.50401
-Scheduling OFF at: 4.50401 For: 1.12179
+Scheduling OFF at: 4.50401 For: 2.29695
 
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 0.813971, 2.73457V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 4.50417
-Scheduling OFF at: 4.50417 For: 0.24385
+Scheduling OFF at: 4.50417 For: 0.499301
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 0.812198, 2.73159V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 4.50517
-Scheduling OFF at: 4.50517 For: 1.11935
+Scheduling OFF at: 4.50517 For: 2.29695
 
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 0.812203, 2.7316V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 4.50544
-Scheduling OFF at: 4.50544 For: 0.24332
+Scheduling OFF at: 4.50544 For: 0.499301
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 0.810014, 2.72791V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 4.50668
-Scheduling OFF at: 4.50668 For: 1.11634
+Scheduling OFF at: 4.50668 For: 2.29695
 
 Node 0 is associated and has aid 1
 All 1 stations associated at 4506676, configuring clients & server
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
-Remaining energy: 0.810018, 2.72792V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: TX at time = 4.50684
-Scheduling OFF at: 4.50684 For: 0.109435
+Scheduling OFF at: 4.50684 For: 0.225169
 
 WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
-Remaining energy: 0.805497, 2.7203V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 4.50784
-Scheduling OFF at: 4.50784 For: 1.11011
+Scheduling OFF at: 4.50784 For: 2.29695
 
 --------------------------
 AP sending BEACON at 6.144
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 0.82233, 2.74857V
+Remaining energy: 1, 3.03099V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 6.144
 CapacitorEnergySource::Enable Enabling the capacitor, energy will now be drained
-Scheduling OFF at: 6.144 For: 0.246354
+Scheduling OFF at: 6.144 For: 0.499301
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 0.818651, 2.74242V
+Remaining energy: 0.996576, 3.02579V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 6.14604
-Scheduling OFF at: 6.14604 For: 1.12824
+Scheduling OFF at: 6.14604 For: 2.28909
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 0.818651, 2.74242V
+Remaining energy: 0.996576, 3.02579V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 6.14604
-Scheduling OFF at: 6.14604 For: 227905
+Scheduling OFF at: 6.14604 For: 462395
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.16781, 3.27544V
+Remaining energy: 1.01279, 3.05031V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 8.18641
-Scheduling OFF at: 8.18641 For: 1.60944
+Scheduling OFF at: 8.18641 For: 2.32633
 
 --------------------------
 AP sending BEACON at 8.192
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.16399, 3.27008V
+Remaining energy: 1.01076, 3.04725V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 8.192
-Scheduling OFF at: 8.192 For: 0.348708
+Scheduling OFF at: 8.192 For: 0.504672
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.15688, 3.26008V
+Remaining energy: 1.00702, 3.04161V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 8.1942
-Scheduling OFF at: 8.1942 For: 1.59438
+Scheduling OFF at: 8.1942 For: 2.31308
 
 StaWifiMac::GoToSleepCurrentTIM Going to sleep current TIM
 StaWifiMac::GoToSleep
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.15688, 3.26008V
+Remaining energy: 1.00702, 3.04161V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 8.1942
-Scheduling OFF at: 8.1942 For: 322065
+Scheduling OFF at: 8.1942 For: 467243
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
@@ -179,10 +184,10 @@ Yans Wifi phy: switch to sleep
 Trying to send packet, state: SLEEP at 10.0827
 ----------------------------------------------
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18379, 3.29778V
+Remaining energy: 1.02128, 3.06307V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 10.0827
-Scheduling OFF at: 10.0827 For: 1.63147
+Scheduling OFF at: 10.0827 For: 2.34583
 
 
 Checking Energy conditions
@@ -190,113 +195,115 @@ Checking Energy conditions
 	yansPhy present
 	nodeEnergySourceContainer present
 	Capacitor present
-Remaining energy: 1.18379, 3.29778V
-Duration: 0.00424, PredictedVoltage: 3.25457V
+Remaining energy: 1.02128, 3.06307V
+Duration: 0.0134, PredictedVoltage: 2.9873V
 Voltage is enough!! We can tx!
 
 StaWifiMac::SleepIfQueueIsEmpty
 	 Case 4
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
-Remaining energy: 1.18379, 3.29778V
+Remaining energy: 1.02128, 3.06307V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: TX at time = 10.0827
-Scheduling OFF at: 10.0827 For: 0.159932
+Scheduling OFF at: 10.0827 For: 0.229961
 
 WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
-Remaining energy: 1.15297, 3.25457V
+Remaining energy: 0.971383, 2.9873V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: IDLE at time = 10.0869
-Scheduling OFF at: 10.0869 For: 1.58899
+WifiRadioEnergyModel:Switching to state: IDLE at time = 10.0961
+Scheduling OFF at: 10.0961 For: 2.23122
 
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.15286, 3.25442V
+Remaining energy: 0.971327, 2.98722V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: RX at time = 10.0871
-Scheduling OFF at: 10.0871 For: 0.345376
+WifiRadioEnergyModel:Switching to state: RX at time = 10.0962
+Scheduling OFF at: 10.0962 For: 0.484985
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.14967, 3.24991V
+Remaining energy: 0.969697, 2.98471V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: IDLE at time = 10.0881
-Scheduling OFF at: 10.0881 For: 1.58445
+WifiRadioEnergyModel:Switching to state: IDLE at time = 10.0972
+Scheduling OFF at: 10.0972 For: 2.22735
 
 StaWifiMac::SleepIfQueueIsEmpty
 	 Case 1
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.14967, 3.24991V
+Remaining energy: 0.969697, 2.98471V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: SLEEP at time = 10.0881
-Scheduling OFF at: 10.0881 For: 320058
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 10.0972
+Scheduling OFF at: 10.0972 For: 449924
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.1568, 3.25996V
+Remaining energy: 0.970984, 2.98669V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 10.2344
-Scheduling OFF at: 10.2344 For: 1.59426
+Scheduling OFF at: 10.2344 For: 2.2303
 
 --------------------------
 AP sending BEACON at 10.24
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.1531, 3.25475V
+Remaining energy: 0.969045, 2.98371V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 10.24
-Scheduling OFF at: 10.24 For: 0.345448
+Scheduling OFF at: 10.24 For: 0.483845
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.14661, 3.24558V
+Remaining energy: 0.96573, 2.9786V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 10.242
-Scheduling OFF at: 10.242 For: 1.58022
+Scheduling OFF at: 10.242 For: 2.21823
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.14661, 3.24558V
+Remaining energy: 0.96573, 2.9786V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 10.242
-Scheduling OFF at: 10.242 For: 319205
+Scheduling OFF at: 10.242 For: 448083
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18366, 3.2976V
+Remaining energy: 0.984454, 3.00734V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 12.2824
-Scheduling OFF at: 12.2824 For: 1.63129
+Scheduling OFF at: 12.2824 For: 2.26124
 
 --------------------------
 AP sending BEACON at 12.288
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.17965, 3.29201V
+Remaining energy: 0.982485, 3.00433V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 12.288
-Scheduling OFF at: 12.288 For: 0.353401
+Scheduling OFF at: 12.288 For: 0.490556
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.172, 3.28132V
+Remaining energy: 0.978662, 2.99848V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 12.2903
-Scheduling OFF at: 12.2903 For: 1.61522
+Scheduling OFF at: 12.2903 For: 2.24794
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.172, 3.28132V
+Remaining energy: 0.978662, 2.99848V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 12.2903
-Scheduling OFF at: 12.2903 For: 326275
+Scheduling OFF at: 12.2903 For: 454084
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18479, 3.29917V
+Remaining energy: 0.996337, 3.02543V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 14.3304
-Scheduling OFF at: 14.3304 For: 1.63285
+Scheduling OFF at: 14.3304 For: 2.28854
 
 --------------------------
 AP sending BEACON at 14.336
@@ -305,84 +312,86 @@ StaWifiMac::GoToSleep
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.18077, 3.29357V
+Remaining energy: 0.994341, 3.0224V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 14.336
-Scheduling OFF at: 14.336 For: 328715
+Scheduling OFF at: 14.336 For: 461358
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18518, 3.29971V
+Remaining energy: 1.01075, 3.04724V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 16.3784
-Scheduling OFF at: 16.3784 For: 1.63338
+Scheduling OFF at: 16.3784 For: 2.32165
 
 --------------------------
 AP sending BEACON at 16.384
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.18115, 3.2941V
+Remaining energy: 1.00873, 3.04418V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 16.384
-Scheduling OFF at: 16.384 For: 0.353851
+Scheduling OFF at: 16.384 For: 0.503658
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.17388, 3.28395V
+Remaining energy: 1.005, 3.03856V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 16.3862
-Scheduling OFF at: 16.3862 For: 1.61781
+Scheduling OFF at: 16.3862 For: 2.30844
 
 StaWifiMac::GoToSleepCurrentTIM Going to sleep current TIM
 StaWifiMac::GoToSleep
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.17388, 3.28395V
+Remaining energy: 1.005, 3.03856V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 16.3862
-Scheduling OFF at: 16.3862 For: 326798
+Scheduling OFF at: 16.3862 For: 466304
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18488, 3.29929V
+Remaining energy: 1.02052, 3.06193V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 18.4264
-Scheduling OFF at: 18.4264 For: 1.63296
+Scheduling OFF at: 18.4264 For: 2.34409
 
 --------------------------
 AP sending BEACON at 18.432
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.18085, 3.29368V
+Remaining energy: 1.01847, 3.05885V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 18.432
-Scheduling OFF at: 18.432 For: 0.35376
+Scheduling OFF at: 18.432 For: 0.508523
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.17411, 3.28427V
+Remaining energy: 1.01498, 3.05361V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 18.434
-Scheduling OFF at: 18.434 For: 1.61813
+Scheduling OFF at: 18.434 For: 2.33136
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.17411, 3.28427V
+Remaining energy: 1.01498, 3.05361V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 18.434
-Scheduling OFF at: 18.434 For: 326861
+Scheduling OFF at: 18.434 For: 470935
 
 ----------------------------------------------
 Trying to send packet, state: SLEEP at 20.0827
 ----------------------------------------------
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18448, 3.29874V
+Remaining energy: 1.02695, 3.07156V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 20.0827
-Scheduling OFF at: 20.0827 For: 1.63241
+Scheduling OFF at: 20.0827 For: 2.35886
 
 
 Checking Energy conditions
@@ -390,82 +399,83 @@ Checking Energy conditions
 	yansPhy present
 	nodeEnergySourceContainer present
 	Capacitor present
-Remaining energy: 1.18448, 3.29874V
-Duration: 0.00424, PredictedVoltage: 3.2555V
+Remaining energy: 1.02695, 3.07156V
+Duration: 0.0134, PredictedVoltage: 2.99558V
 Voltage is enough!! We can tx!
 
 StaWifiMac::SleepIfQueueIsEmpty
 	 Case 4
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
-Remaining energy: 1.18448, 3.29874V
+Remaining energy: 1.02695, 3.07156V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: TX at time = 20.0827
-Scheduling OFF at: 20.0827 For: 0.160025
+Scheduling OFF at: 20.0827 For: 0.231239
 
 WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
-Remaining energy: 1.15363, 3.2555V
+Remaining energy: 0.976775, 2.99558V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: IDLE at time = 20.0869
-Scheduling OFF at: 20.0869 For: 1.5899
+WifiRadioEnergyModel:Switching to state: IDLE at time = 20.0961
+Scheduling OFF at: 20.0961 For: 2.2436
 
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.15353, 3.25535V
+Remaining energy: 0.976719, 2.9955V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: RX at time = 20.0871
-Scheduling OFF at: 20.0871 For: 0.345575
+WifiRadioEnergyModel:Switching to state: RX at time = 20.0962
+Scheduling OFF at: 20.0962 For: 0.487677
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.15034, 3.25085V
+Remaining energy: 0.97508, 2.99298V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: IDLE at time = 20.0881
-Scheduling OFF at: 20.0881 For: 1.58536
+WifiRadioEnergyModel:Switching to state: IDLE at time = 20.0972
+Scheduling OFF at: 20.0972 For: 2.23971
 
 StaWifiMac::SleepIfQueueIsEmpty
 	 Case 1
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.15034, 3.25085V
+Remaining energy: 0.97508, 2.99298V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: SLEEP at time = 20.0881
-Scheduling OFF at: 20.0881 For: 320242
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 20.0972
+Scheduling OFF at: 20.0972 For: 452421
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.16592, 3.27279V
+Remaining energy: 0.978516, 2.99825V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 20.4744
-Scheduling OFF at: 20.4744 For: 1.60683
+Scheduling OFF at: 20.4744 For: 2.2476
 
 --------------------------
 AP sending BEACON at 20.48
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.16212, 3.26745V
+Remaining energy: 0.976561, 2.99525V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 20.48
-Scheduling OFF at: 20.48 For: 0.348147
+Scheduling OFF at: 20.48 For: 0.487598
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.15464, 3.25693V
+Remaining energy: 0.972762, 2.98942V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 20.4823
-Scheduling OFF at: 20.4823 For: 1.5913
+Scheduling OFF at: 20.4823 For: 2.23439
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.15464, 3.25693V
+Remaining energy: 0.972762, 2.98942V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 20.4823
-Scheduling OFF at: 20.4823 For: 321442
+Scheduling OFF at: 20.4823 For: 451346
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18402, 3.2981V
+Remaining energy: 0.990915, 3.01719V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 22.5224
-Scheduling OFF at: 22.5224 For: 1.63178
+Scheduling OFF at: 22.5224 For: 2.27608
 
 --------------------------
 AP sending BEACON at 22.528
@@ -474,107 +484,110 @@ StaWifiMac::GoToSleep
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.18001, 3.2925V
+Remaining energy: 0.988931, 3.01417V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 22.528
-Scheduling OFF at: 22.528 For: 328502
+Scheduling OFF at: 22.528 For: 458848
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18515, 3.29967V
+Remaining energy: 1.00579, 3.03975V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 24.5704
-Scheduling OFF at: 24.5704 For: 1.63333
+Scheduling OFF at: 24.5704 For: 2.31025
 
 --------------------------
 AP sending BEACON at 24.576
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.18112, 3.29406V
+Remaining energy: 1.00377, 3.0367V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 24.576
-Scheduling OFF at: 24.576 For: 0.353841
+Scheduling OFF at: 24.576 For: 0.501184
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.17385, 3.28391V
+Remaining energy: 1.00006, 3.03108V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 24.5782
-Scheduling OFF at: 24.5782 For: 1.61777
+Scheduling OFF at: 24.5782 For: 2.2971
 
 StaWifiMac::GoToSleepCurrentTIM Going to sleep current TIM
 StaWifiMac::GoToSleep
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.17385, 3.28391V
+Remaining energy: 1.00006, 3.03108V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 24.5782
-Scheduling OFF at: 24.5782 For: 326789
+Scheduling OFF at: 24.5782 For: 464014
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18487, 3.29929V
+Remaining energy: 1.01599, 3.05513V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 26.6184
-Scheduling OFF at: 26.6184 For: 1.63296
+Scheduling OFF at: 26.6184 For: 2.33368
 
 --------------------------
 AP sending BEACON at 26.624
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.18085, 3.29368V
+Remaining energy: 1.01395, 3.05205V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 26.624
-Scheduling OFF at: 26.624 For: 0.35376
+Scheduling OFF at: 26.624 For: 0.506266
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.17411, 3.28427V
+Remaining energy: 1.01048, 3.04682V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 26.626
-Scheduling OFF at: 26.626 For: 1.61812
+Scheduling OFF at: 26.626 For: 2.32101
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.17411, 3.28427V
+Remaining energy: 1.01048, 3.04682V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 26.626
-Scheduling OFF at: 26.626 For: 326861
+Scheduling OFF at: 26.626 For: 468845
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18489, 3.2993V
+Remaining energy: 1.02555, 3.06946V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 28.6664
-Scheduling OFF at: 28.6664 For: 1.63297
+Scheduling OFF at: 28.6664 For: 2.35563
 
 --------------------------
 AP sending BEACON at 28.672
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.18086, 3.2937V
+Remaining energy: 1.02348, 3.06637V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 28.672
-Scheduling OFF at: 28.672 For: 0.353763
+Scheduling OFF at: 28.672 For: 0.511027
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.1736, 3.28355V
+Remaining energy: 1.0197, 3.0607V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 28.6742
-Scheduling OFF at: 28.6742 For: 1.61741
+Scheduling OFF at: 28.6742 For: 2.34221
 
 StaWifiMac::GoToSleepCurrentTIM Going to sleep current TIM
 StaWifiMac::GoToSleep
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.1736, 3.28355V
+Remaining energy: 1.0197, 3.0607V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 28.6742
-Scheduling OFF at: 28.6742 For: 326718
+Scheduling OFF at: 28.6742 For: 473126
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
@@ -582,10 +595,10 @@ Yans Wifi phy: switch to sleep
 Trying to send packet, state: SLEEP at 30.0827
 ----------------------------------------------
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18401, 3.29809V
+Remaining energy: 1.02971, 3.07568V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 30.0827
-Scheduling OFF at: 30.0827 For: 1.63177
+Scheduling OFF at: 30.0827 For: 2.36519
 
 
 Checking Energy conditions
@@ -593,113 +606,115 @@ Checking Energy conditions
 	yansPhy present
 	nodeEnergySourceContainer present
 	Capacitor present
-Remaining energy: 1.18401, 3.29809V
-Duration: 0.00424, PredictedVoltage: 3.25487V
+Remaining energy: 1.02971, 3.07568V
+Duration: 0.0134, PredictedVoltage: 2.9996V
 Voltage is enough!! We can tx!
 
 StaWifiMac::SleepIfQueueIsEmpty
 	 Case 4
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
-Remaining energy: 1.18401, 3.29809V
+Remaining energy: 1.02971, 3.07568V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: TX at time = 30.0827
-Scheduling OFF at: 30.0827 For: 0.159962
+Scheduling OFF at: 30.0827 For: 0.231859
 
 WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
-Remaining energy: 1.15319, 3.25487V
+Remaining energy: 0.979394, 2.9996V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: IDLE at time = 30.0869
-Scheduling OFF at: 30.0869 For: 1.58929
+WifiRadioEnergyModel:Switching to state: IDLE at time = 30.0961
+Scheduling OFF at: 30.0961 For: 2.24962
 
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.15308, 3.25472V
+Remaining energy: 0.979338, 2.99951V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: RX at time = 30.0871
-Scheduling OFF at: 30.0871 For: 0.345441
+WifiRadioEnergyModel:Switching to state: RX at time = 30.0962
+Scheduling OFF at: 30.0962 For: 0.488985
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.14989, 3.25022V
+Remaining energy: 0.977694, 2.99699V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: IDLE at time = 30.0881
-Scheduling OFF at: 30.0881 For: 1.58474
+WifiRadioEnergyModel:Switching to state: IDLE at time = 30.0972
+Scheduling OFF at: 30.0972 For: 2.24571
 
 StaWifiMac::SleepIfQueueIsEmpty
 	 Case 1
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.14989, 3.25022V
+Remaining energy: 0.977694, 2.99699V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: SLEEP at time = 30.0881
-Scheduling OFF at: 30.0881 For: 320118
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 30.0972
+Scheduling OFF at: 30.0972 For: 453634
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.17171, 3.28091V
+Remaining energy: 0.983224, 3.00546V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 30.7144
-Scheduling OFF at: 30.7144 For: 1.61482
+Scheduling OFF at: 30.7144 For: 2.25842
 
 --------------------------
 AP sending BEACON at 30.72
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.16784, 3.27549V
+Remaining energy: 0.981258, 3.00245V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 30.72
-Scheduling OFF at: 30.72 For: 0.349863
+Scheduling OFF at: 30.72 For: 0.489943
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.16122, 3.26619V
+Remaining energy: 0.9779, 2.99731V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 30.722
-Scheduling OFF at: 30.722 For: 1.60036
+Scheduling OFF at: 30.722 For: 2.24619
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.16122, 3.26619V
+Remaining energy: 0.9779, 2.99731V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 30.722
-Scheduling OFF at: 30.722 For: 323272
+Scheduling OFF at: 30.722 For: 453730
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18431, 3.29851V
+Remaining energy: 0.995639, 3.02437V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 32.7624
-Scheduling OFF at: 32.7624 For: 1.63219
+Scheduling OFF at: 32.7624 For: 2.28693
 
 --------------------------
 AP sending BEACON at 32.768
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.1803, 3.29291V
+Remaining energy: 0.993645, 3.02134V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 32.768
-Scheduling OFF at: 32.768 For: 0.353594
+Scheduling OFF at: 32.768 For: 0.496128
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.17264, 3.28221V
+Remaining energy: 0.989777, 3.01545V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 32.7703
-Scheduling OFF at: 32.7703 For: 1.6161
+Scheduling OFF at: 32.7703 For: 2.27347
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.17264, 3.28221V
+Remaining energy: 0.989777, 3.01545V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 32.7703
-Scheduling OFF at: 32.7703 For: 326452
+Scheduling OFF at: 32.7703 For: 459241
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18482, 3.29921V
+Remaining energy: 1.00655, 3.04089V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 34.8104
-Scheduling OFF at: 34.8104 For: 1.63288
+Scheduling OFF at: 34.8104 For: 2.31199
 
 --------------------------
 AP sending BEACON at 34.816
@@ -708,84 +723,86 @@ StaWifiMac::GoToSleep
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.1808, 3.29361V
+Remaining energy: 1.00453, 3.03784V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 34.816
-Scheduling OFF at: 34.816 For: 328722
+Scheduling OFF at: 34.816 For: 466084
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18518, 3.29972V
+Remaining energy: 1.0201, 3.0613V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 36.8584
-Scheduling OFF at: 36.8584 For: 1.63338
+Scheduling OFF at: 36.8584 For: 2.34313
 
 --------------------------
 AP sending BEACON at 36.864
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.18115, 3.2941V
+Remaining energy: 1.01805, 3.05822V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 36.864
-Scheduling OFF at: 36.864 For: 0.353851
+Scheduling OFF at: 36.864 For: 0.508315
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.17389, 3.28395V
+Remaining energy: 1.01429, 3.05257V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 36.8662
-Scheduling OFF at: 36.8662 For: 1.61781
+Scheduling OFF at: 36.8662 For: 2.32978
 
 StaWifiMac::GoToSleepCurrentTIM Going to sleep current TIM
 StaWifiMac::GoToSleep
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.17389, 3.28395V
+Remaining energy: 1.01429, 3.05257V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 36.8662
-Scheduling OFF at: 36.8662 For: 326798
+Scheduling OFF at: 36.8662 For: 470615
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18488, 3.29929V
+Remaining energy: 1.02904, 3.07469V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 38.9064
-Scheduling OFF at: 38.9064 For: 1.63296
+Scheduling OFF at: 38.9064 For: 2.36366
 
 --------------------------
 AP sending BEACON at 38.912
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.18085, 3.29368V
+Remaining energy: 1.02697, 3.07159V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 38.912
-Scheduling OFF at: 38.912 For: 0.35376
+Scheduling OFF at: 38.912 For: 0.512769
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.17411, 3.28427V
+Remaining energy: 1.02345, 3.06633V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 38.914
-Scheduling OFF at: 38.914 For: 1.61813
+Scheduling OFF at: 38.914 For: 2.35082
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.17411, 3.28427V
+Remaining energy: 1.02345, 3.06633V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 38.914
-Scheduling OFF at: 38.914 For: 326861
+Scheduling OFF at: 38.914 For: 474866
 
 ----------------------------------------------
 Trying to send packet, state: SLEEP at 40.0827
 ----------------------------------------------
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18349, 3.29737V
+Remaining energy: 1.03162, 3.07853V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 40.0827
-Scheduling OFF at: 40.0827 For: 1.63106
+Scheduling OFF at: 40.0827 For: 2.36957
 
 
 Checking Energy conditions
@@ -793,82 +810,83 @@ Checking Energy conditions
 	yansPhy present
 	nodeEnergySourceContainer present
 	Capacitor present
-Remaining energy: 1.18349, 3.29737V
-Duration: 0.00424, PredictedVoltage: 3.25416V
+Remaining energy: 1.03162, 3.07853V
+Duration: 0.0134, PredictedVoltage: 3.00237V
 Voltage is enough!! We can tx!
 
 StaWifiMac::SleepIfQueueIsEmpty
 	 Case 4
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
-Remaining energy: 1.18349, 3.29737V
+Remaining energy: 1.03162, 3.07853V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: TX at time = 40.0827
-Scheduling OFF at: 40.0827 For: 0.159892
+Scheduling OFF at: 40.0827 For: 0.232289
 
 WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
-Remaining energy: 1.15268, 3.25416V
+Remaining energy: 0.981208, 3.00237V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: IDLE at time = 40.0869
-Scheduling OFF at: 40.0869 For: 1.58859
+WifiRadioEnergyModel:Switching to state: IDLE at time = 40.0961
+Scheduling OFF at: 40.0961 For: 2.25379
 
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.15258, 3.25401V
+Remaining energy: 0.981152, 3.00229V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: RX at time = 40.0871
-Scheduling OFF at: 40.0871 For: 0.34529
+WifiRadioEnergyModel:Switching to state: RX at time = 40.0962
+Scheduling OFF at: 40.0962 For: 0.48989
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.14939, 3.24951V
+Remaining energy: 0.979505, 2.99977V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: IDLE at time = 40.0881
-Scheduling OFF at: 40.0881 For: 1.58405
+WifiRadioEnergyModel:Switching to state: IDLE at time = 40.0972
+Scheduling OFF at: 40.0972 For: 2.24987
 
 StaWifiMac::SleepIfQueueIsEmpty
 	 Case 1
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.14939, 3.24951V
+Remaining energy: 0.979505, 2.99977V
 Threshholds: L0.545454, H0.909
-WifiRadioEnergyModel:Switching to state: SLEEP at time = 40.0881
-Scheduling OFF at: 40.0881 For: 319979
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 40.0972
+Scheduling OFF at: 40.0972 For: 454474
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.17577, 3.28659V
+Remaining energy: 0.987084, 3.01135V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 40.9544
-Scheduling OFF at: 40.9544 For: 1.62041
+Scheduling OFF at: 40.9544 For: 2.26728
 
 --------------------------
 AP sending BEACON at 40.96
 --------------------------
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
-Remaining energy: 1.17185, 3.28111V
+Remaining energy: 0.985109, 3.00834V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: RX at time = 40.96
-Scheduling OFF at: 40.96 For: 0.351065
+Scheduling OFF at: 40.96 For: 0.491866
 
 WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
-Remaining energy: 1.16428, 3.2705V
+Remaining energy: 0.981276, 3.00248V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 40.9623
-Scheduling OFF at: 40.9623 For: 1.60458
+Scheduling OFF at: 40.9623 For: 2.25394
 
+StaWifiMac::Receive: 0
 StaWifiMac::GoToSleepBinary
 	 Case 4
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.16428, 3.2705V
+Remaining energy: 0.981276, 3.00248V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 40.9623
-Scheduling OFF at: 40.9623 For: 324126
+Scheduling OFF at: 40.9623 For: 455296
 
 WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
-Remaining energy: 1.18445, 3.2987V
+Remaining energy: 0.998738, 3.02907V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: IDLE at time = 43.0024
-Scheduling OFF at: 43.0024 For: 1.63237
+Scheduling OFF at: 43.0024 For: 2.29405
 
 --------------------------
 AP sending BEACON at 43.008
@@ -877,28 +895,439 @@ StaWifiMac::GoToSleep
 Yans Wifi phy: switch to sleep
 MacLow::NotifySleepNow
 WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
-Remaining energy: 1.18043, 3.2931V
+Remaining energy: 0.996737, 3.02604V
 Threshholds: L0.545454, H0.909
 WifiRadioEnergyModel:Switching to state: SLEEP at time = 43.008
-Scheduling OFF at: 43.008 For: 328621
+Scheduling OFF at: 43.008 For: 462470
+
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.01295, 3.05056V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 45.0504
+Scheduling OFF at: 45.0504 For: 2.3267
+
+--------------------------
+AP sending BEACON at 45.056
+--------------------------
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.01092, 3.04749V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 45.056
+Scheduling OFF at: 45.056 For: 0.504753
+
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.00719, 3.04186V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 45.0582
+Scheduling OFF at: 45.0582 For: 2.31346
+
+StaWifiMac::GoToSleepCurrentTIM Going to sleep current TIM
+StaWifiMac::GoToSleep
+Yans Wifi phy: switch to sleep
+MacLow::NotifySleepNow
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.00719, 3.04186V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 45.0582
+Scheduling OFF at: 45.0582 For: 467318
+
+StaWifiMac::Receive: 0
+StaWifiMac::GoToSleepBinary
+	 Case 4
+Yans Wifi phy: switch to sleep
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.02253, 3.06494V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 47.0984
+Scheduling OFF at: 47.0984 For: 2.34869
+
+--------------------------
+AP sending BEACON at 47.104
+--------------------------
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.02047, 3.06185V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 47.104
+Scheduling OFF at: 47.104 For: 0.509522
+
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.01697, 3.0566V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 47.106
+Scheduling OFF at: 47.106 For: 2.33594
+
+StaWifiMac::Receive: 0
+StaWifiMac::GoToSleepBinary
+	 Case 4
+Yans Wifi phy: switch to sleep
+MacLow::NotifySleepNow
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.01697, 3.0566V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 47.106
+Scheduling OFF at: 47.106 For: 471860
+
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.03151, 3.07836V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 49.1464
+Scheduling OFF at: 49.1464 For: 2.36932
+
+--------------------------
+AP sending BEACON at 49.152
+--------------------------
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.02943, 3.07526V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 49.152
+Scheduling OFF at: 49.152 For: 0.513995
+
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.02563, 3.06958V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 49.1542
+Scheduling OFF at: 49.1542 For: 2.35581
+
+StaWifiMac::GoToSleepCurrentTIM Going to sleep current TIM
+StaWifiMac::GoToSleep
+Yans Wifi phy: switch to sleep
+MacLow::NotifySleepNow
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.02563, 3.06958V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 49.1542
+Scheduling OFF at: 49.1542 For: 475874
+
+StaWifiMac::Receive: 0
+StaWifiMac::GoToSleepBinary
+	 Case 4
+Yans Wifi phy: switch to sleep
+----------------------------------------------
+Trying to send packet, state: SLEEP at 50.0827
+----------------------------------------------
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.03206, 3.07919V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 50.0827
+Scheduling OFF at: 50.0827 For: 2.37059
 
 
-STA 0 sent: 4 ; delivered: 4 ; echoed: 0; packetloss: 50
-totalPacketsSent 4
-totalPacketsDelivered 4
+Checking Energy conditions
+	nodePhy present
+	yansPhy present
+	nodeEnergySourceContainer present
+	Capacitor present
+Remaining energy: 1.03206, 3.07919V
+Duration: 0.0134, PredictedVoltage: 3.00302V
+Voltage is enough!! We can tx!
+
+StaWifiMac::SleepIfQueueIsEmpty
+	 Case 4
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
+Remaining energy: 1.03206, 3.07919V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: TX at time = 50.0827
+Scheduling OFF at: 50.0827 For: 0.232388
+
+WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
+Remaining energy: 0.981629, 3.00302V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 50.0961
+Scheduling OFF at: 50.0961 For: 2.25475
+
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 0.981573, 3.00293V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 50.0962
+Scheduling OFF at: 50.0962 For: 0.4901
+
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 0.979924, 3.00041V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 50.0972
+Scheduling OFF at: 50.0972 For: 2.25084
+
+StaWifiMac::SleepIfQueueIsEmpty
+	 Case 1
+Yans Wifi phy: switch to sleep
+MacLow::NotifySleepNow
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 0.979924, 3.00041V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 50.0972
+Scheduling OFF at: 50.0972 For: 454669
+
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 0.98956, 3.01512V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 51.1944
+Scheduling OFF at: 51.1944 For: 2.27297
+
+--------------------------
+AP sending BEACON at 51.2
+--------------------------
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 0.987579, 3.0121V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 51.2
+Scheduling OFF at: 51.2 For: 0.4931
+
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 0.984199, 3.00695V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 51.202
+Scheduling OFF at: 51.202 For: 2.26066
+
+StaWifiMac::Receive: 0
+StaWifiMac::GoToSleepBinary
+	 Case 4
+Yans Wifi phy: switch to sleep
+MacLow::NotifySleepNow
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 0.984199, 3.00695V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 51.202
+Scheduling OFF at: 51.202 For: 456653
+
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.00143, 3.03315V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 53.2424
+Scheduling OFF at: 53.2424 For: 2.30023
+
+--------------------------
+AP sending BEACON at 53.248
+--------------------------
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 0.999418, 3.03011V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 53.248
+Scheduling OFF at: 53.248 For: 0.499011
+
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 0.995527, 3.0242V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 53.2503
+Scheduling OFF at: 53.2503 For: 2.28668
+
+StaWifiMac::Receive: 0
+StaWifiMac::GoToSleepBinary
+	 Case 4
+Yans Wifi phy: switch to sleep
+MacLow::NotifySleepNow
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 0.995527, 3.0242V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 53.2503
+Scheduling OFF at: 53.2503 For: 461909
+
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.01183, 3.04886V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 55.2904
+Scheduling OFF at: 55.2904 For: 2.32411
+
+--------------------------
+AP sending BEACON at 55.296
+--------------------------
+StaWifiMac::GoToSleep
+Yans Wifi phy: switch to sleep
+MacLow::NotifySleepNow
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.00979, 3.04579V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 55.296
+Scheduling OFF at: 55.296 For: 468528
+
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.02493, 3.06854V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 57.3384
+Scheduling OFF at: 57.3384 For: 2.35422
+
+--------------------------
+AP sending BEACON at 57.344
+--------------------------
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.02287, 3.06546V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 57.344
+Scheduling OFF at: 57.344 For: 0.510722
+
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.01909, 3.05979V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 57.3462
+Scheduling OFF at: 57.3462 For: 2.34081
+
+StaWifiMac::GoToSleepCurrentTIM Going to sleep current TIM
+StaWifiMac::GoToSleep
+Yans Wifi phy: switch to sleep
+MacLow::NotifySleepNow
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.01909, 3.05979V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 57.3462
+Scheduling OFF at: 57.3462 For: 472844
+
+StaWifiMac::Receive: 0
+StaWifiMac::GoToSleepBinary
+	 Case 4
+Yans Wifi phy: switch to sleep
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.03345, 3.08126V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 59.3864
+Scheduling OFF at: 59.3864 For: 2.37378
+
+--------------------------
+AP sending BEACON at 59.392
+--------------------------
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 1.03137, 3.07816V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 59.392
+Scheduling OFF at: 59.392 For: 0.514963
+
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 1.02783, 3.07288V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 59.394
+Scheduling OFF at: 59.394 For: 2.36088
+
+StaWifiMac::Receive: 0
+StaWifiMac::GoToSleepBinary
+	 Case 4
+Yans Wifi phy: switch to sleep
+MacLow::NotifySleepNow
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.02783, 3.07288V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 59.394
+Scheduling OFF at: 59.394 For: 476898
+
+----------------------------------------------
+Trying to send packet, state: SLEEP at 60.0827
+----------------------------------------------
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.03257, 3.07995V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 60.0827
+Scheduling OFF at: 60.0827 For: 2.37175
+
+
+Checking Energy conditions
+	nodePhy present
+	yansPhy present
+	nodeEnergySourceContainer present
+	Capacitor present
+Remaining energy: 1.03257, 3.07995V
+Duration: 0.0134, PredictedVoltage: 3.00375V
+Voltage is enough!! We can tx!
+
+StaWifiMac::SleepIfQueueIsEmpty
+	 Case 4
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: TX
+Remaining energy: 1.03257, 3.07995V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: TX at time = 60.0827
+Scheduling OFF at: 60.0827 For: 0.232502
+
+WifiRadioEnergyModel::ChangeState Current state: TX,  Changing state to: IDLE
+Remaining energy: 0.98211, 3.00375V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 60.0961
+Scheduling OFF at: 60.0961 For: 2.25586
+
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 0.982054, 3.00367V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 60.0962
+Scheduling OFF at: 60.0962 For: 0.490341
+
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 0.980405, 3.00114V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 60.0972
+Scheduling OFF at: 60.0972 For: 2.25194
+
+StaWifiMac::SleepIfQueueIsEmpty
+	 Case 1
+Yans Wifi phy: switch to sleep
+MacLow::NotifySleepNow
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 0.980405, 3.00114V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 60.0972
+Scheduling OFF at: 60.0972 For: 454892
+
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 0.992064, 3.01894V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 61.4344
+Scheduling OFF at: 61.4344 For: 2.27872
+
+--------------------------
+AP sending BEACON at 61.44
+--------------------------
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: RX
+Remaining energy: 0.990078, 3.01591V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: RX at time = 61.44
+Scheduling OFF at: 61.44 For: 0.494347
+
+WifiRadioEnergyModel::ChangeState Current state: RX,  Changing state to: IDLE
+Remaining energy: 0.986225, 3.01004V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 61.4423
+Scheduling OFF at: 61.4423 For: 2.26531
+
+StaWifiMac::Receive: 0
+StaWifiMac::GoToSleepBinary
+	 Case 4
+Yans Wifi phy: switch to sleep
+MacLow::NotifySleepNow
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 0.986225, 3.01004V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 61.4423
+Scheduling OFF at: 61.4423 For: 457592
+
+WifiRadioEnergyModel::ChangeState Current state: SLEEP,  Changing state to: IDLE
+Remaining energy: 1.00328, 3.03596V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: IDLE at time = 63.4824
+Scheduling OFF at: 63.4824 For: 2.30449
+
+--------------------------
+AP sending BEACON at 63.488
+--------------------------
+StaWifiMac::GoToSleep
+Yans Wifi phy: switch to sleep
+MacLow::NotifySleepNow
+WifiRadioEnergyModel::ChangeState Current state: IDLE,  Changing state to: SLEEP
+Remaining energy: 1.00127, 3.03291V
+Threshholds: L0.545454, H0.909
+WifiRadioEnergyModel:Switching to state: SLEEP at time = 63.488
+Scheduling OFF at: 63.488 For: 464574
+
+
+STA 0 sent: 6 ; delivered: 6 ; echoed: 0; packetloss: 50
+totalPacketsSent 6
+totalPacketsDelivered 6
 totalPacketsEchoed 0
 UL packets lost 0
-DL packets lost 4
-Total packets lost 4
-total throughput Kbit/s 0.2048
+DL packets lost 6
+Total packets lost 6
+total throughput Kbit/s 0.8
 datarate	throughput
-0.65	0.2048 Kbit/s
+0.65	0.8 Kbit/s
 total packet loss % 100
 
-================== Tx 0.01796
-================== Rx 0.03652
-================== Sleep 36.7093
-++++++++++++++++++ IDLE 1.73755
-ooooooooooooooooooo TOTENERGY 7.93521 mW
-Rx+Idle ENERGY 7.8059 mW
-Tx ENERGY 0.129312 mW
+================== Tx 0.0814
+================== Rx 0.05588
+================== Sleep 57.0503
+++++++++++++++++++ IDLE 1.79375
+ooooooooooooooooooo TOTENERGY 8.72445 mW
+Rx+Idle ENERGY 8.13837 mW
+Tx ENERGY 0.58608 mW
