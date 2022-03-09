@@ -93,5 +93,36 @@ function payload_sweep {
     python3 plot.py
 }
 
+function mcs_sweep {
+    expFolder=./Experiments/payload_sweep
+    dataFolder=$expFolder/data
+    mkdir -p $expFolder
+    mkdir -p $dataFolder
+
+    capEnabled='false'
+    for mcs in #100 200 500 1000
+    do
+        for capacitance in 3 10
+        do  
+            for eh in 0.001 0.002 0.005
+            do
+                # Set experiment parameters
+                params4=' --eh='$eh' --capacitance='$capacitance' --capEnabled='$capEnabled
+                params5=' --DataMode='$mcs
+                params=$params1$params2$params3$params4$params5
+                # Run experiment
+                # ./waf --run "$params" | awk '! /Connecting to visualizer/' > output-cap-test
+                
+                # Move results to data folder
+                # cp ./remainingVoltage.txt $dataFolder/${payloadSize}_${capacitance}_${eh}.txt
+            done
+        done 
+    done
+
+    # # Plot capacitor voltage
+    cd $expFolder
+    python3 plot.py
+}
+
 # capacitance_eh_sweep
-payload_sweep
+#payload_sweep
