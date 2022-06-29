@@ -1499,7 +1499,7 @@ int main(int argc, char *argv[]) {
 		V0 = E * Req_off / ri;
 	}
 
-	std::string rv = "ns3::UniformRandomVariable[Min=3.0|Max=3.3]";//"ns3::UniformRandomVariable[Min=" + std::to_string(3.0) + "|Max=" + std::to_string(V0) + "]";
+	std::string rv = "ns3::UniformRandomVariable[Min=3.0|Max=3.0]";//"ns3::UniformRandomVariable[Min=" + std::to_string(3.0) + "|Max=" + std::to_string(V0) + "]";
 	// Sets the default before initialising the CapacitorEnergySource
 	Config::SetDefault ("ns3::CapacitorEnergySource::RandomInitialVoltage", StringValue (rv));
 	CapacitorEnergySourceHelper capacitorHelper;
@@ -1546,7 +1546,7 @@ int main(int argc, char *argv[]) {
 	radioEnergy.Set ("RxCurrentA", DoubleValue (0.027878));
 	radioEnergy.Set ("IdleCurrentA", DoubleValue (0.006060));
 	radioEnergy.Set ("SleepCurrentA", DoubleValue (0.00000003));
-	radioEnergy.Set ("OffCurrentA", DoubleValue (0.000000029));
+	radioEnergy.Set ("OffCurrentA", DoubleValue (0.00000003));
 
 
 	/********************

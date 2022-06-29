@@ -1,23 +1,24 @@
 # Sim Parameters
 seed=10
-simulationTime=100
+simulationTime=$((120*1))
 payloadSize=256
-DataMode="'MCS2_0'"
+DataMode="'MCS1_10'" #"'MCS2_1'"
 rho="'50'"
 TrafficPath="'./OptimalRawGroup/traffic/data-32-0.82.txt'"
 S1g1MfieldEnabled='false'
 RAWConfigFile="'./OptimalRawGroup/RawConfig-cap.txt'" 
+TrafficInterval=$((1024*10))
 
 params1='cap-test --seed='$seed' --simulationTime='$simulationTime' --payloadSize='$payloadSize
 params2=' --DataMode='$DataMode' --rho='$rho' --TrafficPath='$TrafficPath 
-params3=' --S1g1MfieldEnabled='$S1g1MfieldEnabled' --RAWConfigFile='$RAWConfigFile
+params3=' --S1g1MfieldEnabled='$S1g1MfieldEnabled' --RAWConfigFile='$RAWConfigFile' --TrafficInterval='$TrafficInterval
 
 
 # Capacitor parameters
-eh=0.005
-capacitance=3
+eh=0.001
+capacitance=25
 capEnabled='false'
-payloadSize=500
+payloadSize=$((100 * 1))
 
 params4=' --eh='$eh' --capacitance='$capacitance' --capEnabled='$capEnabled
 params5=' --payloadSize='$payloadSize

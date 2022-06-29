@@ -1429,7 +1429,7 @@ StaWifiMac::Enqueue (Ptr<const Packet> packet, Mac48Address to)
             NS_LOG_DEBUG ("actual V, " << actualVoltage << " predicted V, " << predictedVoltage
                                         << " th " << lowThreshold.Get () << ", Vmax "
                                         << maxVoltage);
-            if (predictedVoltage < lowThreshold.Get () * maxVoltage)
+            if (predictedVoltage * 0.99 < lowThreshold.Get () * maxVoltage)
               {
                 std::cout << "Voltage is not enough!! We can not tx!" << std::endl << std::endl;
                 NS_LOG_DEBUG ("Voltage is not enough!! We can not tx!");
@@ -1529,6 +1529,7 @@ StaWifiMac::S1gBeaconReceived (S1gBeaconHeader beacon)
 void
 StaWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
 {
+  std::cout << "Received Packet at time: " << Simulator::Now (). GetSeconds () << std::endl;
   NS_LOG_FUNCTION (this << packet << hdr);
   NS_ASSERT (!hdr->IsCtl ());
   if (hdr->GetAddr3 () == GetAddress ())
@@ -1545,6 +1546,7 @@ StaWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
     }
   else if (hdr->IsData ())
     {
+      std::cout << "StaWifiMac::Receive Receiving data" << std::endl;
       if (!IsAssociated ())
         {
           NS_LOG_LOGIC ("Received data frame while not associated: ignore");
@@ -1739,7 +1741,6 @@ StaWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
 
          AuthenticationCtrl AuthenCtrl;
          AuthenCtrl = beacon.GetAuthCtrl ();
-         std::cout << "StaWifiMac::Receive: " << fasTAssocType << std::endl;
          fasTAssocType = AuthenCtrl.GetControlType ();
          if (!fasTAssocType)  //only support centralized cnotrol
            {
@@ -1749,9 +1750,14 @@ StaWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
     S1gBeaconReceived (beacon);
     waitingack = false;
     outsideraw = false;
+    // TODO Dawid
+    std::cout << "Going to sleep" << std::endl;
+    // Schedule sleep after a beacon and other data has been sent by AP
+    Simulator::Schedule(m_lastRawDurationus, &StaWifiMac::GoToSleepBinary, this, 1);
+    
     //set when the station has to wake up again (next beacon, own slot, shared slot)
-    //Simulator::Schedule((m_lastRawDurationus), &StaWifiMac::WakeUp, this);
-    GoToSleepBinary(1);
+    // Simulator::Schedule((m_lastRawDurationus), &StaWifiMac::WakeUp, this);
+    // GoToSleepBinary(1);
     return;
    }
   else if (hdr->IsProbeResp ())
@@ -1881,7 +1887,7 @@ StaWifiMac::GetSupportedRates (void) const
       for (uint32_t i = 0; i < m_phy->GetNBssMembershipSelectors (); i++)
         {
           rates.SetBasicRate (m_phy->GetBssMembershipSelector (i));
-        }
+        } 
     }
   for (uint32_t i = 0; i < m_phy->GetNModes (); i++)
     {
