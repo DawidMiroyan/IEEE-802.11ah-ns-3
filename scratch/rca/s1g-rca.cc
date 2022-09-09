@@ -255,7 +255,7 @@ void checkRawAndTimConfiguration (void)
 	// each TIM can accommodate different AIDs (same RPS means same stations in RAWs)
     if(config.pageSliceCount)
     {
-	NS_ASSERT (config.pageSliceCount == config.rps.rpsset.size());
+	// NS_ASSERT (config.pageSliceCount == config.rps.rpsset.size());
     }
 	for (uint32_t j = 0; j < config.rps.rpsset.size(); j++)
 	{

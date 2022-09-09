@@ -34,8 +34,8 @@ void NodeEntry::SetAssociation(std::string context, Mac48Address address) {
 void NodeEntry::UnsetAssociation(std::string context, Mac48Address address) {
 	this->isAssociated = false;
 
-	cout << "[" << this->id << "] " << Simulator::Now().GetMicroSeconds() << " "
-			<< "Node is deassociated" << endl;
+	// cout << "[" << this->id << "] " << Simulator::Now().GetMicroSeconds() << " "
+			// << "Node is deassociated" << endl;
 
 	this->deAssociatedCallback();
 }
@@ -55,8 +55,8 @@ void NodeEntry::OnPhyTxBegin(std::string context, Ptr<const Packet> packet) {
 	txMap.emplace(packet->GetUid(), Simulator::Now());
 
 	if (txMap.size() > 1)
-		cout << "warning: more than 1 transmission active: " << txMap.size()
-		<< " transmissions" << endl;
+		// cout << "warning: more than 1 transmission active: " << txMap.size()
+		// << " transmissions" << endl;
 
 	/*if (aId >= lastBeaconAIDStart && aId <= lastBeaconAIDEnd) {
 	 Time timeDiff = (Simulator::Now() - this->lastBeaconReceivedOn);
@@ -261,6 +261,9 @@ void NodeEntry::OnPhyStateChange(std::string context, const Time start,	const Ti
 			break;
 		case WifiPhy::State::SLEEP: //Sleep
 			stats->get(this->id).TotalSleepTime += duration;
+			break;
+		case WifiPhy::State::OFF: // Off
+			stats->get(this->id).TotalOffTime += duration;
 			break;
 		}
 	}
@@ -474,8 +477,8 @@ void NodeEntry::OnUdpPacketSent(Ptr<const Packet> packet) { //works
 	SeqTsHeader seqTs;
 	pCopy->RemoveHeader(seqTs);
 	auto timeDiff = (Simulator::Now() - seqTs.GetTs());
-	if (this->id == 90)
-		cout << "++++++++++++++++++++++++++++++++++++++++++++++ TX at " << Simulator::Now() << "seq " << seqTs.GetSeq() << endl;
+	// if (this->id == 90)
+	// 	cout << "++++++++++++++++++++++++++++++++++++++++++++++ TX at " << Simulator::Now() << "seq " << seqTs.GetSeq() << endl;
 	stats->get(this->id).NumberOfSentPackets++;
 
 	/*		cout << "[" << this->id << "] "  << Simulator::Now().GetMicroSeconds() <<
@@ -590,8 +593,8 @@ void NodeEntry::OnUdpPacketReceivedAtAP(Ptr<const Packet> packet) {
 
 		//cout << "[" << this->id << "] " << "UDP packet received at AP after "
 		//	<< std::to_string(timeDiff.GetMicroSeconds()) << "µs" << endl;
-		if (this->id == 90)
-			cout << "++++++++++++++++++++++++++++++++++++++++++++++ RX at " << Simulator::Now() << "seq " << seqTs.GetSeq() << endl;
+		// if (this->id == 90)
+			// cout << "++++++++++++++++++++++++++++++++++++++++++++++ RX at " << Simulator::Now() << "seq " << seqTs.GetSeq() << endl;
 		stats->get(this->id).NumberOfSuccessfulPackets++;
 		stats->get(this->id).TotalPacketSentReceiveTime += timeDiff;
 		stats->get(this->id).latency = timeDiff;
@@ -600,6 +603,7 @@ void NodeEntry::OnUdpPacketReceivedAtAP(Ptr<const Packet> packet) {
 
 	} catch (std::runtime_error e) {
 		// packet fragmentation, unable to get header
+		std::cout << "Packet failed" << std::endl;
 	}
 }
 
@@ -699,7 +703,7 @@ void NodeEntry::OnTcpIPCameraDataReceivedAtAP(uint16_t nrOfBytes) {
 }
 
 void NodeEntry::OnCollision(std::string context, uint32_t nrOfBackoffSlots) {
-	if(showLog) cout << "Collision sensed" << endl;
+	// if(showLog) cout << "Collision sensed" << endl;
 	stats->get(this->id).NumberOfCollisions++;
 	stats->get(this->id).TotalNumberOfBackedOffSlots += nrOfBackoffSlots;
 }

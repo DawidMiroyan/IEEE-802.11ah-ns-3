@@ -336,7 +336,7 @@ void onSTAAssociated(int i) {
 	// RPS, Raw group and RAW slot assignment
 
 	if (GetAssocNum() == config.Nsta) {
-		cout << "All " << AssocNum << " stations associated at " << Simulator::Now ().GetMicroSeconds () <<", configuring clients & server" << endl;
+		cout << "All " << AssocNum << " stations associated at " << Simulator::Now ().GetSeconds () <<", configuring clients & server" << endl;
 
 		// association complete, start sending packets
 		stats.TimeWhenEverySTAIsAssociated = Simulator::Now();
@@ -1053,45 +1053,58 @@ void configureUDPClients() {
 	//Application start time
 	Ptr<UniformRandomVariable> m_rv = CreateObject<UniformRandomVariable>();
 
-	UdpClientHelper myClient(apNodeInterface.GetAddress(0), 9); //address of remote node
-	myClient.SetAttribute("MaxPackets", config.maxNumberOfPackets);
-	myClient.SetAttribute("PacketSize", UintegerValue(config.payloadSize));
-	traffic_sta.clear();
-	ifstream trafficfile(config.TrafficPath);
-	if (trafficfile.is_open()) {
-		uint16_t sta_id;
-		float sta_traffic;
-		for (uint16_t kk = 0; kk < config.Nsta; kk++) {
-			trafficfile >> sta_id;
-			trafficfile >> sta_traffic;
-			traffic_sta.insert(std::make_pair(sta_id, sta_traffic)); //insert data
-			//cout << "sta_id = " << sta_id << " sta_traffic = " << sta_traffic << "\n";
-		}
-		trafficfile.close();
-	} else
-		cout << "Unable to open traffic file \n";
-
-	double randomStart = 0.0;
-	for (std::map<uint16_t, float>::iterator it = traffic_sta.begin();
-			it != traffic_sta.end(); ++it) {
-		std::ostringstream intervalstr;
-		intervalstr << (config.payloadSize * 8) / (it->second * 1000000);
-		std::string intervalsta = intervalstr.str();
-
-		//config.trafficInterval = UintegerValue (Time (intervalsta));
-
-		myClient.SetAttribute("Interval", TimeValue(Time(intervalsta))); // TODO add to nodeEntry and visualize
-		randomStart = m_rv->GetValue(0,
-				(config.payloadSize * 8) / (it->second * 1000000));
-		ApplicationContainer clientApp = myClient.Install(
-				wifiStaNode.Get(it->first));
+	UdpClientHelper clientHelper(apNodeInterface.GetAddress(0), 9); //address of remote node
+	clientHelper.SetAttribute("MaxPackets", config.maxNumberOfPackets);
+	clientHelper.SetAttribute("PacketSize", UintegerValue(config.payloadSize));
+	clientHelper.SetAttribute("Interval", TimeValue(MilliSeconds(config.trafficInterval)));
+	
+	for (uint16_t i = 0; i < config.Nsta; i++) {
+		ApplicationContainer clientApp = clientHelper.Install(
+				wifiStaNode.Get(i));
 		clientApp.Get(0)->TraceConnectWithoutContext("Tx",
-				MakeCallback(&NodeEntry::OnUdpPacketSent, nodes[it->first]));
-		clientApp.Start(Seconds(1 + randomStart));
-		//clientApp.Stop (Seconds (config.simulationTime+1)); //with this throughput is smaller
+				MakeCallback(&NodeEntry::OnUdpPacketSent, nodes[i]));
+
+		double random = m_rv->GetValue(0, config.trafficInterval);
+		clientApp.Start(MilliSeconds(0 + random));
+		//clientApp.Stop(Seconds(simulationTime + 1));
 	}
-	AppStartTime = Simulator::Now().GetSeconds() + 1;
-	//Simulator::Stop (Seconds (config.simulationTime+1));
+
+	// traffic_sta.clear();
+	// ifstream trafficfile(config.TrafficPath);
+	// if (trafficfile.is_open()) {
+	// 	uint16_t sta_id;
+	// 	float sta_traffic;
+	// 	for (uint16_t kk = 0; kk < config.Nsta; kk++) {
+	// 		trafficfile >> sta_id;
+	// 		trafficfile >> sta_traffic;
+	// 		traffic_sta.insert(std::make_pair(sta_id, sta_traffic)); //insert data
+	// 		//cout << "sta_id = " << sta_id << " sta_traffic = " << sta_traffic << "\n";
+	// 	}
+	// 	trafficfile.close();
+	// } else
+	// 	cout << "Unable to open traffic file \n";
+
+	// double randomStart = 0.0;
+	// for (std::map<uint16_t, float>::iterator it = traffic_sta.begin();
+	// 		it != traffic_sta.end(); ++it) {
+	// 	std::ostringstream intervalstr;
+	// 	intervalstr << (config.payloadSize * 8) / (it->second * 1000000);
+	// 	std::string intervalsta = intervalstr.str();
+
+	// 	//config.trafficInterval = UintegerValue (Time (intervalsta));
+
+	// 	myClient.SetAttribute("Interval", TimeValue(Time(intervalsta))); // TODO add to nodeEntry and visualize
+	// 	randomStart = m_rv->GetValue(0,
+	// 			(config.payloadSize * 8) / (it->second * 1000000));
+	// 	ApplicationContainer clientApp = myClient.Install(
+	// 			wifiStaNode.Get(it->first));
+	// 	clientApp.Get(0)->TraceConnectWithoutContext("Tx",
+	// 			MakeCallback(&NodeEntry::OnUdpPacketSent, nodes[it->first]));
+	// 	clientApp.Start(Seconds(1 + randomStart));
+	// 	//clientApp.Stop (Seconds (config.simulationTime+1)); //with this throughput is smaller
+	// }
+	// AppStartTime = Simulator::Now().GetSeconds() + 1;
+	// Simulator::Stop (Seconds (config.simulationTime+1));
 }
 
 void configureUDPEchoClients() {
@@ -1122,12 +1135,14 @@ Time timeRxArray[MaxSta];
 Time timeTxArray[MaxSta];
 Time timeSleepArray[MaxSta];
 Time timeCollisionArray[MaxSta];
+Time timeOffArray[MaxSta];
 
 Time timeIdleNotAssociated[MaxSta];
 Time timeRxNotAssociated[MaxSta];
 Time timeTxNotAssociated[MaxSta];
 Time timeSleepNotAssociated[MaxSta];
 Time timeCollisionNotAssociated[MaxSta];
+Time timeOffNotAssociated[MaxSta];
 
 double dist[MaxSta];
 
@@ -1167,6 +1182,9 @@ void PhyStateTrace(std::string context, Time start, Time duration,
 			timeCollisionArray[node] = timeCollisionArray[node] + duration;
 			//NS_LOG_UNCOND (to_string(node+1) + ",CCA_BUSY," + to_string(start.GetMicroSeconds()) + " " + to_string(duration.GetMicroSeconds()));
 			break;
+		case WifiPhy::State::OFF: // Off
+			timeOffArray[node] = timeOffArray[node] + duration;
+			break;
 		}
 	}
 	else
@@ -1192,6 +1210,9 @@ void PhyStateTrace(std::string context, Time start, Time duration,
 		case WifiPhy::State::CCA_BUSY: //CCA_BUSY
 			timeCollisionNotAssociated[node] = timeCollisionNotAssociated[node] + duration;
 			//NS_LOG_UNCOND (to_string(node+1) + ",CCA_BUSY," + to_string(start.GetMicroSeconds()) + " " + to_string(duration.GetMicroSeconds()));
+			break;
+		case WifiPhy::State::OFF: // Off
+			timeOffNotAssociated[node] = timeOffNotAssociated[node] + duration;
 			break;
 		}
 	}
@@ -1625,18 +1646,19 @@ int main(int argc, char *argv[]) {
 	sendStatistics(true);
 	
 	std::cout << std::endl << "Starting simulation" << std::endl;
-	// TODO Dawid, disabled sim for testing config
 	Simulator::Stop(Seconds(config.simulationTime + config.CoolDownPeriod)); // allow up to a minute after the client & server apps are finished to process the queue
 	Simulator::Run();
 
 	// Visualizer throughput
 	std::cout << std::endl;
 	int pay = 0, totalSuccessfulPackets = 0, totalSentPackets = 0, totalPacketsEchoed = 0;
+	double totalLatency = 0;
 	for (int i = 0; i < config.Nsta; i++)
 	{
-		totalSuccessfulPackets += stats.get(i).NumberOfSuccessfulPackets;
 		totalSentPackets += stats.get(i).NumberOfSentPackets;
+		totalSuccessfulPackets += stats.get(i).NumberOfSuccessfulPackets;
 		totalPacketsEchoed += stats.get(i).NumberOfSuccessfulRoundtripPackets;
+		totalLatency += stats.get(i).latency.GetSeconds ();
 		pay += stats.get(i).TotalPacketPayloadSize;
 		std::cout << "STA " << i << " sent: " << stats.get(i).NumberOfSentPackets
 				<< " ; delivered: " << stats.get(i).NumberOfSuccessfulPackets
@@ -1644,21 +1666,23 @@ int main(int argc, char *argv[]) {
 				<< "; packetloss: "
 				<< stats.get(i).GetPacketLoss(config.trafficType) << std::endl;
 	}
+	// totalSuccessfulPackets = DynamicCast<UdpServer>(serverApp.Get(0))->GetReceived();
 
 	if (config.trafficType == "udp")
 	{
 		double throughput = 0;
-		uint32_t totalPacketsThrough =
-				DynamicCast<UdpServer>(serverApp.Get(0))->GetReceived();
-		throughput = totalPacketsThrough * config.payloadSize * 8
-				/ (config.simulationTime * 1000000.0);
-		cout << "totalPacketsThrough " << totalPacketsThrough << " ++my "
-				<< totalSuccessfulPackets << endl;
-		cout << "throughput " << throughput << " ++my "
-				<< pay * 8. / (config.simulationTime * 1000000.0) << endl;
+		throughput = totalSuccessfulPackets * config.payloadSize * 8 / (config.simulationTime * 1000000.0);
+		cout << "totalPacketsSent " << totalSentPackets << endl;
+		cout << "totalPacketsDelivered " << totalSuccessfulPackets << endl;
+		cout << "UL packets lost " << totalSentPackets - totalSuccessfulPackets << endl;
+		cout << "latency " << totalLatency / config.NRawSta << std::endl;
+		cout << "throughput " << throughput * 1000 << endl;
 		std::cout << "datarate" << "\t" << "throughput" << std::endl;
-		std::cout << config.datarate << "\t" << throughput << " Mbit/s"
+		std::cout << config.datarate << "\t\t\t" << throughput << " Mbit/s"
 				<< std::endl;
+
+		cout << "total packet loss % "
+			<< 100 - 100. * totalSuccessfulPackets / totalSentPackets << endl;
 
 	}
 	else if (config.trafficType == "udpecho")
@@ -1672,7 +1696,7 @@ int main(int argc, char *argv[]) {
 		cout << "UL packets lost " << totalSentPackets - totalSuccessfulPackets << endl;
 		cout << "DL packets lost " << totalSuccessfulPackets - totalPacketsEchoed << endl;
 		cout << "Total packets lost " << totalSentPackets - totalPacketsEchoed << endl;
-
+		cout << "average latency " << totalLatency / config.NRawSta << std::endl;
 		/*cout << "uplink throughput Mbit/s " << ulThroughput << endl;
 		cout << "downlink throughput Mbit/s " << dlThroughput << endl;*/
 
@@ -1681,9 +1705,9 @@ int main(int argc, char *argv[]) {
 
 		std::cout << "datarate" << "\t" << "throughput" << std::endl;
 		std::cout << config.datarate << "\t" << throughput * 1000 << " Kbit/s" << std::endl;
+		cout << "total packet loss % "
+				<< 100 - 100. * totalPacketsEchoed / totalSentPackets << endl;
 	}
-	cout << "total packet loss % "
-			<< 100 - 100. * totalPacketsEchoed / totalSentPackets << endl;
 	Simulator::Destroy();
 
 	ofstream risultati;
@@ -1698,13 +1722,15 @@ int main(int argc, char *argv[]) {
         
         risultati << i << spazio << dist[i] << spazio << timeRxArray[i].GetSeconds() << ",(" << timeRxNotAssociated[i].GetSeconds() << ")," << timeIdleArray[i].GetSeconds() << ",(" << timeIdleNotAssociated[i].GetSeconds() << ")," << timeTxArray[i].GetSeconds() << ",(" << timeTxNotAssociated[i].GetSeconds() << ")," << timeSleepArray[i].GetSeconds() << ",(" << timeSleepNotAssociated[i].GetSeconds() << ")," << timeCollisionArray[i].GetSeconds() << ",(" << timeCollisionNotAssociated[i].GetSeconds() << ")" << std::endl;
         
-         cout << "================== Tx " << stats.get(i).TotalTxTime.GetSeconds() << endl;
-         cout << "================== Rx " << stats.get(i).TotalRxTime.GetSeconds() << endl;
-         cout << "================== Sleep " << stats.get(i).TotalSleepTime.GetSeconds() << endl;
-         cout << "++++++++++++++++++ IDLE " << stats.get(i).TotalIdleTime.GetSeconds() << endl;
-         cout << "ooooooooooooooooooo TOTENERGY " <<  stats.get(i).GetTotalEnergyConsumption() << " mW" << endl;
-         cout << "Rx+Idle ENERGY " <<  stats.get(i).EnergyRxIdle << " mW" << endl;
-         cout << "Tx ENERGY " <<  stats.get(i).EnergyTx << " mW" << endl;
+			cout << "================== Tx " << stats.get(i).TotalTxTime.GetSeconds() << endl;
+			cout << "================== Rx " << stats.get(i).TotalRxTime.GetSeconds() << endl;
+			cout << "================== Sleep " << stats.get(i).TotalSleepTime.GetSeconds() << endl;
+			cout << "++++++++++++++++++ IDLE " << stats.get(i).TotalIdleTime.GetSeconds() << endl;
+			cout << "++++++++++++++++++ Off " << stats.get(i).TotalOffTime.GetSeconds() << endl;
+			cout << "ooooooooooooooooooo TOTENERGY " <<  stats.get(i).GetTotalEnergyConsumption() << " mW" << endl;
+			cout << "Rx+Idle ENERGY " <<  stats.get(i).EnergyRxIdle << " mW" << endl;
+			cout << "Tx ENERGY " <<  stats.get(i).EnergyTx << " mW" << endl;
+			cout << "Latency " << stats.get(i).latency.GetSeconds() << endl; 
         
         i++;
     }

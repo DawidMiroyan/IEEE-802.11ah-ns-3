@@ -508,7 +508,6 @@ YansWifiPhy::GetChannelFrequencyMhz () const
 void
 YansWifiPhy::SetSleepMode (void)
 {
-  std::cout << "Yans Wifi phy: switch to sleep" << std::endl;
   NS_LOG_FUNCTION (this);
   switch (m_state->GetState ())
     {
@@ -552,7 +551,7 @@ YansWifiPhy::ResumeFromSleep (void)
     case YansWifiPhy::IDLE:
     case YansWifiPhy::CCA_BUSY:
     case YansWifiPhy::SWITCHING:
-    case YansWifiPhy::OFF: //TODO Dawid
+    case YansWifiPhy::OFF:
       {
         NS_LOG_DEBUG ("not in sleep mode, there is nothing to resume");
         break;
@@ -622,7 +621,7 @@ YansWifiPhy::ResumeFromOff (void)
         NS_LOG_DEBUG ("not in off mode, there is nothing to resume");
         break;
       }
-    case YansWifiPhy::OFF: //TODO Dawid
+    case YansWifiPhy::OFF:
       {
         NS_LOG_DEBUG ("resuming from off mode");
         Time delayUntilCcaEnd = m_interference.GetEnergyDuration (m_ccaMode1ThresholdW);
@@ -790,6 +789,11 @@ YansWifiPhy::StartReceivePreambleAndHeader (Ptr<Packet> packet,
       break;
     case YansWifiPhy::SLEEP:
       NS_LOG_DEBUG ("drop packet because in sleep mode");
+      NotifyRxDrop (packet);
+      m_plcpSuccess = false;
+      break;
+    case YansWifiPhy::OFF:
+      NS_LOG_DEBUG ("drop packet because in off mode");
       NotifyRxDrop (packet);
       m_plcpSuccess = false;
       break;
@@ -1363,7 +1367,7 @@ YansWifiPhy::EndReceive (Ptr<Packet> packet, enum WifiPreamble preamble, uint8_t
   else
     {
       //notify rx end
-      NS_LOG_UNCOND ("YansWifiPhy::EndReceive-reason2");
+      // NS_LOG_UNCOND ("YansWifiPhy::EndReceive-reason2");
       m_state->SwitchFromRxEndError (packet, snrPer.snr);
     }
 

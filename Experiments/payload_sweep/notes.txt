@@ -1,2 +1,0 @@
-Interesting tests:
-    - cap 3, eh 0.002, payloadSize 200, time very large to see if going dow

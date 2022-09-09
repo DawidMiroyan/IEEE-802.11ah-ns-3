@@ -38,7 +38,7 @@ int stat_connect(const char* hostname, const char* port) {
 	hints.ai_socktype = SOCK_STREAM;
 
 	if ((rv = getaddrinfo(hostname, port, &hints, &servinfo)) != 0) {
-		fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
+		// fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
 		return -1;
 	}
 
@@ -46,13 +46,13 @@ int stat_connect(const char* hostname, const char* port) {
 	for (p = servinfo; p != NULL; p = p->ai_next) {
 		if ((sockfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol))
 				== -1) {
-			perror("client: socket");
+			// perror("client: socket");
 			continue;
 		}
 
 		if (connect(sockfd, p->ai_addr, p->ai_addrlen) == -1) {
 			close(sockfd);
-			perror("client: connect");
+			// perror("client: connect");
 			continue;
 		}
 
@@ -60,7 +60,7 @@ int stat_connect(const char* hostname, const char* port) {
 	}
 
 	if (p == NULL) {
-		fprintf(stderr, "client: failed to connect: \n");
+		// fprintf(stderr, "client: failed to connect: \n");
 		return -1;
 	}
 
@@ -76,7 +76,7 @@ bool stat_send(int sockfd, const char* buf) {
 	int length = strlen(buf);
 	if(length < MAXDATASIZE) {
 		int bytesSent = send(sockfd, buf, length, 0);
-		if(bytesSent < 0) fprintf(stderr, "socket send failed: %m\n");
+		// if(bytesSent < 0) fprintf(stderr, "socket send failed: %m\n");
 		return bytesSent != -1;
 	}
 	else {

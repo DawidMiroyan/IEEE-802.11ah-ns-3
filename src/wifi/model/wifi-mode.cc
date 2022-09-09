@@ -225,8 +225,8 @@ WifiModeFactory::Search (std::string name)
   //If we get here then a matching WifiMode was not found above. This
   //is a fatal problem, but we try to be helpful by displaying the
   //list of WifiModes that are supported.
-  NS_LOG_UNCOND ("Could not find match for WifiMode named \""
-                 << name << "\". Valid options are:");
+  // NS_LOG_UNCOND ("Could not find match for WifiMode named \""
+                //  << name << "\". Valid options are:");
   for (i = m_itemList.begin (); i != m_itemList.end (); i++)
     {
       NS_LOG_UNCOND ("  " << i->uniqueUid);

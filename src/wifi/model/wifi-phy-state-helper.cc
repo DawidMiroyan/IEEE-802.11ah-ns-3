@@ -94,12 +94,14 @@ WifiPhyStateHelper::WifiPhyStateHelper ()
     m_endRx (Seconds (0)),
     m_endCcaBusy (Seconds (0)),
     m_endSwitching (Seconds (0)),
-    m_endSleep(Seconds(0)),
+    m_endSleep(Seconds (0)),
+    m_endOff(Seconds (0)),
     m_startTx (Seconds (0)),
     m_startRx (Seconds (0)),
     m_startCcaBusy (Seconds (0)),
     m_startSwitching (Seconds (0)),
     m_startSleep (Seconds (0)),
+    m_startOff (Seconds (0)),
     m_previousStateChangeTime (Seconds (0))
 {
   NS_LOG_FUNCTION (this);
@@ -372,12 +374,14 @@ WifiPhyStateHelper::LogPreviousIdleAndCcaBusyStates (void)
   if (m_endCcaBusy > m_endRx
       && m_endCcaBusy > m_endSwitching
       && m_endCcaBusy > m_endTx
-      && m_endCcaBusy > m_endSleep)
+      && m_endCcaBusy > m_endSleep
+      && m_endCcaBusy > m_endOff)
     {
       Time ccaBusyStart = Max (m_endTx, m_endRx);
       ccaBusyStart = Max (ccaBusyStart, m_startCcaBusy);
       ccaBusyStart = Max (ccaBusyStart, m_endSwitching);
-      ccaBusyStart = Max(ccaBusyStart, m_endSleep);
+      ccaBusyStart = Max (ccaBusyStart, m_endSleep);
+      ccaBusyStart = Max (ccaBusyStart, m_endOff);
       m_stateLogger (ccaBusyStart, idleStart - ccaBusyStart, WifiPhy::CCA_BUSY);
     }
   m_stateLogger (idleStart, now - idleStart, WifiPhy::IDLE);
@@ -592,15 +596,16 @@ WifiPhyStateHelper::SwitchToSleep (void)
     case WifiPhy::SWITCHING:
     case WifiPhy::TX:
     case WifiPhy::SLEEP:
-    case WifiPhy::OFF:
       NS_FATAL_ERROR ("Invalid WifiPhy state.");
+      break;
+    case WifiPhy::OFF:
       break;
     }
   m_previousStateChangeTime = now;
   m_sleeping = true;
   m_startSleep = now;
   NotifySleep ();
-  NS_ASSERT (IsStateSleep ());
+  // NS_ASSERT (IsStateSleep ());
 }
 
 void
@@ -661,6 +666,7 @@ WifiPhyStateHelper::SwitchToOff (void)
     }
   m_previousStateChangeTime = now;
   m_isOff = true;
+  m_startOff = now;
   NotifyOff ();
   NS_ASSERT (IsStateOff ());
 }
@@ -671,8 +677,10 @@ WifiPhyStateHelper::SwitchFromOff (Time duration)
   NS_LOG_FUNCTION (this << duration);
   NS_ASSERT (IsStateOff ());
   Time now = Simulator::Now ();
+  m_stateLogger(m_startOff, now - m_startOff, WifiPhy::OFF);
   m_previousStateChangeTime = now;
   m_isOff = false;
+  m_endOff = now;
   NotifyOn ();
   //update m_endCcaBusy after the off period
   m_endCcaBusy = std::max (m_endCcaBusy, now + duration);

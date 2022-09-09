@@ -13,6 +13,7 @@ namespace ns3 {
 	enum DropReason {
 		Unknown,
 		PhyInSleepMode,
+		PhyInOffMode,
 		PhyNotEnoughSignalPower,
 		PhyUnsupportedMode,
 		PhyPreampleHeaderReceptionFailed,

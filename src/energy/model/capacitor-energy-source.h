@@ -137,7 +137,7 @@ public:
   /**
    * Predict voltage variation for a given state and duration starting from initialVoltage
    */
-  double PredictVoltageForLorawanState (WifiPhy::State status,
+  double PredictVoltageForWifiState (WifiPhy::State status,
                                         double initialvoltage, Time duration);
 
   /**
@@ -158,7 +158,7 @@ public:
 
   int64_t AssignStreams (int64_t stream);
 
-  // void NotifyEnergyConstant (void); TODO Dawid
+  // void NotifyEnergyConstant (void);
 
   /**
    * Compute the current produced by the harvesters
@@ -173,7 +173,6 @@ public:
 
   std::vector<Ptr<EnergyHarvester>> GetEnergyHarvesters(void);
 
-  //TODO Dawid enable/disable energy source to bypass energy
   void setPendingEnable (void);
   bool isPendingEnable (void);
   bool IsEnabled (void);

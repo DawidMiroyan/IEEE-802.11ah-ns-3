@@ -564,7 +564,7 @@ void
 DcfManager::RequestAccess (DcfState *state)
 {
   NS_LOG_FUNCTION (this << state);
-  //Deny access if in sleep mode of off
+  //Deny access if in sleep mode or off
   if (m_sleeping || m_off)
     {
       return;

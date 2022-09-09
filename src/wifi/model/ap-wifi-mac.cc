@@ -395,7 +395,7 @@ ApWifiMac::SetChannelWidth (uint32_t width)
 uint32_t
 ApWifiMac::GetChannelWidth (void) const
 {
-    NS_LOG_UNCOND (GetAddress () << ", GetChannelWidth " << m_channelWidth );
+    // NS_LOG_UNCOND (GetAddress () << ", GetChannelWidth " << m_channelWidth );
    return m_channelWidth;
 }
 
@@ -583,7 +583,7 @@ ApWifiMac::GetSlotStartTimeFromAid (uint16_t aid) const
 		//if (i * m_pageslice.GetPageSliceLen() <= block && block <= )
 	}
 
-	//std::cout << "aid=" << (int)aid << ", toTim=" << (int)toTim << std::endl;
+	std::cout << "aid=" << (int)aid << ", toTim=" << (int)toTim << std::endl;
 	uint16_t raw_len = (*m_rpsset.rpsset.at(toTim)).GetInformationFieldSize();
 
 	uint16_t rawAssignment_len = 6;
@@ -662,7 +662,7 @@ ApWifiMac::GetSupportedRates (void) const
     {
       for (uint32_t i = 0; i < m_phy->GetNBssMembershipSelectors (); i++)
         {
-          NS_LOG_UNCOND (GetAddress () << " GetSupportedRates ");
+          // NS_LOG_UNCOND (GetAddress () << " GetSupportedRates ");
           rates.SetBasicRate (m_phy->GetBssMembershipSelector (i)); //not sure it's needed
         }
     }
@@ -1217,10 +1217,6 @@ ApWifiMac::SendOneBeacon (void)
       uint16_t statsPerSlot;
       uint16_t statRawSlot;
 
-      // TODO Dawid Testing
-      std::cout << "--------------------------" << std::endl;
-      std::cout << "AP sending BEACON at " << Simulator::Now ().GetSeconds () << std::endl;
-      std::cout << "--------------------------" << std::endl;
       //NS_LOG_UNCOND ("ap send beacon at " << Simulator::Now ());
 
       m_accessList.clear ();
@@ -1445,7 +1441,7 @@ ApWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
           //we can ignore these frames since
           //they are not targeted at the AP
           NotifyRxDrop (packet, DropReason::MacNotForAP);
-          NS_LOG_UNCOND ("not assciate, drop, from=" << from );
+          // NS_LOG_UNCOND ("not assciate, drop, from=" << from );
         }
       return;
     }
@@ -1562,13 +1558,13 @@ ApWifiMac::Receive (Ptr<Packet> packet, const WifiMacHeader *hdr)
               uint8_t aid_l = mac[5];
               uint8_t aid_h = mac[4] & 0x1f;
               uint16_t aid = (aid_h << 8) | (aid_l << 0);
-              NS_LOG_UNCOND ("Disassociation request from aid " << aid);
+              // NS_LOG_UNCOND ("Disassociation request from aid " << aid);
 
              for (std::vector<uint16_t>::iterator it = m_sensorList.begin(); it != m_sensorList.end(); it++)
                 {
                     if (*it == aid)
                     {   m_sensorList.erase (it); //remove from association list
-                        NS_LOG_UNCOND ("erase aid " << aid << " by Ap from m_sensorList ");
+                        // NS_LOG_UNCOND ("erase aid " << aid << " by Ap from m_sensorList ");
                         break;
                     }
                 }

@@ -66,7 +66,7 @@ CapacitorEnergySource::GetTypeId (void)
                          MakeBooleanChecker ())
           .AddAttribute ("RandomInitialVoltage",
                          "Random variable from which taking the initial voltage of the capacitor",
-                         StringValue ("ns3::UniformRandomVariable[Min=0.0|Max=0.0]"), //TODO Dawid
+                         StringValue ("ns3::UniformRandomVariable[Min=0.0|Max=0.0]"),
                          MakePointerAccessor (&CapacitorEnergySource::m_initialVoltageRV),
                          MakePointerChecker<RandomVariableStream> ())
           .AddAttribute ("CapacitorMaxSupplyVoltageV",
@@ -145,9 +145,6 @@ CapacitorEnergySource::SetInitialVoltage ()
   m_initialVoltageV = m_actualVoltageV;
   double initialEnergy = m_capacitance*pow(m_actualVoltageV, 2)/2;
   m_remainingEnergyJ = initialEnergy;
-  // TODO Dawid
-  std::cout << "CapacitorEnergySource::SetInitialVoltage Set initial voltage = " << m_actualVoltageV
-                << " V, remaining energy = " << initialEnergy << std::endl;
   NS_LOG_DEBUG ("Set initial voltage = " << m_actualVoltageV
                 << " V, remaining energy = " << initialEnergy);
 }
@@ -270,42 +267,26 @@ CapacitorEnergySource::UpdateEnergySource (void)
     
     // NS_LOG_DEBUG ("Vmin = " << m_lowVoltageTh * m_supplyVoltageV << " actualV "
     //               << (m_actualVoltageV) << " was depleted?" << m_depleted );
-    // std::cout << "DEPLETED= " << m_depleted << std::endl;
       if (!m_depleted && m_actualVoltageV <= m_lowVoltageTh * m_supplyVoltageV + eps)
         {
-          // std::cout << "DEPLETED= " << m_depleted << std::endl;
-          // std::cout << "m_actualVoltageV= " << m_actualVoltageV << std::endl;
-          // std::cout << "m_lowVoltageTh= " << m_lowVoltageTh << std::endl;
-          // std::cout << "m_supplyVoltageV= " << m_supplyVoltageV << std::endl;
-          // std::cout << "eps= " << eps << std::endl;
-          // TODO Dawid
-          // std::cout << "CapacitorEnergySource::UpdateEnergySource Energy depleted= " << m_actualVoltageV << std::endl;
-          std::cout << "CapacitorEnergySource::Energy depleted: " << m_actualVoltageV << "V" << std::endl; // TODO Dawid
           NS_LOG_DEBUG ("Energy depleted");
           m_depleted = true;
           HandleEnergyDrainedEvent ();
         }
       else if (m_depleted && m_actualVoltageV > m_highVoltageTh * m_supplyVoltageV)
         {
-          // TODO Dawid
-          // std::cout << "CapacitorEnergySource::UpdateEnergySource Energy recharged= " << m_actualVoltageV << std::endl;
           NS_LOG_DEBUG ("Energy recharged");
           m_depleted = false;
           HandleEnergyRechargedEvent ();
         }
       else if (m_actualVoltageV != oldVoltage)
         {
-          // TODO Dawid
-          // std::cout << "CapacitorEnergySource::UpdateEnergySource Energy changed - new voltage (V)=" << m_actualVoltageV << std::endl;
           NS_LOG_DEBUG ("Energy changed - new voltage (V)=" << m_actualVoltageV);
           HandleEnergyChangedEvent ();
         }
       else if (m_actualVoltageV == oldVoltage)
         {
-          // TODO Dawid
-          // std::cout << "CapacitorEnergySource::UpdateEnergySource Energy constant= " << m_actualVoltageV << std::endl;
-          // NS_LOG_DEBUG ("Energy constant ");
-          //HandleEnergyConstantEvent (); TODO Dawid
+          //HandleEnergyConstantEvent ();
         }
 
     if (m_voltageUpdateEvent.IsExpired ())
@@ -476,7 +457,7 @@ double CapacitorEnergySource::ComputeVoltage (double initialVoltage, double Iloa
     }
 
 double
-CapacitorEnergySource::PredictVoltageForLorawanState (WifiPhy::State status,
+CapacitorEnergySource::PredictVoltageForWifiState (WifiPhy::State status,
                                                       double initialVoltage,
                                                       Time duration)
 {
@@ -640,7 +621,7 @@ CapacitorEnergySource::GetAveragePower (Time time, double samples)
     {
       Ptr<VariableEnergyHarvester> variableEH = eh ->GetObject<VariableEnergyHarvester> ();
       NS_LOG_DEBUG ((variableEH == 0));
-      avgPower = variableEH-> GetPower(); //TODO Dawid variableEH-> GetAveragePower (time, samples);
+      avgPower = variableEH-> GetPower();
     }
   else
     {
@@ -687,8 +668,6 @@ CapacitorEnergySource::GetEnergyHarvesters (void)
   return m_harvesters; 
 }
 
-//TODO Dawid
-
 void
 CapacitorEnergySource::setPendingEnable (void)
 {
@@ -719,7 +698,6 @@ CapacitorEnergySource::Enable (void)
   NS_LOG_FUNCTION (this);
   m_pendingEnable = false;
   m_enabled = true;
-  std::cout << "CapacitorEnergySource::Enable Enabling the capacitor, energy will now be drained" << std::endl;
 }
 
 void

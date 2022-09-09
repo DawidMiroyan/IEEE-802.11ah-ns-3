@@ -289,7 +289,7 @@ S1gRawCtr::UdpateSensorStaInfo (std::vector<uint16_t> m_sensorlist, std::vector<
             outputfile.close();
             //
             m_lastTransmissionList.push_back (*ci);
-            NS_LOG_UNCOND ("initial, aid = " << *ci);
+            // NS_LOG_UNCOND ("initial, aid = " << *ci);
 
         }
     }
@@ -314,14 +314,14 @@ S1gRawCtr::UdpateSensorStaInfo (std::vector<uint16_t> m_sensorlist, std::vector<
 
       if (disassoc == true)
         {
-            NS_LOG_UNCOND ( "Aid " << (*itcheck)->GetAid () << " erased from m_stations since disassociated");
+            // NS_LOG_UNCOND ( "Aid " << (*itcheck)->GetAid () << " erased from m_stations since disassociated");
             m_stations.erase(itcheck);
         }
     }
 
 
 
-    NS_LOG_UNCOND ("m_aidList.size() = " << m_aidList.size() << ", m_receivedAid = " << m_receivedAid.size () << ", m_stations.size() = " << m_stations.size() << ", currentId = " << currentId);
+    // NS_LOG_UNCOND ("m_aidList.size() = " << m_aidList.size() << ", m_receivedAid = " << m_receivedAid.size () << ", m_stations.size() = " << m_stations.size() << ", currentId = " << currentId);
 
     //update transmission interval info, stations allowed to transmit in last beacon
     for (std::vector<uint16_t>::iterator it = m_aidList.begin(); it != m_aidList.end(); it++)
@@ -654,7 +654,7 @@ S1gRawCtr::calculateSensorNumWantToSend ()
     m_numSensorWantToSend = 0;
     m_numSendSensorWant = 0;
 
-    NS_LOG_UNCOND ("currentid update ");
+    // NS_LOG_UNCOND ("currentid update ");
 
     for (StationsCI it = m_stations.begin(); it != m_stations.end(); it++)
       {
@@ -674,7 +674,7 @@ S1gRawCtr::calculateSensorNumWantToSend ()
           }
       }
 
-     NS_LOG_UNCOND ("m_numSensorWantToSend = " << m_numSensorWantToSend << ", m_numSendSensorWant = " << m_numSendSensorWant);
+    //  NS_LOG_UNCOND ("m_numSensorWantToSend = " << m_numSensorWantToSend << ", m_numSendSensorWant = " << m_numSendSensorWant);
 }
 
 void
@@ -734,8 +734,8 @@ S1gRawCtr::SetSensorAllowedToSend ()
    m_numSendSensorAllowed  =  std::min(m_numSendSensorWant, numAllowed); //replace m_numSensorAllowedToSend with m_numSendSensorAllowed
    m_numSendSensorAllowed =  std::min(m_numSendSensorAllowed, MaxSlotForSensor);
    //m_numSensorAllowedToSend =  std::min(m_numSensorWantToSend, numAllowed);
-   NS_LOG_UNCOND ("-------------------------------------------start");
-   NS_LOG_UNCOND ("m_numSendSensorWant = " << m_numSendSensorWant << ", numAllowed based on faireness = " << numAllowed);
+//    NS_LOG_UNCOND ("-------------------------------------------start");
+//    NS_LOG_UNCOND ("m_numSendSensorWant = " << m_numSendSensorWant << ", numAllowed based on faireness = " << numAllowed);
 
    uint32_t SendNum = 0;
      
@@ -797,7 +797,7 @@ S1gRawCtr::SetSensorAllowedToSend ()
     }
 
     m_numSendSensorAllowed = SendNum;
-    NS_LOG_UNCOND ("m_numSendSensorAllowed = " << m_numSendSensorAllowed );
+    // NS_LOG_UNCOND ("m_numSendSensorAllowed = " << m_numSendSensorAllowed );
 
  }
 
@@ -867,7 +867,7 @@ S1gRawCtr::UdpateOffloadStaInfo (std::vector<uint16_t> m_OffloadList, std::vecto
               m_offloadSta->SetOffloadStaActive (true);
               m_offloadSta->IncreaseFailedTransmissionCount (0);
               m_offloadStations.push_back (m_offloadSta); // should create a Dispose function?
-              NS_LOG_UNCOND ("m_offloadStations.size () = " << m_offloadStations.size ());
+            //   NS_LOG_UNCOND ("m_offloadStations.size () = " << m_offloadStations.size ());
 
               APId.clear ();
               APId.str ("");
@@ -961,7 +961,7 @@ S1gRawCtr::SetOffloadAllowedToSend ()
         m_offloadRawslotDuration = ((m_beaconInterval-m_beaconOverhead) - m_numSendSensorAllowed * m_rawslotDuration)/m_numOffloadAllowedToSend;
       }
     //m_numOffloadAllowedToSend = 1; //for test
-    NS_LOG_UNCOND ("SetOffloadAllowedToSend ()= " << m_numOffloadAllowedToSend);
+    // NS_LOG_UNCOND ("SetOffloadAllowedToSend ()= " << m_numOffloadAllowedToSend);
 
     for (OffloadStationsCI it = m_offloadStations.begin(); it != m_offloadStations.end(); it++)
     {
@@ -1129,7 +1129,7 @@ S1gRawCtr::configureRAW ( )
     //NS_LOG_UNCOND ("m_aidList =" << m_aidList.size () << ", m_aidOffloadList=" << m_aidOffloadList.size ());
     
     m_beaconOverhead = ((m_aidList.size () * 6 + 60) * 8 + 14 )/12 * 40 + 560;
-    NS_LOG_UNCOND ("m_beaconOverhead = " << m_beaconOverhead);
+    // NS_LOG_UNCOND ("m_beaconOverhead = " << m_beaconOverhead);
 
     
     for (std::vector<uint16_t>::iterator it = m_aidList.begin(); it != m_aidList.end(); it++)
@@ -1159,7 +1159,7 @@ S1gRawCtr::configureRAW ( )
           aid_end = *it;
           //aid_start = 2;
           //aid_end = 66;
-          NS_LOG_UNCOND ("sensor, aid_start =" << aid_start << ", aid_end=" << aid_end << ", SlotDurationCount = " << SlotDurationCount << ", transmit num one beacon = " << num);
+        //   NS_LOG_UNCOND ("sensor, aid_start =" << aid_start << ", aid_end=" << aid_end << ", SlotDurationCount = " << SlotDurationCount << ", transmit num one beacon = " << num);
 
           rawinfo = (aid_end << 13) | (aid_start << 2) | page;
           m_raw->SetRawGroup (rawinfo);
@@ -1213,7 +1213,7 @@ S1gRawCtr::configureRAW ( )
          //aid_start = 1;
          //aid_end = 1;
         rawinfo = (aid_end << 13) | (aid_start << 2) | page;
-        NS_LOG_UNCOND ("offload, aid_start =" << aid_start << ", aid_end=" << aid_end << ", offloadcount =" << offloadcount);
+        // NS_LOG_UNCOND ("offload, aid_start =" << aid_start << ", aid_end=" << aid_end << ", offloadcount =" << offloadcount);
 
         m_raw2->SetRawGroup (rawinfo);
         m_rps->SetRawAssignment(*m_raw2);

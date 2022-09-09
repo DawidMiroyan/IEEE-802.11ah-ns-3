@@ -110,7 +110,7 @@ WifiRadioEnergyModelHelper::DoInstall (Ptr<NetDevice> device,
   Ptr<CapacitorEnergySource> capacitor = source->GetObject<CapacitorEnergySource> ();
 
   // set energy depletion callback
-  // if none is specified, make a callback to WifiPhy::SetSleepMode
+  // if none is specified and no capacitor energy source, make a callback to WifiPhy::SetSleepMode
   Ptr<WifiNetDevice> wifiDevice = DynamicCast<WifiNetDevice> (device);
   Ptr<WifiPhy> wifiPhy = wifiDevice->GetPhy ();
   if (m_depletionCallback.IsNull ())

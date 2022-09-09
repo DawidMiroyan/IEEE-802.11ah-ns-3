@@ -77,7 +77,7 @@ void RAWGroupping (uint16_t Numsta, uint16_t NGroups, uint16_t NumSlot, uint16_t
     NRawGroups = NGroups;
     SlotNum = NumSlot;
     SlotDurationCount = (beaconinterval/NGroups/(SlotNum) - 500)/120;
-    
+
 	if (Numsta < pageSliceLen * 64 && pageSliceCount != 0)
 	{
 		std::cerr << "All stations can fit to a single page slice. Too many page slices relative to the number of stations. Set PageSliceCount=0 PageSliceLength=1 or reduce Page Slice Length." << std::endl;
@@ -126,7 +126,6 @@ void RAWGroupping (uint16_t Numsta, uint16_t NGroups, uint16_t NumSlot, uint16_t
     	{
         	std::cout << "tim num=" << timID << std::endl;
     		newfile << NGroups << "\n";
-
     		uint32_t endAidInTim;
     		if (timID + 1 < pageSliceCount)
     		{

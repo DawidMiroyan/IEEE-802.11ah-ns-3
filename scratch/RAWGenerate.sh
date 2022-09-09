@@ -10,11 +10,12 @@ NumSta=$1
 NRawGroups=$2
 NumSlot=$3
 beaconinterval=$4
-pageSliceCount=$5  # Ignore these
-pageSliceLen=$6    # Ignore these
+# pageSliceCount=$5  # Ignore these
+# pageSliceLen=$6    # Ignore these
                    # Change in RAW-generate so they use default values or smth
 
-
+pageSliceCount=0
+pageSliceLen=1    
 
 
 

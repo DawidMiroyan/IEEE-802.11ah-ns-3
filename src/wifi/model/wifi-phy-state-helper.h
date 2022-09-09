@@ -330,11 +330,13 @@ private:
   Time m_endCcaBusy;
   Time m_endSwitching;
   Time m_endSleep;
+  Time m_endOff;
   Time m_startTx;
   Time m_startRx;
   Time m_startCcaBusy;
   Time m_startSwitching;
   Time m_startSleep;
+  Time m_startOff;
   Time m_previousStateChangeTime;
 
   Listeners m_listeners;

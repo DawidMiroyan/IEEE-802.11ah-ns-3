@@ -1,0 +1,66 @@
+MCS1_10
+    eh0:
+        interval: 102400:   4
+        interval: 1024000:  12
+        interval: 2048000:  19
+        interval: 4096000:  33
+        interval: 8192000:  62
+        interval: 1024000:  76
+    eh0.001:
+        interval: 102400:   3
+        interval: 1024000:  12
+        interval: 2048000:  18
+        interval: 4096000:  33
+        interval: 8192000:  61
+        interval: 1024000:  75
+    eh0.01:
+        interval: 102400:   3
+        interval: 1024000:  10
+        interval: 2048000:  15
+        interval: 4096000:  26
+        interval: 8192000:  48
+        interval: 1024000:  59
+MCS1_1
+    eh0:
+        interval: 102400:   3
+        interval: 1024000:  12
+        interval: 2048000:  19
+        interval: 4096000:  33
+        interval: 8192000:  62
+        interval: 1024000:  76
+    eh0.001:
+        interval: 102400:   3
+        interval: 1024000:  12
+        interval: 2048000:  18
+        interval: 4096000:  32
+        interval: 8192000:  60
+        interval: 1024000:  75
+    eh0.01:
+        interval: 102400:   3
+        interval: 1024000:  10
+        interval: 2048000:  15
+        interval: 4096000:  26
+        interval: 8192000:  48
+        interval: 1024000:  59
+MCS1_9
+    eh0:
+        interval: 102400:   3
+        interval: 1024000:  12
+        interval: 2048000:  19
+        interval: 4096000:  33
+        interval: 8192000:  62
+        interval: 1024000:  76
+    eh0.001:
+        interval: 102400:   3
+        interval: 1024000:  12
+        interval: 2048000:  18
+        interval: 4096000:  32
+        interval: 8192000:  60
+        interval: 1024000:  75
+    eh0.01:
+        interval: 102400:   3
+        interval: 1024000:  10
+        interval: 2048000:  15
+        interval: 4096000:  26
+        interval: 8192000:  48
+        interval: 1024000:  59

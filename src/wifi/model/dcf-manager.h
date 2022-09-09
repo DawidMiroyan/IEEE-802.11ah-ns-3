@@ -227,9 +227,12 @@ private:
   * The subclass is expected to re-insert the pending packet into the queue
   */
   virtual void DoNotifySleep (void) = 0;
-  /**
-   * TODO Dawid
-   */
+   /**
+  * Called by DcfManager to notify a DcfState subclass that the device has
+  * turned off.
+  *
+  * The subclass is expected to re-insert the pending packet into the queue
+  */
   virtual void DoNotifyOff (void) = 0;
   /**
   * Called by DcfManager to notify a DcfState subclass that the device
@@ -241,8 +244,13 @@ private:
   */
   virtual void DoNotifyWakeUp (void) = 0;
   /**
-   * TODO Dawid
-   */
+  * Called by DcfManager to notify a DcfState subclass that the device
+  * has begun to turn on.
+  *
+  * The subclass is expected to restart a new backoff by
+  * calling DcfState::StartBackoffNow and DcfManager::RequestAccess
+  * is access is still needed.
+  */
   virtual void DoNotifyOn (void) = 0;
 
   uint32_t m_aifsn;

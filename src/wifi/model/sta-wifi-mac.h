@@ -127,7 +127,6 @@ private:
   void OnAssociated();
   void OnDeassociated();
 
-  //TODO Dawid, enables/disables energy source
   void EnableCapacitorEnergySource();
   void DisableCapacitorEnergySource();
 

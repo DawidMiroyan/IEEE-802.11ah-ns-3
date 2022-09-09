@@ -24,6 +24,8 @@ public:
 
     Time TotalIdleTime = Time(); //idle
 
+    Time TotalOffTime = Time(); // off
+
     double EnergyRxIdle = 0;
     double EnergyTx = 0;
     double GetTotalEnergyConsumption (void);

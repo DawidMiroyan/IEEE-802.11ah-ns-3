@@ -222,7 +222,7 @@ private:
   /**
    * When off operation occurs, the queue gets cleaned up.
    */
-  virtual void NotifyOff (void);
+  void NotifyOff (void);
   /**
    * When wake up operation occurs, channel access will be restarted
    */
@@ -230,7 +230,7 @@ private:
   /**
    * When on operation occurs, channel access will be started.
    */
-  virtual void NotifyOn (void);
+  void NotifyOn (void);
 
   /* Event handlers */
   /**

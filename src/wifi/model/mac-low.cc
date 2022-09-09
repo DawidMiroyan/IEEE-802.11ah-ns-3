@@ -354,13 +354,13 @@ public:
   {
       NS_LOG_DEBUG(listeneraddress << ",state SLEEP," << Simulator::Now().GetSeconds());
       //NS_LOG_UNCOND(listeneraddress << ",state SLEEP," << Simulator::Now().GetSeconds());
-    m_macLow->NotifySleepNow ();
+      m_macLow->NotifySleepNow ();
   }
   virtual void NotifyOff (void)
   {
-    NS_LOG_DEBUG(listeneraddress << ",state OFF," << Simulator::Now().GetSeconds());
-    //NS_LOG_UNCOND(listeneraddress << ",state OFF," << Simulator::Now().GetSeconds());
-    // TODO Missing(?) OffNow ();
+      NS_LOG_DEBUG(listeneraddress << ",state OFF," << Simulator::Now().GetSeconds());
+      //NS_LOG_UNCOND(listeneraddress << ",state OFF," << Simulator::Now().GetSeconds());
+      m_macLow->NotifyOffNow ();
   }
   virtual void NotifyWakeup (void)
   {
@@ -936,7 +936,6 @@ MacLow::NotifySwitchingStartNow (Time duration)
 void
 MacLow::NotifySleepNow (void)
 {
-  std::cout << "MacLow::NotifySleepNow" << std::endl; //TODO Dawid Sleep after beacon
   NS_LOG_DEBUG ("Device in sleep mode. Cancelling MAC pending events");
   CancelAllEvents ();
   if (m_navCounterResetCtsMissed.IsRunning ())
@@ -948,6 +947,22 @@ MacLow::NotifySleepNow (void)
   m_currentPacket = 0;
   m_listener = 0;
 }
+
+void
+MacLow::NotifyOffNow (void)
+{
+  NS_LOG_DEBUG ("Device in off mode. Cancelling MAC pending events");
+  CancelAllEvents ();
+  if (m_navCounterResetCtsMissed.IsRunning ())
+    {
+      m_navCounterResetCtsMissed.Cancel ();
+    }
+  m_lastNavStart = Simulator::Now ();
+  m_lastNavDuration = Seconds (0);
+  m_currentPacket = 0;
+  m_listener = 0;
+}
+
 
 void
 MacLow::ReceiveOk (Ptr<Packet> packet, double rxSnr, WifiTxVector txVector, WifiPreamble preamble, bool ampduSubframe)
