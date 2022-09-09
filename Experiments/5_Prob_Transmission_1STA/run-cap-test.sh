@@ -16,7 +16,7 @@ NumSta=1
 NRawGroups=1
 NumSlot=1
 RawBeaconInterval=102400
-# ./scratch/RAWGenerate.sh $NumSta $NRawGroups $NumSlot $RawBeaconInterval 0 1
+./scratch/RAWGenerate.sh $NumSta $NRawGroups $NumSlot $RawBeaconInterval 0 1
 RAWConfigFile="./OptimalRawGroup/RawConfig-$NumSta-$NRawGroups-$NumSlot-$RawBeaconInterval-0-1.txt"
 
 # Parameters
